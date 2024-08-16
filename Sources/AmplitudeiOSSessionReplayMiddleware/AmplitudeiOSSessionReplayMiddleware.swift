@@ -10,8 +10,6 @@ import AmplitudeSessionReplay
 
 @objc public class AmplitudeiOSSessionReplayMiddleware: NSObject, AMPMiddleware {
 
-    private static let sessionReplayProperty = "[Amplitude] Session Replay ID"
-
     private let sampleRate: Float
     private let serverUrl: String?
 
@@ -44,25 +42,28 @@ import AmplitudeSessionReplay
     }
 
     public func run(_ payload: AMPMiddlewarePayload, next: @escaping AMPMiddlewareNext) {
+        guard let sessionReplay = sessionReplay else {
+            return
+        }
+
         let sessionId = payload.event["session_id"] as? Int64
         let deviceId = payload.event["device_id"] as? String
 
-        sessionReplay?.deviceId = deviceId
-        sessionReplay?.sessionId = sessionId
+        sessionReplay.deviceId = deviceId
+        sessionReplay.sessionId = sessionId ?? -1
 
-        if let deviceId = deviceId, let sessionId = sessionId {
-            let eventProperties: NSMutableDictionary
-            switch payload.event["event_properties"] {
-            case let existingEventProperties as NSMutableDictionary:
-                eventProperties = existingEventProperties
-            case let existingEventProperties as NSDictionary:
-                eventProperties = NSMutableDictionary(dictionary: existingEventProperties)
-            default:
-                eventProperties = NSMutableDictionary()
-            }
-            eventProperties[Self.sessionReplayProperty] = "\(deviceId)/\(sessionId)"
-            payload.event["event_properties"] = eventProperties
+        let eventProperties: NSMutableDictionary
+        switch payload.event["event_properties"] {
+        case let existingEventProperties as NSMutableDictionary:
+            eventProperties = existingEventProperties
+        case let existingEventProperties as NSDictionary:
+            eventProperties = NSMutableDictionary(dictionary: existingEventProperties)
+        default:
+            eventProperties = NSMutableDictionary()
         }
+        eventProperties.addEntries(from: sessionReplay.additionalEventProperties)
+        payload.event["event_properties"] = eventProperties
+
         next(payload);
     }
 

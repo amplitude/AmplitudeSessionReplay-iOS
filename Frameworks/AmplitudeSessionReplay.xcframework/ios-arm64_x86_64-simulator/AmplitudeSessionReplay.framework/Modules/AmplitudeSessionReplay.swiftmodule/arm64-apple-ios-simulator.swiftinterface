@@ -24,11 +24,11 @@ extension UIKit.UIView {
     @objc set
   }
 }
-public protocol Logger : Swift.Sendable {
-  func error(message: Swift.String)
-  func warn(message: Swift.String)
-  func log(message: Swift.String)
-  func debug(message: Swift.String)
+@objc public protocol Logger : Swift.Sendable {
+  @objc func error(message: Swift.String)
+  @objc func warn(message: Swift.String)
+  @objc func log(message: Swift.String)
+  @objc func debug(message: Swift.String)
 }
 extension SwiftUI.View {
   public func amp_setBlocked(_ blocked: Swift.Bool) -> some SwiftUI.View
@@ -36,34 +36,37 @@ extension SwiftUI.View {
 }
 public typealias SessionId = Swift.Int64
 public typealias DeviceId = Swift.String
-final public class SessionReplay {
-  final public let apiKey: Swift.String
-  final public let sampleRate: Swift.Float
-  final public let optOut: Swift.Bool
-  final public let logger: any AmplitudeSessionReplay.Logger
-  final public var sessionId: AmplitudeSessionReplay.SessionId? {
-    get
-    set
+@objc final public class SessionReplay : ObjectiveC.NSObject {
+  @objc final public let apiKey: Swift.String
+  @objc final public let sampleRate: Swift.Float
+  @objc final public let optOut: Swift.Bool
+  @objc final public let logger: any AmplitudeSessionReplay.Logger
+  @objc final public var sessionId: AmplitudeSessionReplay.SessionId {
+    @objc get
+    @objc set
   }
-  final public var deviceId: AmplitudeSessionReplay.DeviceId? {
-    get
-    set
+  @objc final public var deviceId: AmplitudeSessionReplay.DeviceId? {
+    @objc get
+    @objc set
   }
-  public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId? = nil, optOut: Swift.Bool = false, sampleRate: Swift.Float = 1.0, logger: (any AmplitudeSessionReplay.Logger)? = nil, serverZone: AmplitudeSessionReplay.ServerZone = .US, serverUrl: Swift.String? = nil)
-  final public func start()
-  final public func stop()
-  final public func flush()
+  @objc final public var additionalEventProperties: [Swift.String : Any] {
+    @objc get
+  }
+  @objc public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId = -1, optOut: Swift.Bool = false, sampleRate: Swift.Float = 1.0, logger: (any AmplitudeSessionReplay.Logger)? = nil, serverZone: AmplitudeSessionReplay.ServerZone = .US, serverUrl: Swift.String? = nil)
+  @objc final public func start()
+  @objc final public func stop()
+  @objc final public func flush()
   @objc deinit
 }
 extension QuartzCore.CATransform3D : Swift.Equatable {
   public static func == (lhs: QuartzCore.CATransform3D, rhs: QuartzCore.CATransform3D) -> Swift.Bool
 }
-public enum ServerZone : Swift.String {
+@objc public enum ServerZone : Swift.Int {
   case US
   case EU
-  public init?(rawValue: Swift.String)
-  public typealias RawValue = Swift.String
-  public var rawValue: Swift.String {
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
     get
   }
 }

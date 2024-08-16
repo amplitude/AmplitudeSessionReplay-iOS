@@ -18,10 +18,14 @@ let package = Package(
         .library(
             name: "AmplitudeiOSSessionReplayMiddleware",
             targets: ["AmplitudeiOSSessionReplayMiddleware"]),
+        .library(
+            name: "AmplitudeSegmentSessionReplayPlugin",
+            targets: ["AmplitudeSegmentSessionReplayPlugin"]),
     ],
     dependencies: [
         .package(url: "https://github.com/amplitude/Amplitude-Swift.git", from: "1.7.0"),
         .package(url: "https://github.com/amplitude/Amplitude-iOS.git", from: "8.20.0"),
+        .package(url: "https://github.com/segmentio/analytics-swift", "1.5.0"..<"2.0.0"),
     ],
     targets: [
         .binaryTarget(name: "AmplitudeSessionReplay",
@@ -29,12 +33,17 @@ let package = Package(
         .target(name: "AmplitudeSwiftSessionReplayPlugin",
                 dependencies: [
                     .target(name: "AmplitudeSessionReplay"),
-                    .product(name: "AmplitudeSwift", package: "Amplitude-Swift")
+                    .product(name: "AmplitudeSwift", package: "Amplitude-Swift"),
                 ]),
         .target(name: "AmplitudeiOSSessionReplayMiddleware",
                 dependencies: [
                     .target(name: "AmplitudeSessionReplay"),
-                    .product(name: "Amplitude", package: "Amplitude-iOS")
+                    .product(name: "Amplitude", package: "Amplitude-iOS"),
+                ]),
+        .target(name: "AmplitudeSegmentSessionReplayPlugin",
+                dependencies: [
+                    .target(name: "AmplitudeSessionReplay"),
+                    .product(name: "Segment", package: "analytics-swift"),
                 ]),
     ]
 )

@@ -45,20 +45,21 @@ import AmplitudeSessionReplay
     }
 
     public func execute(event: BaseEvent) -> BaseEvent? {
-        sessionReplay?.deviceId = event.deviceId
-        sessionReplay?.sessionId = event.sessionId
-
-        if let deviceId = event.deviceId, let sessionId = event.sessionId {
-            var eventProperties = event.eventProperties ?? [:]
-            eventProperties["[Amplitude] Session Replay ID"] = "\(deviceId)/\(sessionId)"
-            event.eventProperties = eventProperties
+        guard let sessionReplay = sessionReplay else {
+            return event
         }
+        sessionReplay.deviceId = event.deviceId
+        sessionReplay.sessionId = event.sessionId ?? -1
+
+        var eventProperties = event.eventProperties ?? [:]
+        eventProperties.merge(sessionReplay.additionalEventProperties) { (current, _) in current }
+        event.eventProperties = eventProperties
 
         return event
     }
 }
 
-fileprivate struct LoggerWrapper: AmplitudeSessionReplay.Logger {
+fileprivate final class LoggerWrapper: AmplitudeSessionReplay.Logger {
 
     private let logger: any AmplitudeSwift.Logger
 
