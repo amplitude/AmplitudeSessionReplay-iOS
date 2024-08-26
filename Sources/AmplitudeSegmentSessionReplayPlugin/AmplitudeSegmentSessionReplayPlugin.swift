@@ -16,14 +16,21 @@ public class AmplitudeSegmentSessionReplayPlugin: Plugin {
 
     public var analytics: Analytics?
 
+    public var optOut: Bool {
+        get {
+            return sessionReplay.optOut
+        }
+        set {
+            sessionReplay.optOut = newValue
+        }
+    }
+
     public init(amplitudeApiKey apiKey: String,
                 sampleRate: Float = 1.0,
-                serverZone: ServerZone = .US,
-                serverUrl: String? = nil) {
+                serverZone: ServerZone = .US) {
         sessionReplay = SessionReplay(apiKey: apiKey,
                                       sampleRate: sampleRate,
-                                      serverZone: serverZone,
-                                      serverUrl: serverUrl)
+                                      serverZone: serverZone)
     }
 
     public func configure(analytics: Analytics) {

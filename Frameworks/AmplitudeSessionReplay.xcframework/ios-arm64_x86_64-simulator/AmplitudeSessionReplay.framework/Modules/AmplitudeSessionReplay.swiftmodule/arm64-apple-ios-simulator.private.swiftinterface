@@ -35,11 +35,14 @@ extension SwiftUI.View {
 }
 public typealias SessionId = Swift.Int64
 public typealias DeviceId = Swift.String
-@objc final public class SessionReplay : ObjectiveC.NSObject {
+@objc(AMPSessionReplay) final public class SessionReplay : ObjectiveC.NSObject, @unchecked Swift.Sendable {
   @objc final public let apiKey: Swift.String
   @objc final public let sampleRate: Swift.Float
-  @objc final public let optOut: Swift.Bool
   @objc final public let logger: any AmplitudeSessionReplay.Logger
+  @objc final public var optOut: Swift.Bool {
+    @objc get
+    @objc set
+  }
   @objc final public var sessionId: AmplitudeSessionReplay.SessionId {
     @objc get
     @objc set
@@ -51,7 +54,7 @@ public typealias DeviceId = Swift.String
   @objc final public var additionalEventProperties: [Swift.String : Any] {
     @objc get
   }
-  @objc public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId = -1, optOut: Swift.Bool = false, sampleRate: Swift.Float = 1.0, logger: (any AmplitudeSessionReplay.Logger)? = nil, serverZone: AmplitudeSessionReplay.ServerZone = .US, serverUrl: Swift.String? = nil)
+  @objc public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId = -1, optOut: Swift.Bool = false, sampleRate: Swift.Float = 0.0, logger: (any AmplitudeSessionReplay.Logger)? = nil, serverZone: AmplitudeSessionReplay.ServerZone = .US)
   @objc final public func start()
   @objc final public func stop()
   @objc final public func flush()

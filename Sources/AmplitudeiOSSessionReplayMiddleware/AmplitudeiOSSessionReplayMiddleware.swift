@@ -11,13 +11,11 @@ import AmplitudeSessionReplay
 @objc public class AmplitudeiOSSessionReplayMiddleware: NSObject, AMPMiddleware {
 
     private let sampleRate: Float
-    private let serverUrl: String?
 
     private var sessionReplay: SessionReplay?
 
-    @objc public init(sampleRate: Float = 1.0, serverUrl: String? = nil) {
+    @objc public init(sampleRate: Float = 1.0) {
         self.sampleRate = sampleRate
-        self.serverUrl = serverUrl
     }
 
     public func amplitudeDidFinishInitializing(_ amplitude: Amplitude) {
@@ -36,21 +34,26 @@ import AmplitudeSessionReplay
                                       sessionId: amplitude.getSessionId(),
                                       optOut: amplitude.optOut,
                                       sampleRate: sampleRate,
-                                      serverZone: serverZone,
-                                      serverUrl: serverUrl)
+                                      serverZone: serverZone)
         sessionReplay?.start()
+    }
+
+    public func amplitude(_ amplitude: Amplitude, didChangeDeviceId deviceId: String) {
+        sessionReplay?.deviceId = deviceId
+    }
+
+    public func amplitude(_ amplitude: Amplitude, didChangeSessionId sessionId: Int64) {
+        sessionReplay?.sessionId = sessionId
+    }
+
+    public func amplitude(_ amplitude: Amplitude, didOptOut optOut: Bool) {
+        sessionReplay?.optOut = optOut
     }
 
     public func run(_ payload: AMPMiddlewarePayload, next: @escaping AMPMiddlewareNext) {
         guard let sessionReplay = sessionReplay else {
             return
         }
-
-        let sessionId = payload.event["session_id"] as? Int64
-        let deviceId = payload.event["device_id"] as? String
-
-        sessionReplay.deviceId = deviceId
-        sessionReplay.sessionId = sessionId ?? -1
 
         let eventProperties: NSMutableDictionary
         switch payload.event["event_properties"] {

@@ -6,7 +6,7 @@
 </p>
 
 
-# ⚠️ Pre-release (ALPHA) - Please do not release to the App Store ⚠️
+# ⚠️ Pre-release (ALPHA) ⚠️
 # AmplitudeSessionReplay-iOS
 
 This is Amplitude's latest version of the Session Replay SDK for iOS.

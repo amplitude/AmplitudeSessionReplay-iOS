@@ -12,6 +12,6 @@ Pod::Spec.new do |s|
   s.swift_version = '5.7'
   s.ios.deployment_target  = '13.0'
   s.source_files = 'Sources/AmplitudeSwiftSessionReplayPlugin/**/*'
-  s.dependency 'AmplitudeSwift', '~> 1.8'
-  s.dependency 'AmplitudeSessionReplay', '0.0.1'
+  s.dependency 'AmplitudeSwift', '~> 1.9'
+  s.dependency 'AmplitudeSessionReplay', '0.0.2'
 end

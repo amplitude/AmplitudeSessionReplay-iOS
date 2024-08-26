@@ -23,8 +23,8 @@ let package = Package(
             targets: ["AmplitudeSegmentSessionReplayPlugin"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/amplitude/Amplitude-Swift.git", from: "1.7.0"),
-        .package(url: "https://github.com/amplitude/Amplitude-iOS.git", from: "8.20.0"),
+        .package(url: "https://github.com/amplitude/Amplitude-Swift.git", from: "1.9.0"),
+        .package(url: "https://github.com/amplitude/Amplitude-iOS.git", from: "8.21.0"),
         .package(url: "https://github.com/segmentio/analytics-swift", "1.5.0"..<"2.0.0"),
     ],
     targets: [

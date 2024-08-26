@@ -15,13 +15,11 @@ import AmplitudeSessionReplay
     private static let sessionReplayProperty = "[Amplitude] Session Replay ID"
 
     private let sampleRate: Float
-    private let serverUrl: String?
 
     private var sessionReplay: SessionReplay?
 
-    @objc public init(sampleRate: Float = 1.0, serverUrl: String? = nil) {
+    @objc public init(sampleRate: Float = 1.0) {
         self.sampleRate = sampleRate
-        self.serverUrl = serverUrl
     }
 
     public func setup(amplitude: Amplitude) {
@@ -39,23 +37,40 @@ import AmplitudeSessionReplay
                                       optOut: amplitude.configuration.optOut,
                                       sampleRate: sampleRate,
                                       logger: LoggerWrapper(amplitude.configuration.loggerProvider),
-                                      serverZone: serverZone,
-                                      serverUrl: serverUrl)
+                                      serverZone: serverZone)
         sessionReplay?.start()
+    }
+
+    public func onUserIdChanged(_ userId: String?) {
+        // no-op
+    }
+
+    public func onDeviceIdChanged(_ deviceId: String?) {
+        sessionReplay?.deviceId = deviceId
+    }
+
+    public func onSessionIdChanged(_ sessionId: Int64) {
+        sessionReplay?.sessionId = sessionId
+    }
+
+    public func onOptOutChanged(_ optOut: Bool) {
+        sessionReplay?.optOut = optOut
     }
 
     public func execute(event: BaseEvent) -> BaseEvent? {
         guard let sessionReplay = sessionReplay else {
             return event
         }
-        sessionReplay.deviceId = event.deviceId
-        sessionReplay.sessionId = event.sessionId ?? -1
 
         var eventProperties = event.eventProperties ?? [:]
         eventProperties.merge(sessionReplay.additionalEventProperties) { (current, _) in current }
         event.eventProperties = eventProperties
 
         return event
+    }
+
+    public func teardown() {
+        sessionReplay?.stop()
     }
 }
 
