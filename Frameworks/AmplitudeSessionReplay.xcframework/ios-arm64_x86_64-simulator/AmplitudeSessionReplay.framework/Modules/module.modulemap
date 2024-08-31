@@ -1,6 +1,19 @@
+//
+//  AmplitudeSessionReplay.modulemap
+//  AmplitudeSessionReplay
+//
+//  Created by Chris Leonavicius on 8/30/24.
+//
+
 framework module AmplitudeSessionReplay {
   umbrella header "AmplitudeSessionReplay.h"
   export *
 
   module * { export * }
+
+  explicit module AmplitudeSessionReplay_Private {
+      header "AMPObjCUtilities.h"
+      link "AmplitudeSessionReplay_Private"
+      export *
+  }
 }

@@ -14,11 +14,11 @@
 		</data>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		JsHadQjPC+eyzvaQUtwHWpcs9T8=
+		0uz5PHWWvE33tg+JUIqpLvuV/2A=
 		</data>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		vvD5I+lfB9VwwSrVM/Ge3JXGM5E=
+		EdsDq/zzVta1p1asZTr4MCViKRY=
 		</data>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -26,19 +26,19 @@
 		</data>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		vvD5I+lfB9VwwSrVM/Ge3JXGM5E=
+		EdsDq/zzVta1p1asZTr4MCViKRY=
 		</data>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		oJeYK0AJXJzOrXxcOfHD91CzzY4=
+		eYFJfmtyMxx1/B8EqTFrQU/wmWY=
 		</data>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		JsHadQjPC+eyzvaQUtwHWpcs9T8=
+		0uz5PHWWvE33tg+JUIqpLvuV/2A=
 		</data>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		TyTkZf4xhMWxmu2S6wku1L1mYpk=
+		owenO+gtBzDCPlC4fBgirlOllfk=
 		</data>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -46,15 +46,19 @@
 		</data>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		TyTkZf4xhMWxmu2S6wku1L1mYpk=
+		owenO+gtBzDCPlC4fBgirlOllfk=
 		</data>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		gAoQlo/r96Xye2PR2Dh5b1a4nNE=
+		dHyY+AyxkGkiPjOET+Vhw8ZDcvQ=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		9MfwzBcn6FCiyE4WCTVSNHlHWeU=
+		Lp0FEW8iYY8MUFUkLkZMtfaUtfc=
+		</data>
+		<key>PrivateHeaders/AMPObjCUtilities.h</key>
+		<data>
+		5lwhOGOuXpBkcJraRAUeGOt5y/4=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -70,14 +74,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			Z2dZ9HYJJS8Of/MvrKuHqjjnGsHech1To2OANDguJ7s=
+			RJPQy1i+UqES4PxTs37Pr8VvE2sIgGlS6TxhpuOums8=
 			</data>
 		</dict>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			LaPpklXjSUJpkCJbH1W8tsuymS34mRqQRfP73RI344w=
+			fgJqU8p88e2BEvvwzeSQ+AfMUnxQV5vkXrJUFS7Bo8U=
 			</data>
 		</dict>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -91,28 +95,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			LaPpklXjSUJpkCJbH1W8tsuymS34mRqQRfP73RI344w=
+			fgJqU8p88e2BEvvwzeSQ+AfMUnxQV5vkXrJUFS7Bo8U=
 			</data>
 		</dict>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SbgoC+/wrTqVrN3jU3D8IQMS+bsVPEcRgyOJMk4eaEY=
+			zNjESPGOTIs4GrOgAmMKh8FPtseP+5xK4wAnWo/RRyY=
 			</data>
 		</dict>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Z2dZ9HYJJS8Of/MvrKuHqjjnGsHech1To2OANDguJ7s=
+			RJPQy1i+UqES4PxTs37Pr8VvE2sIgGlS6TxhpuOums8=
 			</data>
 		</dict>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			JWjz960krAA7gYsK7vhfLBUrcVh+wscxwPJrLIPwcUw=
+			bjGi8XnkX0tf89HfU/Thhj4QP+kGAVlF2fTxuXdw1Gg=
 			</data>
 		</dict>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -126,21 +130,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			JWjz960krAA7gYsK7vhfLBUrcVh+wscxwPJrLIPwcUw=
+			bjGi8XnkX0tf89HfU/Thhj4QP+kGAVlF2fTxuXdw1Gg=
 			</data>
 		</dict>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			P0AsweuMkMFmoY2CKHRXmqkdYHEGCXLjUu2peKKWOrU=
+			grYcnjNkIXJTZ7DJPS/DtNlezjpLoQ+Dov7NovSzHiM=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3sXn9+mTN8vhfErAKP5UMZQ6KEpWCyXVtIPMDNWuhms=
+			Uz+LjgAidabA2aQv+ZB2z0WRZO6Xfs5d2ASy3wafU6c=
+			</data>
+		</dict>
+		<key>PrivateHeaders/AMPObjCUtilities.h</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			xb1GERBiWa0tdrN/fl+OZYGVOd4FU39oYlurFp2LOp8=
 			</data>
 		</dict>
 	</dict>

@@ -340,13 +340,20 @@
       },
       {
         "kind": "Import",
-        "name": "QuartzCore",
-        "printedName": "QuartzCore",
+        "name": "AmplitudeSessionReplay.AmplitudeSessionReplay_Private",
+        "printedName": "AmplitudeSessionReplay.AmplitudeSessionReplay_Private",
         "declKind": "Import",
         "moduleName": "AmplitudeSessionReplay",
         "declAttributes": [
           "RawDocComment"
         ]
+      },
+      {
+        "kind": "Import",
+        "name": "QuartzCore",
+        "printedName": "QuartzCore",
+        "declKind": "Import",
+        "moduleName": "AmplitudeSessionReplay"
       },
       {
         "kind": "Import",
@@ -1235,7 +1242,10 @@
         "name": "CoreImage",
         "printedName": "CoreImage",
         "declKind": "Import",
-        "moduleName": "AmplitudeSessionReplay"
+        "moduleName": "AmplitudeSessionReplay",
+        "declAttributes": [
+          "Preconcurrency"
+        ]
       },
       {
         "kind": "Import",
@@ -3203,28 +3213,28 @@
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Snapshotter.swift",
       "kind": "IntegerLiteral",
-      "offset": 464,
+      "offset": 525,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Snapshotter.swift",
       "kind": "Array",
-      "offset": 676,
+      "offset": 768,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Snapshotter.swift",
       "kind": "StringLiteral",
-      "offset": 250,
+      "offset": 311,
       "length": 11,
       "value": "\"AmplitudeSessionReplay.Snapshotter\""
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Snapshotter.swift",
       "kind": "BooleanLiteral",
-      "offset": 4819,
+      "offset": 4955,
       "length": 5,
       "value": "false"
     },
@@ -3234,13 +3244,6 @@
       "offset": 610,
       "length": 2,
       "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/AmplitudeSessionReplayGestureRecognizer.swift",
-      "kind": "StringLiteral",
-      "offset": 390,
-      "length": 39,
-      "value": "\"AmplitudeSessionReplay.AmplitudeSessionReplayGestureRecognizer\""
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Util\/ConsoleLogger.swift",
@@ -3371,42 +3374,42 @@
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 1892,
+      "offset": 1908,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 1931,
+      "offset": 1947,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "IntegerLiteral",
-      "offset": 2070,
+      "offset": 2086,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 2111,
+      "offset": 2127,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "FloatLiteral",
-      "offset": 2160,
+      "offset": 2176,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 4680,
+      "offset": 4696,
       "length": 5,
       "value": "false"
     },
@@ -3427,21 +3430,21 @@
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/ImageEncoder.swift",
       "kind": "BooleanLiteral",
-      "offset": 896,
+      "offset": 912,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/ImageEncoder.swift",
       "kind": "BooleanLiteral",
-      "offset": 960,
+      "offset": 976,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/ImageEncoder.swift",
       "kind": "BooleanLiteral",
-      "offset": 1018,
+      "offset": 1034,
       "length": 4,
       "value": "true"
     },
