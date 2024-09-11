@@ -26,7 +26,7 @@ public class AmplitudeSegmentSessionReplayPlugin: Plugin {
     }
 
     public init(amplitudeApiKey apiKey: String,
-                sampleRate: Float = 1.0,
+                sampleRate: Float = 0.0,
                 serverZone: ServerZone = .US) {
         sessionReplay = SessionReplay(apiKey: apiKey,
                                       sampleRate: sampleRate,

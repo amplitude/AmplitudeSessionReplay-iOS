@@ -18,7 +18,7 @@ import AmplitudeSessionReplay
 
     private var sessionReplay: SessionReplay?
 
-    @objc public init(sampleRate: Float = 1.0) {
+    @objc public init(sampleRate: Float = 0.0) {
         self.sampleRate = sampleRate
     }
 

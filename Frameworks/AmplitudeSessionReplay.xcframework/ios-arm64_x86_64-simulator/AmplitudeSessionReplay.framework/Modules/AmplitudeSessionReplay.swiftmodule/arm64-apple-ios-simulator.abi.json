@@ -3374,42 +3374,42 @@
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 1908,
+      "offset": 1955,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 1947,
+      "offset": 2144,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "IntegerLiteral",
-      "offset": 2086,
+      "offset": 2283,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 2127,
+      "offset": 2324,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "FloatLiteral",
-      "offset": 2176,
+      "offset": 2373,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 4696,
+      "offset": 4893,
       "length": 5,
       "value": "false"
     },
@@ -3454,6 +3454,13 @@
       "offset": 807,
       "length": 3,
       "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/CALayer+SessionReplay.swift",
+      "kind": "IntegerLiteral",
+      "offset": 434,
+      "length": 1,
+      "value": "0"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/ServerZone.swift",
