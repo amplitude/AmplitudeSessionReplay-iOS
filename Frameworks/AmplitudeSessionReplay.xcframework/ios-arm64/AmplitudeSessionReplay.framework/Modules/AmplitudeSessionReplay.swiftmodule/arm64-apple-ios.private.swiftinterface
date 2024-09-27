@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
-// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name AmplitudeSessionReplay
+// swift-compiler-version: Apple Swift version 6.0 effective-5.10 (swiftlang-6.0.0.9.10 clang-1600.0.26.2)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-upcoming-feature StrictConcurrency -enable-bare-slash-regex -module-name AmplitudeSessionReplay
 import AVFoundation
 import Accelerate
 @_exported import AmplitudeSessionReplay
@@ -20,7 +20,7 @@ import _StringProcessing
 import _SwiftConcurrencyShims
 import zlib
 extension UIKit.UIView {
-  @objc @_Concurrency.MainActor(unsafe) dynamic public var amp_isBlocked: Swift.Bool {
+  @objc @_Concurrency.MainActor @preconcurrency dynamic public var amp_isBlocked: Swift.Bool {
     @objc get
     @objc set
   }
@@ -31,16 +31,35 @@ extension UIKit.UIView {
   @objc func log(message: Swift.String)
   @objc func debug(message: Swift.String)
 }
-extension SwiftUI.View {
-  public func amp_setBlocked(_ blocked: Swift.Bool) -> some SwiftUI.View
+@objc public enum MaskLevel : Swift.Int, Swift.CustomStringConvertible {
+  case light = 0
+  case medium = 1
+  case conservative = 2
+  public var description: Swift.String {
+    get
+  }
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public func amp_setBlocked(_ blocked: Swift.Bool) -> some SwiftUICore.View
   
 }
 public typealias SessionId = Swift.Int64
 public typealias DeviceId = Swift.String
 @objc(AMPSessionReplay) final public class SessionReplay : ObjectiveC.NSObject, @unchecked Swift.Sendable {
   @objc final public let apiKey: Swift.String
-  @objc final public let sampleRate: Swift.Float
   @objc final public let logger: any AmplitudeSessionReplay.Logger
+  @objc final public let enableRemoteConfig: Swift.Bool
+  @objc final public var sampleRate: Swift.Float {
+    @objc get
+  }
+  @objc final public var maskLevel: AmplitudeSessionReplay.MaskLevel {
+    get
+  }
   @objc final public var optOut: Swift.Bool {
     @objc get
     @objc set
@@ -56,7 +75,7 @@ public typealias DeviceId = Swift.String
   @objc final public var additionalEventProperties: [Swift.String : Any] {
     @objc get
   }
-  @objc public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId = -1, optOut: Swift.Bool = false, sampleRate: Swift.Float = 0.0, logger: (any AmplitudeSessionReplay.Logger)? = nil, serverZone: AmplitudeSessionReplay.ServerZone = .US)
+  @objc public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId = -1, optOut: Swift.Bool = false, sampleRate: Swift.Float = 0.0, logger: (any AmplitudeSessionReplay.Logger)? = nil, serverZone: AmplitudeSessionReplay.ServerZone = .US, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true)
   @objc final public func start()
   @objc final public func stop()
   @objc final public func flush()
@@ -74,6 +93,9 @@ extension QuartzCore.CATransform3D : Swift.Equatable {
     get
   }
 }
+extension AmplitudeSessionReplay.MaskLevel : Swift.Equatable {}
+extension AmplitudeSessionReplay.MaskLevel : Swift.Hashable {}
+extension AmplitudeSessionReplay.MaskLevel : Swift.RawRepresentable {}
 extension AmplitudeSessionReplay.ServerZone : Swift.Equatable {}
 extension AmplitudeSessionReplay.ServerZone : Swift.Hashable {}
 extension AmplitudeSessionReplay.ServerZone : Swift.RawRepresentable {}
