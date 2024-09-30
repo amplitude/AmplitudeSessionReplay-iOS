@@ -1,8 +1,8 @@
 {
   "ABIRoot": {
     "kind": "Root",
-    "name": "AmplitudeSessionReplay",
-    "printedName": "AmplitudeSessionReplay",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
     "children": [
       {
         "kind": "Import",
@@ -287,20 +287,6 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Sendable",
             "printedName": "Sendable",
             "usr": "s:s8SendableP",
@@ -569,20 +555,6 @@
         ],
         "enumRawTypeName": "Int",
         "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -1619,20 +1591,6 @@
           },
           {
             "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -1994,20 +1952,6 @@
         "conformances": [
           {
             "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
             "name": "Equatable",
             "printedName": "Equatable",
             "usr": "s:SQ",
@@ -2087,7 +2031,6 @@
             "moduleName": "AmplitudeSessionReplay",
             "declAttributes": [
               "Dynamic",
-              "Preconcurrency",
               "Custom",
               "ObjC"
             ],
@@ -2154,7 +2097,6 @@
         "intro_iOS": "2.0",
         "objc_name": "UIView",
         "declAttributes": [
-          "Preconcurrency",
           "Available",
           "ObjC",
           "NonSendable",
@@ -2169,20 +2111,6 @@
           "ObjectiveC.NSObject"
         ],
         "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -2284,10 +2212,6 @@
             "moduleName": "AmplitudeSessionReplay",
             "genericSig": "<τ_0_0 where τ_0_0 : SwiftUI.View>",
             "sugared_genericSig": "<Self where Self : SwiftUI.View>",
-            "declAttributes": [
-              "Preconcurrency",
-              "Custom"
-            ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
           }
@@ -2295,7 +2219,7 @@
         "declKind": "Protocol",
         "usr": "s:7SwiftUI4ViewP",
         "mangledName": "$s7SwiftUI4ViewP",
-        "moduleName": "SwiftUICore",
+        "moduleName": "SwiftUI",
         "genericSig": "<τ_0_0.Body : SwiftUI.View>",
         "sugared_genericSig": "<Self.Body : SwiftUI.View>",
         "intro_Macosx": "10.15",
@@ -2303,35 +2227,13 @@
         "intro_tvOS": "13.0",
         "intro_watchOS": "6.0",
         "declAttributes": [
-          "Preconcurrency",
           "TypeEraser",
-          "OriginallyDefinedIn",
-          "OriginallyDefinedIn",
-          "OriginallyDefinedIn",
-          "OriginallyDefinedIn",
           "Available",
           "Available",
           "Available",
-          "Available",
-          "Custom"
+          "Available"
         ],
-        "isExternal": true,
-        "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          }
-        ]
+        "isExternal": true
       },
       {
         "kind": "TypeDecl",
@@ -2377,34 +2279,8 @@
         "declKind": "Struct",
         "usr": "c:@S@CATransform3D",
         "moduleName": "QuartzCore",
-        "intro_iOS": "2.0",
-        "declAttributes": [
-          "Available",
-          "Available"
-        ],
         "isExternal": true,
         "conformances": [
-          {
-            "kind": "Conformance",
-            "name": "Copyable",
-            "printedName": "Copyable",
-            "usr": "s:s8CopyableP",
-            "mangledName": "$ss8CopyableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Escapable",
-            "printedName": "Escapable",
-            "usr": "s:s9EscapableP",
-            "mangledName": "$ss9EscapableP"
-          },
-          {
-            "kind": "Conformance",
-            "name": "Sendable",
-            "printedName": "Sendable",
-            "usr": "s:s8SendableP",
-            "mangledName": "$ss8SendableP"
-          },
           {
             "kind": "Conformance",
             "name": "Equatable",
@@ -2433,6 +2309,13 @@
             ],
             "usr": "s:s21_ObjectiveCBridgeableP",
             "mangledName": "$ss21_ObjectiveCBridgeableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
           }
         ]
       }
@@ -2534,6 +2417,188 @@
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
       "kind": "IntegerLiteral",
+      "offset": 290,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 312,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 342,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 379,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 401,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 425,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 449,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 290,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 312,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 342,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 379,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 401,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 425,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 449,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6164,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6194,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6219,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6241,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6264,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6289,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6164,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6194,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6219,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6241,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6264,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6289,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
       "offset": 6164,
       "length": 1,
       "value": "0"
@@ -2589,6 +2654,20 @@
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "StringLiteral",
+      "offset": 6365,
+      "length": 12,
+      "value": "\"BackCompat\""
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "StringLiteral",
+      "offset": 6404,
+      "length": 12,
+      "value": "\"CSS1Compat\""
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
       "kind": "Array",
       "offset": 7093,
       "length": 2,
@@ -2607,6 +2686,244 @@
       "offset": 10089,
       "length": 2,
       "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 15715,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 15742,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 15776,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 15800,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 15832,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 15855,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 15882,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 15916,
+      "length": 1,
+      "value": "7"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 15948,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 15980,
+      "length": 1,
+      "value": "9"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 16002,
+      "length": 2,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 16024,
+      "length": 2,
+      "value": "11"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 16047,
+      "length": 2,
+      "value": "12"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 16082,
+      "length": 2,
+      "value": "13"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 16110,
+      "length": 2,
+      "value": "14"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 16146,
+      "length": 2,
+      "value": "15"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 16178,
+      "length": 2,
+      "value": "16"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 15715,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 15742,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 15776,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 15800,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 15832,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 15855,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 15882,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 15916,
+      "length": 1,
+      "value": "7"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 15948,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 15980,
+      "length": 1,
+      "value": "9"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 16002,
+      "length": 2,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 16024,
+      "length": 2,
+      "value": "11"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 16047,
+      "length": 2,
+      "value": "12"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 16082,
+      "length": 2,
+      "value": "13"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 16110,
+      "length": 2,
+      "value": "14"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 16146,
+      "length": 2,
+      "value": "15"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 16178,
+      "length": 2,
+      "value": "16"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
@@ -2807,6 +3124,160 @@
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
       "kind": "IntegerLiteral",
+      "offset": 19159,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19186,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19209,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19238,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19264,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19287,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19309,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19337,
+      "length": 1,
+      "value": "7"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19372,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19398,
+      "length": 1,
+      "value": "9"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19427,
+      "length": 2,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19159,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19186,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19209,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19238,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19264,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19287,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19309,
+      "length": 1,
+      "value": "6"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19337,
+      "length": 1,
+      "value": "7"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19372,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19398,
+      "length": 1,
+      "value": "9"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19427,
+      "length": 2,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
       "offset": 19497,
       "length": 1,
       "value": "0"
@@ -2824,6 +3295,118 @@
       "offset": 19541,
       "length": 1,
       "value": "2"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19497,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19518,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19541,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19497,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19518,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 19541,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 20413,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 20436,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 20460,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 20490,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 20518,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 20413,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 20436,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 20460,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 20490,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 20518,
+      "length": 1,
+      "value": "4"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
@@ -2896,11 +3479,46 @@
       "value": "2"
     },
     {
-      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Util\/AsyncOperation.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1877,
-      "length": 4,
-      "value": "true"
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 22497,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 22520,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 22544,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 22497,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 22520,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
+      "kind": "IntegerLiteral",
+      "offset": 22544,
+      "length": 1,
+      "value": "2"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/VisualEffectParser.swift",
@@ -3001,6 +3619,13 @@
       "value": "1"
     },
     {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/UploadClient.swift",
+      "kind": "StringLiteral",
+      "offset": 4764,
+      "length": 15,
+      "value": "\"AmplitudeSessionReplay.UploadOperation\""
+    },
+    {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/Filter.swift",
       "kind": "Array",
       "offset": 267,
@@ -3029,11 +3654,39 @@
       "value": "2"
     },
     {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/MaskLevel.swift",
+      "kind": "IntegerLiteral",
+      "offset": 198,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/MaskLevel.swift",
+      "kind": "IntegerLiteral",
+      "offset": 218,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/MaskLevel.swift",
+      "kind": "IntegerLiteral",
+      "offset": 244,
+      "length": 1,
+      "value": "2"
+    },
+    {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Models\/LayerObserver.swift",
       "kind": "Array",
       "offset": 1276,
       "length": 697,
       "value": "[\\.<NOT_IMPLEMENTED>, \\.<NOT_IMPLEMENTED>, \"contentsMultiplyColor\"]"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/View+AmplitudeSessionReplay.swift",
+      "kind": "StringLiteral",
+      "offset": 677,
+      "length": 24,
+      "value": "\"AmplitudeSessionReplay.AmplitudeBlockMarkerView\""
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/VisualEffectFilterMapping.swift",
@@ -3080,6 +3733,13 @@
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Remote Config\/RemoteConfigResponse.swift",
       "kind": "StringLiteral",
+      "offset": 406,
+      "length": 15,
+      "value": "\"sessionReplay\""
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Remote Config\/RemoteConfigResponse.swift",
+      "kind": "StringLiteral",
       "offset": 1636,
       "length": 23,
       "value": "\"sr_ios_privacy_config\""
@@ -3090,6 +3750,34 @@
       "offset": 1697,
       "length": 24,
       "value": "\"sr_ios_sampling_config\""
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Remote Config\/RemoteConfigResponse.swift",
+      "kind": "StringLiteral",
+      "offset": 1636,
+      "length": 23,
+      "value": "\"sr_ios_privacy_config\""
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Remote Config\/RemoteConfigResponse.swift",
+      "kind": "StringLiteral",
+      "offset": 1697,
+      "length": 24,
+      "value": "\"sr_ios_sampling_config\""
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Remote Config\/RemoteConfigResponse.swift",
+      "kind": "StringLiteral",
+      "offset": 2773,
+      "length": 17,
+      "value": "\"capture_enabled\""
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Remote Config\/RemoteConfigResponse.swift",
+      "kind": "StringLiteral",
+      "offset": 2817,
+      "length": 13,
+      "value": "\"sample_rate\""
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Remote Config\/RemoteConfigResponse.swift",
@@ -3118,6 +3806,13 @@
       "offset": 801,
       "length": 2,
       "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Snapshotter.swift",
+      "kind": "StringLiteral",
+      "offset": 311,
+      "length": 11,
+      "value": "\"AmplitudeSessionReplay.Snapshotter\""
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Snapshotter.swift",
@@ -3169,93 +3864,135 @@
       "value": "1"
     },
     {
-      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Util\/ConsoleLogger.swift",
       "kind": "IntegerLiteral",
-      "offset": 1682,
+      "offset": 230,
       "length": 1,
-      "value": "0"
+      "value": "5"
     },
     {
-      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
-      "kind": "StringLiteral",
-      "offset": 1706,
-      "length": 31,
-      "value": "\"[Amplitude] Session Replay ID\""
-    },
-    {
-      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
-      "kind": "StringLiteral",
-      "offset": 1739,
-      "length": 26,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
-      "kind": "StringLiteral",
-      "offset": 1751,
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Util\/ConsoleLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 253,
       "length": 1,
-      "value": "\"\/\""
+      "value": "4"
     },
     {
-      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Util\/ConsoleLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 275,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Util\/ConsoleLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 296,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Util\/ConsoleLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 319,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Util\/ConsoleLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 230,
+      "length": 1,
+      "value": "5"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Util\/ConsoleLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 253,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Util\/ConsoleLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 275,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Util\/ConsoleLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 296,
+      "length": 1,
+      "value": "2"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Util\/ConsoleLogger.swift",
+      "kind": "IntegerLiteral",
+      "offset": 319,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Util\/ConsoleLogger.swift",
       "kind": "StringLiteral",
-      "offset": 1764,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
-      "kind": "Dictionary",
-      "offset": 1803,
-      "length": 3,
-      "value": "[]"
+      "offset": 137,
+      "length": 13,
+      "value": "\"AmplitudeSessionReplay.ConsoleLogger\""
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 2274,
+      "offset": 2260,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 2463,
+      "offset": 2449,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "IntegerLiteral",
-      "offset": 2602,
+      "offset": 2588,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 2643,
+      "offset": 2629,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "FloatLiteral",
-      "offset": 2692,
+      "offset": 2678,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 2897,
+      "offset": 2883,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "StringLiteral",
-      "offset": 8590,
+      "offset": 234,
+      "length": 13,
+      "value": "\"AmplitudeSessionReplay.SessionReplay\""
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/SessionReplay.swift",
+      "kind": "StringLiteral",
+      "offset": 8595,
       "length": 24,
       "value": "\"Current Configuration:\""
     },
@@ -3307,6 +4044,13 @@
       "offset": 470,
       "length": 1,
       "value": "0"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/ServerZone.swift",
+      "kind": "IntegerLiteral",
+      "offset": 179,
+      "length": 2,
+      "value": "1"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/ServerZone.swift",
