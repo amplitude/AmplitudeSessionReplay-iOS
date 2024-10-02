@@ -51,7 +51,9 @@ import AmplitudeSessionReplay
     }
 
     public func run(_ payload: AMPMiddlewarePayload, next: @escaping AMPMiddlewareNext) {
-        guard let sessionReplay = sessionReplay else {
+        guard let sessionReplay = sessionReplay,
+              sessionReplay.sessionId == payload.event["session_id"] as? CLongLong,
+              sessionReplay.deviceId == payload.event["device_id"] as? String else {
             return
         }
 

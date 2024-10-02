@@ -58,7 +58,9 @@ import AmplitudeSessionReplay
     }
 
     public func execute(event: BaseEvent) -> BaseEvent? {
-        guard let sessionReplay = sessionReplay else {
+        guard let sessionReplay = sessionReplay,
+              sessionReplay.sessionId == event.sessionId,
+              sessionReplay.deviceId == event.deviceId else {
             return event
         }
 
