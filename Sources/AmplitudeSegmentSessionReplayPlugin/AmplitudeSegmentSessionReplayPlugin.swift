@@ -27,10 +27,14 @@ public class AmplitudeSegmentSessionReplayPlugin: Plugin {
 
     public init(amplitudeApiKey apiKey: String,
                 sampleRate: Float = 0.0,
-                serverZone: ServerZone = .US) {
+                serverZone: ServerZone = .US,
+                maskLevel: MaskLevel = .medium,
+                enableRemoteConfig: Bool = true) {
         sessionReplay = SessionReplay(apiKey: apiKey,
                                       sampleRate: sampleRate,
-                                      serverZone: serverZone)
+                                      serverZone: serverZone,
+                                      maskLevel: maskLevel,
+                                      enableRemoteConfig: enableRemoteConfig)
     }
 
     public func configure(analytics: Analytics) {

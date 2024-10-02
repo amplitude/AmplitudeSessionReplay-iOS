@@ -11,11 +11,17 @@ import AmplitudeSessionReplay
 @objc public class AmplitudeiOSSessionReplayMiddleware: NSObject, AMPMiddleware {
 
     private let sampleRate: Float
+    private let maskLevel: AmplitudeSessionReplay.MaskLevel
+    private let enableRemoteConfig: Bool
 
     private var sessionReplay: SessionReplay?
 
-    @objc public init(sampleRate: Float = 0.0) {
+    @objc public init(sampleRate: Float = 0.0,
+                      maskLevel: AmplitudeSessionReplay.MaskLevel = .medium,
+                      enableRemoteConfig: Bool = true) {
         self.sampleRate = sampleRate
+        self.maskLevel = maskLevel
+        self.enableRemoteConfig = enableRemoteConfig
     }
 
     public func amplitudeDidFinishInitializing(_ amplitude: Amplitude) {
@@ -34,7 +40,9 @@ import AmplitudeSessionReplay
                                       sessionId: amplitude.getSessionId(),
                                       optOut: amplitude.optOut,
                                       sampleRate: sampleRate,
-                                      serverZone: serverZone)
+                                      serverZone: serverZone,
+                                      maskLevel: maskLevel,
+                                      enableRemoteConfig: enableRemoteConfig)
         sessionReplay?.start()
     }
 

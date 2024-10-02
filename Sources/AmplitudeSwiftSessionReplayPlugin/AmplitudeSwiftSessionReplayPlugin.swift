@@ -15,11 +15,17 @@ import AmplitudeSessionReplay
     private static let sessionReplayProperty = "[Amplitude] Session Replay ID"
 
     private let sampleRate: Float
+    private let maskLevel: MaskLevel
+    private let enableRemoteConfig: Bool
 
     private var sessionReplay: SessionReplay?
 
-    @objc public init(sampleRate: Float = 0.0) {
+    @objc public init(sampleRate: Float = 0.0,
+                      maskLevel: MaskLevel = .medium,
+                      enableRemoteConfig: Bool = true) {
         self.sampleRate = sampleRate
+        self.maskLevel = maskLevel
+        self.enableRemoteConfig = enableRemoteConfig
     }
 
     public func setup(amplitude: Amplitude) {
@@ -37,7 +43,9 @@ import AmplitudeSessionReplay
                                       optOut: amplitude.configuration.optOut,
                                       sampleRate: sampleRate,
                                       logger: LoggerWrapper(amplitude.configuration.loggerProvider),
-                                      serverZone: serverZone)
+                                      serverZone: serverZone,
+                                      maskLevel: maskLevel,
+                                      enableRemoteConfig: enableRemoteConfig)
         sessionReplay?.start()
     }
 
