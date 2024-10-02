@@ -81,4 +81,8 @@ public class AmplitudeSegmentSessionReplayPlugin: Plugin {
 
         return event
     }
+
+    public func shutdown() {
+        sessionReplay.stop()
+    }
 }

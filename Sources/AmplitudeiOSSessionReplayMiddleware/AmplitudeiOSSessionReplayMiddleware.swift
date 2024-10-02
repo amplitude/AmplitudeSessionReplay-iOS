@@ -85,4 +85,8 @@ import AmplitudeSessionReplay
             sessionReplay?.flush()
         }
     }
+
+    public func amplitudeDidRemove(_ amplitude: Amplitude) {
+        sessionReplay?.stop()
+    }
 }

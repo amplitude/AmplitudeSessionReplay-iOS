@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/amplitude/Amplitude-iOS.git",
       "state" : {
-        "revision" : "681c49824a2b011256f3e66ab910f2e514629bd3",
-        "version" : "8.21.0"
+        "revision" : "4471ff73fffdff9a9b256422a0a0b9233582f33d",
+        "version" : "8.22.0"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/amplitude/Amplitude-Swift.git",
       "state" : {
-        "revision" : "ce41c105bf9f0a1518f8bd6e594177c69512f054",
-        "version" : "1.9.2"
+        "revision" : "3ac8de1f8fed85fb9907b34579c1500c218dfedb",
+        "version" : "1.9.3"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/segmentio/analytics-swift",
       "state" : {
-        "revision" : "f6f3a7fafcace7bcdbda329f9b309f31bf9a42a1",
-        "version" : "1.5.11"
+        "revision" : "41df3103293bbed6f17489fcc28e16a6e495168d",
+        "version" : "1.6.1"
       }
     },
     {

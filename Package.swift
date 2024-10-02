@@ -24,7 +24,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/amplitude/Amplitude-Swift.git", from: "1.9.2"),
-        .package(url: "https://github.com/amplitude/Amplitude-iOS.git", from: "8.21.0"),
+        .package(url: "https://github.com/amplitude/Amplitude-iOS.git", from: "8.22.0"),
         .package(url: "https://github.com/segmentio/analytics-swift", "1.5.0"..<"2.0.0"),
     ],
     targets: [
