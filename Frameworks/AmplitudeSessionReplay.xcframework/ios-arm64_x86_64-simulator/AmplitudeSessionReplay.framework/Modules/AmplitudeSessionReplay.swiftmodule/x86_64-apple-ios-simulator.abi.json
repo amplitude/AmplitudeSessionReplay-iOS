@@ -3831,7 +3831,7 @@
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Snapshotter.swift",
       "kind": "BooleanLiteral",
-      "offset": 5255,
+      "offset": 5262,
       "length": 5,
       "value": "false"
     },
@@ -4033,22 +4033,36 @@
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/ImageEncoder.swift",
+      "kind": "IntegerLiteral",
+      "offset": 348,
+      "length": 4,
+      "value": "1600"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/ImageEncoder.swift",
+      "kind": "IntegerLiteral",
+      "offset": 362,
+      "length": 4,
+      "value": "1600"
+    },
+    {
+      "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/ImageEncoder.swift",
       "kind": "BooleanLiteral",
-      "offset": 912,
+      "offset": 1051,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/ImageEncoder.swift",
       "kind": "BooleanLiteral",
-      "offset": 976,
+      "offset": 1115,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/ImageEncoder.swift",
       "kind": "BooleanLiteral",
-      "offset": 1034,
+      "offset": 1173,
       "length": 4,
       "value": "true"
     },
