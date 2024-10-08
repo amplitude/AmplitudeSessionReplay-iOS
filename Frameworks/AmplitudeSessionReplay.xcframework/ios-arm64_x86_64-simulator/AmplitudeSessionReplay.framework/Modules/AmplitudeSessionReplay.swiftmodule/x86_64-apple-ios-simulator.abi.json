@@ -3712,14 +3712,14 @@
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "IntegerLiteral",
-      "offset": 11806,
+      "offset": 11550,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "IntegerLiteral",
-      "offset": 11863,
+      "offset": 11607,
       "length": 1,
       "value": "1"
     },
@@ -3817,7 +3817,7 @@
     {
       "filePath": "\/Users\/chris.leonavicius\/src\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplay\/Snapshotter.swift",
       "kind": "BooleanLiteral",
-      "offset": 5262,
+      "offset": 5255,
       "length": 5,
       "value": "false"
     },
