@@ -84,7 +84,7 @@ import AmplitudeSessionReplay
     }
 }
 
-fileprivate final class LoggerWrapper: AmplitudeSessionReplay.Logger {
+private final class LoggerWrapper: AmplitudeSessionReplay.Logger {
 
     private let logger: any AmplitudeSwift.Logger
 

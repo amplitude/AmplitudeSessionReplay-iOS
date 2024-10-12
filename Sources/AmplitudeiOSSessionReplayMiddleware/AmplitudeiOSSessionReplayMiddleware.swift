@@ -77,7 +77,7 @@ import AmplitudeSessionReplay
         eventProperties.addEntries(from: sessionReplay.additionalEventProperties)
         payload.event["event_properties"] = eventProperties
 
-        next(payload);
+        next(payload)
     }
 
     public func amplitude(_ amplitude: Amplitude, didUploadEventsManually manually: Bool) {
