@@ -2387,6 +2387,13 @@
       "value": "0"
     },
     {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Storage\/StorageCoordinator.swift",
+      "kind": "BooleanLiteral",
+      "offset": 7584,
+      "length": 4,
+      "value": "true"
+    },
+    {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Models\/RRWeb.swift",
       "kind": "IntegerLiteral",
       "offset": 290,
@@ -4044,27 +4051,6 @@
       "offset": 362,
       "length": 4,
       "value": "1600"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/ImageEncoder.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1051,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/ImageEncoder.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1115,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/ImageEncoder.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1173,
-      "length": 4,
-      "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Storage\/InMemoryStorage.swift",
