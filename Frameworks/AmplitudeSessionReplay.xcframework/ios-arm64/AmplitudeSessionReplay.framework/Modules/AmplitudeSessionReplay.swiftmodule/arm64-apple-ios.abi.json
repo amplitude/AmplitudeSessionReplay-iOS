@@ -3740,14 +3740,14 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "IntegerLiteral",
-      "offset": 11641,
+      "offset": 11658,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "IntegerLiteral",
-      "offset": 11698,
+      "offset": 11715,
       "length": 1,
       "value": "1"
     },
@@ -4062,49 +4062,49 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/CALayer+SessionReplay.swift",
       "kind": "IntegerLiteral",
-      "offset": 279,
+      "offset": 295,
       "length": 9,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/CALayer+SessionReplay.swift",
       "kind": "IntegerLiteral",
-      "offset": 290,
+      "offset": 306,
       "length": 7,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/CALayer+SessionReplay.swift",
       "kind": "IntegerLiteral",
-      "offset": 279,
+      "offset": 295,
       "length": 9,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/CALayer+SessionReplay.swift",
       "kind": "IntegerLiteral",
-      "offset": 290,
+      "offset": 306,
       "length": 7,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/CALayer+SessionReplay.swift",
       "kind": "IntegerLiteral",
-      "offset": 279,
+      "offset": 295,
       "length": 9,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/CALayer+SessionReplay.swift",
       "kind": "IntegerLiteral",
-      "offset": 290,
+      "offset": 306,
       "length": 7,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/CALayer+SessionReplay.swift",
       "kind": "IntegerLiteral",
-      "offset": 688,
+      "offset": 704,
       "length": 1,
       "value": "0"
     },
