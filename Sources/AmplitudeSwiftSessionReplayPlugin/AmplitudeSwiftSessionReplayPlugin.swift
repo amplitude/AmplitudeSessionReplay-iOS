@@ -17,15 +17,18 @@ import AmplitudeSessionReplay
     private let sampleRate: Float
     private let maskLevel: MaskLevel
     private let enableRemoteConfig: Bool
+    private let webviewMappings: [String: String]
 
     private var sessionReplay: SessionReplay?
 
     @objc public init(sampleRate: Float = 0.0,
                       maskLevel: MaskLevel = .medium,
-                      enableRemoteConfig: Bool = true) {
+                      enableRemoteConfig: Bool = true,
+                      webviewMappings: [String: String] = [:]) {
         self.sampleRate = sampleRate
         self.maskLevel = maskLevel
         self.enableRemoteConfig = enableRemoteConfig
+        self.webviewMappings = webviewMappings
     }
 
     public func setup(amplitude: Amplitude) {
@@ -42,6 +45,7 @@ import AmplitudeSessionReplay
                                       sessionId: amplitude.getSessionId(),
                                       optOut: amplitude.configuration.optOut,
                                       sampleRate: sampleRate,
+                                      webviewMappings: webviewMappings,
                                       logger: LoggerWrapper(amplitude.configuration.loggerProvider),
                                       serverZone: serverZone,
                                       maskLevel: maskLevel,

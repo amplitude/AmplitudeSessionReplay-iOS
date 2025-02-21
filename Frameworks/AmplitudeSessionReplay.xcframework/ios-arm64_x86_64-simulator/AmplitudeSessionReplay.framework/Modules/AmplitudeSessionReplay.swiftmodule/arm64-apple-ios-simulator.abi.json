@@ -96,6 +96,13 @@
       },
       {
         "kind": "Import",
+        "name": "Accelerate",
+        "printedName": "Accelerate",
+        "declKind": "Import",
+        "moduleName": "AmplitudeSessionReplay"
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -103,6 +110,13 @@
         "declAttributes": [
           "RawDocComment"
         ]
+      },
+      {
+        "kind": "Import",
+        "name": "Accelerate",
+        "printedName": "Accelerate",
+        "declKind": "Import",
+        "moduleName": "AmplitudeSessionReplay"
       },
       {
         "kind": "Import",
@@ -1407,7 +1421,7 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(apiKey:deviceId:sessionId:optOut:sampleRate:logger:serverZone:maskLevel:enableRemoteConfig:)",
+            "printedName": "init(apiKey:deviceId:sessionId:optOut:sampleRate:webviewMappings:logger:serverZone:maskLevel:enableRemoteConfig:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -1459,6 +1473,27 @@
               },
               {
                 "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Swift.String]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:SD"
+              },
+              {
+                "kind": "TypeNominal",
                 "name": "Optional",
                 "printedName": "(any AmplitudeSessionReplay.Logger)?",
                 "children": [
@@ -1495,10 +1530,10 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "c:@M@AmplitudeSessionReplay@objc(cs)AMPSessionReplay(im)initWithApiKey:deviceId:sessionId:optOut:sampleRate:logger:serverZone:maskLevel:enableRemoteConfig:",
-            "mangledName": "$s22AmplitudeSessionReplay0bC0C6apiKey8deviceId07sessionG06optOut10sampleRate6logger10serverZone9maskLevel18enableRemoteConfigACSS_SSSgs5Int64VSbSfAA6Logger_pSgAA06ServerO0OAA04MaskQ0OSbtcfc",
+            "usr": "c:@M@AmplitudeSessionReplay@objc(cs)AMPSessionReplay(im)initWithApiKey:deviceId:sessionId:optOut:sampleRate:webviewMappings:logger:serverZone:maskLevel:enableRemoteConfig:",
+            "mangledName": "$s22AmplitudeSessionReplay0bC0C6apiKey8deviceId07sessionG06optOut10sampleRate15webviewMappings6logger10serverZone9maskLevel18enableRemoteConfigACSS_SSSgs5Int64VSbSfSDyS2SGAA6Logger_pSgAA06ServerQ0OAA04MaskS0OSbtcfc",
             "moduleName": "AmplitudeSessionReplay",
-            "objc_name": "initWithApiKey:deviceId:sessionId:optOut:sampleRate:logger:serverZone:maskLevel:enableRemoteConfig:",
+            "objc_name": "initWithApiKey:deviceId:sessionId:optOut:sampleRate:webviewMappings:logger:serverZone:maskLevel:enableRemoteConfig:",
             "declAttributes": [
               "AccessControl",
               "ObjC"
@@ -1722,23 +1757,6 @@
         "kind": "Import",
         "name": "CommonCrypto",
         "printedName": "CommonCrypto",
-        "declKind": "Import",
-        "moduleName": "AmplitudeSessionReplay"
-      },
-      {
-        "kind": "Import",
-        "name": "CoreImage",
-        "printedName": "CoreImage",
-        "declKind": "Import",
-        "moduleName": "AmplitudeSessionReplay",
-        "declAttributes": [
-          "Preconcurrency"
-        ]
-      },
-      {
-        "kind": "Import",
-        "name": "CoreImage.CIFilterBuiltins",
-        "printedName": "CoreImage.CIFilterBuiltins",
         "declKind": "Import",
         "moduleName": "AmplitudeSessionReplay"
       },
@@ -2047,6 +2065,23 @@
         ]
       },
       {
+        "kind": "Import",
+        "name": "IOSurface",
+        "printedName": "IOSurface",
+        "declKind": "Import",
+        "moduleName": "AmplitudeSessionReplay",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "CoreGraphics",
+        "printedName": "CoreGraphics",
+        "declKind": "Import",
+        "moduleName": "AmplitudeSessionReplay"
+      },
+      {
         "kind": "TypeDecl",
         "name": "UIView",
         "printedName": "UIView",
@@ -2211,6 +2246,88 @@
             "printedName": "__DefaultCustomPlaygroundQuickLookable",
             "usr": "s:s38__DefaultCustomPlaygroundQuickLookableP",
             "mangledName": "$ss38__DefaultCustomPlaygroundQuickLookableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "CGImage",
+        "printedName": "CGImage",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "cropping",
+            "printedName": "cropping(contentsRect:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "CoreGraphics.CGImage?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGImage",
+                    "printedName": "CoreGraphics.CGImage",
+                    "usr": "c:@T@CGImageRef"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGRect",
+                "printedName": "CoreFoundation.CGRect",
+                "usr": "c:@S@CGRect"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:So10CGImageRefa22AmplitudeSessionReplayE8cropping12contentsRectABSgSo6CGRectV_tF",
+            "mangledName": "$sSo10CGImageRefa22AmplitudeSessionReplayE8cropping12contentsRectABSgSo6CGRectV_tF",
+            "moduleName": "AmplitudeSessionReplay",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@T@CGImageRef",
+        "moduleName": "CoreGraphics",
+        "declAttributes": [
+          "SynthesizedProtocol",
+          "ObjC",
+          "Dynamic"
+        ],
+        "isExternal": true,
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "_CFObject",
+            "printedName": "_CFObject",
+            "usr": "s:14CoreFoundation9_CFObjectP",
+            "mangledName": "$s14CoreFoundation9_CFObjectP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
           }
         ]
       },
@@ -3631,142 +3748,163 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/WebViewHandler.swift",
       "kind": "StringLiteral",
-      "offset": 5626,
+      "offset": 6032,
       "length": 23,
       "value": "\"amp_injected_recorder\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/WebViewHandler.swift",
       "kind": "StringLiteral",
-      "offset": 5696,
+      "offset": 6102,
       "length": 29,
       "value": "\"amp_injected_session_replay\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/WebViewHandler.swift",
       "kind": "StringLiteral",
-      "offset": 5816,
+      "offset": 6222,
       "length": 14,
       "value": "\"rrweb-record\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/WebViewHandler.swift",
       "kind": "StringLiteral",
-      "offset": 5924,
+      "offset": 6330,
       "length": 4,
       "value": "\"js\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/WebViewHandler.swift",
       "kind": "StringLiteral",
-      "offset": 6062,
-      "length": 1109,
-      "value": "\"if (typeof window.rrwebRecord === 'undefined') {\n\""
+      "offset": 6468,
+      "length": 1038,
+      "value": "\"if (typeof window.rrweb?.record === 'undefined') {\n\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/WebViewHandler.swift",
       "kind": "StringLiteral",
-      "offset": 6132,
+      "offset": 6540,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/WebViewHandler.swift",
       "kind": "StringLiteral",
-      "offset": 6135,
+      "offset": 6543,
       "length": 1,
-      "value": "\"\n}\n\n(function() {\n    if (typeof window.rrwebRecord === 'undefined') {\n        throw new Error(\"Unable to access rrweb\");\n    }\n    if (typeof window.\""
+      "value": "\"\n}\n\n(function() {\n    if (typeof window.rrweb?.record === 'undefined') {\n        throw new Error(\"Unable to access rrweb\");\n    }\n    if (typeof window.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/WebViewHandler.swift",
       "kind": "StringLiteral",
-      "offset": 6308,
+      "offset": 6718,
       "length": 3,
       "value": "\" === 'undefined') {\n        window.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/WebViewHandler.swift",
       "kind": "StringLiteral",
-      "offset": 6366,
+      "offset": 6776,
       "length": 1,
       "value": "\" = {\n            stopCurrentRecording: null,\n            record: function() {\n                window.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/WebViewHandler.swift",
       "kind": "StringLiteral",
-      "offset": 6490,
+      "offset": 6900,
       "length": 1,
       "value": "\".stopCurrentRecording?.();\n                window.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/WebViewHandler.swift",
       "kind": "StringLiteral",
-      "offset": 6563,
+      "offset": 6973,
       "length": 1,
-      "value": "\".stopCurrentRecording = rrwebRecord({\n                    emit(event) {\n                        const obj = {'event': JSON.stringify(event)};\n                        window.webkit.messageHandlers.\""
+      "value": "\".stopCurrentRecording = window.rrweb.record({\n                    emit(event) {\n                        const obj = {'event': JSON.stringify(event)};\n                        window.webkit.messageHandlers.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/WebViewHandler.swift",
       "kind": "StringLiteral",
-      "offset": 6782,
+      "offset": 7200,
       "length": 1,
-      "value": "\".postMessage(obj);\n                    },\n                    recordAfter: 'DOMContentLoaded',\n                    inlineStylesheet: false,\n                    slimDOMOptions: 'all'\n                });\n            }\n        };\n        addEventListener('DOMContentLoaded', window.\""
+      "value": "\".postMessage(obj);\n                    },\n                    inlineStylesheet: false,\n                    slimDOMOptions: 'all',\n                    recordAfter: 'load',\n                });\n            }\n        };\n    }\n    setTimeout(window.\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/WebViewHandler.swift",
       "kind": "StringLiteral",
-      "offset": 7084,
+      "offset": 7467,
       "length": 1,
-      "value": "\".record);\n    }\n    window.\""
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/WebViewHandler.swift",
-      "kind": "StringLiteral",
-      "offset": 7134,
-      "length": 1,
-      "value": "\".record();\n    return true;\n})();\""
+      "value": "\".record, 0);\n    return true;\n})();\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/WebViewHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 7442,
+      "offset": 7777,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/WebViewHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 7679,
+      "offset": 8021,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/WebViewHandler.swift",
       "kind": "BooleanLiteral",
-      "offset": 7828,
+      "offset": 8170,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/WebViewHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 7929,
+      "offset": 8271,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/WebViewHandler.swift",
       "kind": "Dictionary",
-      "offset": 21449,
+      "offset": 21950,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Converter.swift",
       "kind": "BooleanLiteral",
-      "offset": 339,
+      "offset": 425,
       "length": 4,
       "value": "true"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Converter.swift",
+      "kind": "IntegerLiteral",
+      "offset": 32527,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Converter.swift",
+      "kind": "IntegerLiteral",
+      "offset": 32533,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Converter.swift",
+      "kind": "IntegerLiteral",
+      "offset": 32543,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Converter.swift",
+      "kind": "IntegerLiteral",
+      "offset": 32554,
+      "length": 1,
+      "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/UploadClient.swift",
@@ -3870,8 +4008,8 @@
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Models\/LayerObserver.swift",
       "kind": "Array",
       "offset": 1276,
-      "length": 697,
-      "value": "[\\.<NOT_IMPLEMENTED>, \\.<NOT_IMPLEMENTED>, \"contentsMultiplyColor\"]"
+      "length": 737,
+      "value": "[\\.<NOT_IMPLEMENTED>, \\.<NOT_IMPLEMENTED>, \\.<NOT_IMPLEMENTED>, \"contentsMultiplyColor\"]"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/View+AmplitudeSessionReplay.swift",
@@ -3897,28 +4035,28 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "Array",
-      "offset": 752,
+      "offset": 857,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "Dictionary",
-      "offset": 853,
+      "offset": 958,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "IntegerLiteral",
-      "offset": 17262,
+      "offset": 18220,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "IntegerLiteral",
-      "offset": 17319,
+      "offset": 18277,
       "length": 1,
       "value": "1"
     },
@@ -4002,7 +4140,7 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Snapshotter.swift",
       "kind": "Array",
-      "offset": 896,
+      "offset": 955,
       "length": 2,
       "value": "[]"
     },
@@ -4135,49 +4273,56 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 2315,
+      "offset": 2350,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 2504,
+      "offset": 2539,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 2535,
+      "offset": 2570,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "IntegerLiteral",
-      "offset": 2765,
+      "offset": 2800,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 2806,
+      "offset": 2841,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "FloatLiteral",
-      "offset": 2855,
+      "offset": 2890,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
+      "kind": "Dictionary",
+      "offset": 2953,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 3060,
+      "offset": 3158,
       "length": 4,
       "value": "true"
     },
@@ -4191,7 +4336,7 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "StringLiteral",
-      "offset": 9337,
+      "offset": 9533,
       "length": 24,
       "value": "\"Current Configuration:\""
     },
@@ -4212,14 +4357,14 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/ImageEncoder.swift",
       "kind": "IntegerLiteral",
-      "offset": 348,
+      "offset": 281,
       "length": 4,
       "value": "1600"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/ImageEncoder.swift",
       "kind": "IntegerLiteral",
-      "offset": 362,
+      "offset": 295,
       "length": 4,
       "value": "1600"
     },

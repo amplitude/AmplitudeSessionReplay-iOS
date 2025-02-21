@@ -29,9 +29,11 @@ public class AmplitudeSegmentSessionReplayPlugin: Plugin {
                 sampleRate: Float = 0.0,
                 serverZone: ServerZone = .US,
                 maskLevel: MaskLevel = .medium,
-                enableRemoteConfig: Bool = true) {
+                enableRemoteConfig: Bool = true,
+                webviewMappings: [String: String] = [:]) {
         sessionReplay = SessionReplay(apiKey: apiKey,
                                       sampleRate: sampleRate,
+                                      webviewMappings: webviewMappings,
                                       serverZone: serverZone,
                                       maskLevel: maskLevel,
                                       enableRemoteConfig: enableRemoteConfig)

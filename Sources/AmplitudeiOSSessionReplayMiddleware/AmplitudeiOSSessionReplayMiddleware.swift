@@ -13,15 +13,18 @@ import AmplitudeSessionReplay
     private let sampleRate: Float
     private let maskLevel: AmplitudeSessionReplay.MaskLevel
     private let enableRemoteConfig: Bool
+    private let webviewMappings: [String: String]
 
     private var sessionReplay: SessionReplay?
 
     @objc public init(sampleRate: Float = 0.0,
                       maskLevel: AmplitudeSessionReplay.MaskLevel = .medium,
-                      enableRemoteConfig: Bool = true) {
+                      enableRemoteConfig: Bool = true,
+                      webviewMappings: [String: String] = [:]) {
         self.sampleRate = sampleRate
         self.maskLevel = maskLevel
         self.enableRemoteConfig = enableRemoteConfig
+        self.webviewMappings = webviewMappings
     }
 
     public func amplitudeDidFinishInitializing(_ amplitude: Amplitude) {
@@ -40,6 +43,7 @@ import AmplitudeSessionReplay
                                       sessionId: amplitude.getSessionId(),
                                       optOut: amplitude.optOut,
                                       sampleRate: sampleRate,
+                                      webviewMappings: webviewMappings,
                                       serverZone: serverZone,
                                       maskLevel: maskLevel,
                                       enableRemoteConfig: enableRemoteConfig)

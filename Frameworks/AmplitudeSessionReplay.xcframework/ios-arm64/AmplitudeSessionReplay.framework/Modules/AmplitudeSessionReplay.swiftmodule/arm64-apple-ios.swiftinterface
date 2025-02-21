@@ -5,11 +5,11 @@ import AVFoundation
 import Accelerate
 @_exported import AmplitudeSessionReplay
 import AmplitudeSessionReplay.AmplitudeSessionReplay_Private
-import CoreImage.CIFilterBuiltins
 import CommonCrypto
 import Compression
-import CoreImage
+import CoreGraphics
 import Foundation
+import IOSurface
 import MapKit
 import Network
 import QuartzCore
@@ -27,6 +27,9 @@ extension UIKit.UIView {
     @objc get
     @objc set
   }
+}
+extension CoreGraphics.CGImage {
+  public func cropping(contentsRect: CoreFoundation.CGRect) -> CoreGraphics.CGImage?
 }
 @objc public protocol Logger : Swift.Sendable {
   @objc func error(message: Swift.String)
@@ -78,7 +81,7 @@ public typealias DeviceId = Swift.String
   @objc final public var additionalEventProperties: [Swift.String : Any] {
     @objc get
   }
-  @objc public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId = -1, optOut: Swift.Bool = false, sampleRate: Swift.Float = 0.0, logger: (any AmplitudeSessionReplay.Logger)? = nil, serverZone: AmplitudeSessionReplay.ServerZone = .US, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true)
+  @objc public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId = -1, optOut: Swift.Bool = false, sampleRate: Swift.Float = 0.0, webviewMappings: [Swift.String : Swift.String] = [:], logger: (any AmplitudeSessionReplay.Logger)? = nil, serverZone: AmplitudeSessionReplay.ServerZone = .US, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true)
   @objc final public func start()
   @objc final public func stop()
   @objc final public func flush()

@@ -334,7 +334,7 @@ SWIFT_CLASS_NAMED("SessionReplay")
 @property (nonatomic) int64_t sessionId;
 @property (nonatomic, copy) NSString * _Nullable deviceId;
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull additionalEventProperties;
-- (nonnull instancetype)initWithApiKey:(NSString * _Nonnull)apiKey deviceId:(NSString * _Nullable)deviceId sessionId:(int64_t)sessionId optOut:(BOOL)optOut sampleRate:(float)sampleRate logger:(id <Logger> _Nullable)logger serverZone:(enum ServerZone)serverZone maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithApiKey:(NSString * _Nonnull)apiKey deviceId:(NSString * _Nullable)deviceId sessionId:(int64_t)sessionId optOut:(BOOL)optOut sampleRate:(float)sampleRate webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings logger:(id <Logger> _Nullable)logger serverZone:(enum ServerZone)serverZone maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig OBJC_DESIGNATED_INITIALIZER;
 - (void)start;
 - (void)stop;
 - (void)flush;
