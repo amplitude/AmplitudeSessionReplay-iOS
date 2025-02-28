@@ -6,6 +6,16 @@
     "children": [
       {
         "kind": "Import",
+        "name": "Metal",
+        "printedName": "Metal",
+        "declKind": "Import",
+        "moduleName": "AmplitudeSessionReplay",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -113,8 +123,15 @@
       },
       {
         "kind": "Import",
-        "name": "Accelerate",
-        "printedName": "Accelerate",
+        "name": "QuartzCore",
+        "printedName": "QuartzCore",
+        "declKind": "Import",
+        "moduleName": "AmplitudeSessionReplay"
+      },
+      {
+        "kind": "Import",
+        "name": "AVFoundation",
+        "printedName": "AVFoundation",
         "declKind": "Import",
         "moduleName": "AmplitudeSessionReplay"
       },
@@ -3881,28 +3898,28 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Converter.swift",
       "kind": "IntegerLiteral",
-      "offset": 32527,
+      "offset": 34025,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Converter.swift",
       "kind": "IntegerLiteral",
-      "offset": 32533,
+      "offset": 34031,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Converter.swift",
       "kind": "IntegerLiteral",
-      "offset": 32543,
+      "offset": 34041,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Converter.swift",
       "kind": "IntegerLiteral",
-      "offset": 32554,
+      "offset": 34052,
       "length": 1,
       "value": "1"
     },
@@ -4049,14 +4066,14 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "IntegerLiteral",
-      "offset": 18220,
+      "offset": 18284,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "IntegerLiteral",
-      "offset": 18277,
+      "offset": 18341,
       "length": 1,
       "value": "1"
     },
@@ -4140,9 +4157,16 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Snapshotter.swift",
       "kind": "Array",
-      "offset": 955,
+      "offset": 1066,
       "length": 2,
       "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Snapshotter.swift",
+      "kind": "FloatLiteral",
+      "offset": 1117,
+      "length": 3,
+      "value": "0.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Snapshotter.swift",

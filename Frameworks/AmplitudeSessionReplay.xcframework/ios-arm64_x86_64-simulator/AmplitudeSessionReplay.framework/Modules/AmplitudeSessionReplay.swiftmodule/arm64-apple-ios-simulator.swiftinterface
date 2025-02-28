@@ -11,6 +11,7 @@ import CoreGraphics
 import Foundation
 import IOSurface
 import MapKit
+import Metal
 import Network
 import QuartzCore
 import Swift
