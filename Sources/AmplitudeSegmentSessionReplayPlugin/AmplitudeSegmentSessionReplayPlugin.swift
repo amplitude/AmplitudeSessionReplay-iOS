@@ -11,6 +11,7 @@ import Segment
 public class AmplitudeSegmentSessionReplayPlugin: Plugin {
 
     private let sessionReplay: SessionReplay
+    private let autoStart: Bool
 
     public let type: PluginType = .enrichment
 
@@ -30,17 +31,21 @@ public class AmplitudeSegmentSessionReplayPlugin: Plugin {
                 serverZone: ServerZone = .US,
                 maskLevel: MaskLevel = .medium,
                 enableRemoteConfig: Bool = true,
-                webviewMappings: [String: String] = [:]) {
+                webviewMappings: [String: String] = [:],
+                autoStart: Bool = true) {
         sessionReplay = SessionReplay(apiKey: apiKey,
                                       sampleRate: sampleRate,
                                       webviewMappings: webviewMappings,
                                       serverZone: serverZone,
                                       maskLevel: maskLevel,
                                       enableRemoteConfig: enableRemoteConfig)
+        self.autoStart = autoStart
     }
 
     public func configure(analytics: Analytics) {
-        sessionReplay.start()
+        if autoStart {
+            sessionReplay.start()
+        }
     }
 
     public func execute<T: RawEvent>(event: T?) -> T? {
@@ -85,6 +90,14 @@ public class AmplitudeSegmentSessionReplayPlugin: Plugin {
     }
 
     public func shutdown() {
+        sessionReplay.stop()
+    }
+
+    public func start() {
+        sessionReplay.start()
+    }
+
+    public func stop() {
         sessionReplay.stop()
     }
 }
