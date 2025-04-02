@@ -7,6 +7,7 @@
 
 import AmplitudeSwift
 import AmplitudeSessionReplay
+import Foundation
 
 @objc public class AmplitudeSwiftSessionReplayPlugin: NSObject, Plugin {
 
@@ -35,7 +36,7 @@ import AmplitudeSessionReplay
     }
 
     public func setup(amplitude: Amplitude) {
-        let serverZone: AmplitudeSessionReplay.ServerZone
+        let serverZone: ServerZone
         switch amplitude.configuration.serverZone {
         case .US:
             serverZone = .US
@@ -49,7 +50,7 @@ import AmplitudeSessionReplay
                                       optOut: amplitude.configuration.optOut,
                                       sampleRate: sampleRate,
                                       webviewMappings: webviewMappings,
-                                      logger: LoggerWrapper(amplitude.configuration.loggerProvider),
+                                      logger: amplitude.amplitudeContext.logger,
                                       serverZone: serverZone,
                                       maskLevel: maskLevel,
                                       enableRemoteConfig: enableRemoteConfig)
@@ -101,27 +102,3 @@ import AmplitudeSessionReplay
     }
 }
 
-private final class LoggerWrapper: AmplitudeSessionReplay.Logger {
-
-    private let logger: any AmplitudeSwift.Logger
-
-    init(_ logger: any AmplitudeSwift.Logger) {
-        self.logger = logger
-    }
-
-    func error(message: String) {
-        logger.error(message: message)
-    }
-
-    func warn(message: String) {
-        logger.warn(message: message)
-    }
-
-    func log(message: String) {
-        logger.log(message: message)
-    }
-
-    func debug(message: String) {
-        logger.debug(message: message)
-    }
-}
