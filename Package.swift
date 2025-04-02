@@ -11,7 +11,7 @@ let package = Package(
     products: [
         .library(
             name: "AmplitudeSessionReplay",
-            targets: ["AmplitudeSessionReplay"]),
+            targets: ["AmplitudeSessionReplayWrapper"]),
         .library(
             name: "AmplitudeSwiftSessionReplayPlugin",
             targets: ["AmplitudeSwiftSessionReplayPlugin"]),
@@ -23,26 +23,30 @@ let package = Package(
             targets: ["AmplitudeSegmentSessionReplayPlugin"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/amplitude/Amplitude-Swift.git", from: "1.9.2"),
+        .package(url: "https://github.com/amplitude/AmplitudeCore-Swift.git", from: "1.0.10"),
         .package(url: "https://github.com/amplitude/Amplitude-iOS.git", from: "8.22.0"),
         .package(url: "https://github.com/segmentio/analytics-swift", "1.5.0"..<"2.0.0"),
     ],
     targets: [
         .binaryTarget(name: "AmplitudeSessionReplay",
                       path: "Frameworks/AmplitudeSessionReplay.xcframework"),
-        .target(name: "AmplitudeSwiftSessionReplayPlugin",
+        .target(name: "AmplitudeSessionReplayWrapper",
                 dependencies: [
                     .target(name: "AmplitudeSessionReplay"),
-                    .product(name: "AmplitudeSwift", package: "Amplitude-Swift"),
+                    .product(name: "AmplitudeCoreFramework", package: "AmplitudeCore-Swift")
+                ]),
+        .target(name: "AmplitudeSwiftSessionReplayPlugin",
+                dependencies: [
+                    .target(name: "AmplitudeSessionReplayWrapper"),
                 ]),
         .target(name: "AmplitudeiOSSessionReplayMiddleware",
                 dependencies: [
-                    .target(name: "AmplitudeSessionReplay"),
+                    .target(name: "AmplitudeSessionReplayWrapper"),
                     .product(name: "Amplitude", package: "Amplitude-iOS"),
                 ]),
         .target(name: "AmplitudeSegmentSessionReplayPlugin",
                 dependencies: [
-                    .target(name: "AmplitudeSessionReplay"),
+                    .target(name: "AmplitudeSessionReplayWrapper"),
                     .product(name: "Segment", package: "analytics-swift"),
                 ]),
     ]

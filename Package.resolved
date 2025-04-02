@@ -10,12 +10,12 @@
       }
     },
     {
-      "identity" : "amplitude-swift",
+      "identity" : "amplitudecore-swift",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/amplitude/Amplitude-Swift.git",
+      "location" : "https://github.com/amplitude/AmplitudeCore-Swift.git",
       "state" : {
-        "revision" : "3ac8de1f8fed85fb9907b34579c1500c218dfedb",
-        "version" : "1.9.3"
+        "revision" : "3eb8c43373bb60f82456fa059cfedcd73466b6f9",
+        "version" : "1.0.10"
       }
     },
     {

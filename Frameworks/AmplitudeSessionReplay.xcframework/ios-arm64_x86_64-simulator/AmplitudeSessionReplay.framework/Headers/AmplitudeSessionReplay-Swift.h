@@ -277,6 +277,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import AmplitudeCore;
 @import Foundation;
 @import ObjectiveC;
 @import UIKit;
@@ -301,32 +302,20 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 
-@class NSString;
-
-SWIFT_PROTOCOL("_TtP22AmplitudeSessionReplay6Logger_")
-@protocol Logger
-- (void)errorWithMessage:(NSString * _Nonnull)message;
-- (void)warnWithMessage:(NSString * _Nonnull)message;
-- (void)logWithMessage:(NSString * _Nonnull)message;
-- (void)debugWithMessage:(NSString * _Nonnull)message;
-@end
-
 typedef SWIFT_ENUM(NSInteger, MaskLevel, open) {
   MaskLevelLight = 0,
   MaskLevelMedium = 1,
   MaskLevelConservative = 2,
 };
 
-typedef SWIFT_ENUM(NSInteger, ServerZone, open) {
-  ServerZoneUS = 0,
-  ServerZoneEU = 1,
-};
-
+@class NSString;
+@protocol CoreLogger;
+@class RemoteConfigClient;
 
 SWIFT_CLASS_NAMED("SessionReplay")
 @interface AMPSessionReplay : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull apiKey;
-@property (nonatomic, readonly, strong) id <Logger> _Nonnull logger;
+@property (nonatomic, readonly, strong) id <CoreLogger> _Nonnull logger;
 @property (nonatomic, readonly) BOOL enableRemoteConfig;
 @property (nonatomic, readonly) float sampleRate;
 @property (nonatomic, readonly) enum MaskLevel maskLevel;
@@ -334,7 +323,7 @@ SWIFT_CLASS_NAMED("SessionReplay")
 @property (nonatomic) int64_t sessionId;
 @property (nonatomic, copy) NSString * _Nullable deviceId;
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull additionalEventProperties;
-- (nonnull instancetype)initWithApiKey:(NSString * _Nonnull)apiKey deviceId:(NSString * _Nullable)deviceId sessionId:(int64_t)sessionId optOut:(BOOL)optOut sampleRate:(float)sampleRate webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings logger:(id <Logger> _Nullable)logger serverZone:(enum ServerZone)serverZone maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithApiKey:(NSString * _Nonnull)apiKey deviceId:(NSString * _Nullable)deviceId sessionId:(int64_t)sessionId optOut:(BOOL)optOut sampleRate:(float)sampleRate webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings logger:(id <CoreLogger> _Nullable)logger serverZone:(enum AMPServerZone)serverZone maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig remoteConfigClient:(RemoteConfigClient * _Nullable)remoteConfigClient OBJC_DESIGNATED_INITIALIZER;
 - (void)start;
 - (void)stop;
 - (void)flush;
@@ -343,6 +332,14 @@ SWIFT_CLASS_NAMED("SessionReplay")
 @end
 
 
+
+
+SWIFT_CLASS("_TtC22AmplitudeSessionReplay19SessionReplayPlugin")
+@interface SessionReplayPlugin : NSObject
+- (nonnull instancetype)initWithSampleRate:(float)sampleRate maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings autoStart:(BOOL)autoStart;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 
 @interface UIView (SWIFT_EXTENSION(AmplitudeSessionReplay))
@@ -637,6 +634,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import AmplitudeCore;
 @import Foundation;
 @import ObjectiveC;
 @import UIKit;
@@ -661,32 +659,20 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 
-@class NSString;
-
-SWIFT_PROTOCOL("_TtP22AmplitudeSessionReplay6Logger_")
-@protocol Logger
-- (void)errorWithMessage:(NSString * _Nonnull)message;
-- (void)warnWithMessage:(NSString * _Nonnull)message;
-- (void)logWithMessage:(NSString * _Nonnull)message;
-- (void)debugWithMessage:(NSString * _Nonnull)message;
-@end
-
 typedef SWIFT_ENUM(NSInteger, MaskLevel, open) {
   MaskLevelLight = 0,
   MaskLevelMedium = 1,
   MaskLevelConservative = 2,
 };
 
-typedef SWIFT_ENUM(NSInteger, ServerZone, open) {
-  ServerZoneUS = 0,
-  ServerZoneEU = 1,
-};
-
+@class NSString;
+@protocol CoreLogger;
+@class RemoteConfigClient;
 
 SWIFT_CLASS_NAMED("SessionReplay")
 @interface AMPSessionReplay : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull apiKey;
-@property (nonatomic, readonly, strong) id <Logger> _Nonnull logger;
+@property (nonatomic, readonly, strong) id <CoreLogger> _Nonnull logger;
 @property (nonatomic, readonly) BOOL enableRemoteConfig;
 @property (nonatomic, readonly) float sampleRate;
 @property (nonatomic, readonly) enum MaskLevel maskLevel;
@@ -694,7 +680,7 @@ SWIFT_CLASS_NAMED("SessionReplay")
 @property (nonatomic) int64_t sessionId;
 @property (nonatomic, copy) NSString * _Nullable deviceId;
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull additionalEventProperties;
-- (nonnull instancetype)initWithApiKey:(NSString * _Nonnull)apiKey deviceId:(NSString * _Nullable)deviceId sessionId:(int64_t)sessionId optOut:(BOOL)optOut sampleRate:(float)sampleRate webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings logger:(id <Logger> _Nullable)logger serverZone:(enum ServerZone)serverZone maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithApiKey:(NSString * _Nonnull)apiKey deviceId:(NSString * _Nullable)deviceId sessionId:(int64_t)sessionId optOut:(BOOL)optOut sampleRate:(float)sampleRate webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings logger:(id <CoreLogger> _Nullable)logger serverZone:(enum AMPServerZone)serverZone maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig remoteConfigClient:(RemoteConfigClient * _Nullable)remoteConfigClient OBJC_DESIGNATED_INITIALIZER;
 - (void)start;
 - (void)stop;
 - (void)flush;
@@ -703,6 +689,14 @@ SWIFT_CLASS_NAMED("SessionReplay")
 @end
 
 
+
+
+SWIFT_CLASS("_TtC22AmplitudeSessionReplay19SessionReplayPlugin")
+@interface SessionReplayPlugin : NSObject
+- (nonnull instancetype)initWithSampleRate:(float)sampleRate maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings autoStart:(BOOL)autoStart;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 
 @interface UIView (SWIFT_EXTENSION(AmplitudeSessionReplay))

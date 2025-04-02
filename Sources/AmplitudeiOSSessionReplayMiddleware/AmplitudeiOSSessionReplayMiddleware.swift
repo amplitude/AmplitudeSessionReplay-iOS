@@ -6,12 +6,13 @@
 //
 
 import Amplitude
+import AmplitudeCore
 import AmplitudeSessionReplay
 
 @objc public class AmplitudeiOSSessionReplayMiddleware: NSObject, AMPMiddleware {
 
     private let sampleRate: Float
-    private let maskLevel: AmplitudeSessionReplay.MaskLevel
+    private let maskLevel: MaskLevel
     private let enableRemoteConfig: Bool
     private let webviewMappings: [String: String]
     private let autoStart: Bool
@@ -19,7 +20,7 @@ import AmplitudeSessionReplay
     private var sessionReplay: SessionReplay?
 
     @objc public init(sampleRate: Float = 0.0,
-                      maskLevel: AmplitudeSessionReplay.MaskLevel = .medium,
+                      maskLevel: MaskLevel = .medium,
                       enableRemoteConfig: Bool = true,
                       webviewMappings: [String: String] = [:],
                       autoStart: Bool = true) {
@@ -31,7 +32,7 @@ import AmplitudeSessionReplay
     }
 
     public func amplitudeDidFinishInitializing(_ amplitude: Amplitude) {
-        let serverZone: AmplitudeSessionReplay.ServerZone
+        let serverZone: AmplitudeCore.ServerZone
         switch amplitude.serverZone() {
         case .US:
             serverZone = .US

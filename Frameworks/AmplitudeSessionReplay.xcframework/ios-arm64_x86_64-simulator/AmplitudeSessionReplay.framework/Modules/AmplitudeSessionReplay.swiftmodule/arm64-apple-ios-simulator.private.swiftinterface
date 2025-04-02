@@ -3,8 +3,9 @@
 // swift-module-flags: -target arm64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name AmplitudeSessionReplay
 import AVFoundation
 import Accelerate
+@_exported import AmplitudeCore
 @_exported import AmplitudeSessionReplay
-import AmplitudeSessionReplay.AmplitudeSessionReplay_Private
+import AmplitudeSessionReplay_Private
 import CommonCrypto
 import Compression
 import CoreGraphics
@@ -31,12 +32,6 @@ extension UIKit.UIView {
 extension CoreGraphics.CGImage {
   public func cropping(contentsRect: CoreFoundation.CGRect) -> CoreGraphics.CGImage?
 }
-@objc public protocol Logger : Swift.Sendable {
-  @objc func error(message: Swift.String)
-  @objc func warn(message: Swift.String)
-  @objc func log(message: Swift.String)
-  @objc func debug(message: Swift.String)
-}
 @objc public enum MaskLevel : Swift.Int, Swift.CustomStringConvertible {
   case light = 0
   case medium = 1
@@ -54,11 +49,43 @@ extension SwiftUI.View {
   public func amp_setBlocked(_ blocked: Swift.Bool) -> some SwiftUI.View
   
 }
+@objc public class SessionReplayPlugin : ObjectiveC.NSObject, AmplitudeCore.UniversalPlugin {
+  @objcMembers public class Config {
+    @objc final public let sampleRate: Swift.Float
+    @objc final public let maskLevel: AmplitudeSessionReplay.MaskLevel
+    @objc final public let enableRemoteConfig: Swift.Bool
+    @objc final public let webviewMappings: [Swift.String : Swift.String]
+    @objc final public let autoStart: Swift.Bool
+    @objc public init(sampleRate: Swift.Float = 0.0, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, webviewMappings: [Swift.String : Swift.String] = [:], autoStart: Swift.Bool = true)
+    @objc deinit
+  }
+  public static let name: Swift.String
+  public var name: Swift.String? {
+    get
+  }
+  public var sessionReplay: AmplitudeSessionReplay.SessionReplay?
+  @objc convenience public init(sampleRate: Swift.Float = 0.0, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, webviewMappings: [Swift.String : Swift.String] = [:], autoStart: Swift.Bool = true)
+  public init(config: AmplitudeSessionReplay.SessionReplayPlugin.Config = Config())
+  public func setup(analyticsClient: any AmplitudeCore.AnalyticsClient, amplitudeContext: AmplitudeCore.AmplitudeContext)
+  public func execute<Event>(_ event: inout Event) where Event : AmplitudeCore.AnalyticsEvent
+  public func onIdentityChanged(_ identity: any AmplitudeCore.AnalyticsIdentity)
+  public func onSessionIdChanged(_ sessionId: Swift.Int64)
+  public func onOptOutChanged(_ optOut: Swift.Bool)
+  public func start()
+  public func stop()
+  public func teardown()
+  @objc deinit
+}
+extension AmplitudeCore.PluginHost {
+  public var sessionReplay: AmplitudeSessionReplay.SessionReplay? {
+    get
+  }
+}
 public typealias SessionId = Swift.Int64
 public typealias DeviceId = Swift.String
 @objc(AMPSessionReplay) final public class SessionReplay : ObjectiveC.NSObject, @unchecked Swift.Sendable {
   @objc final public let apiKey: Swift.String
-  @objc final public let logger: any AmplitudeSessionReplay.Logger
+  @objc final public let logger: any AmplitudeCore.CoreLogger
   @objc final public let enableRemoteConfig: Swift.Bool
   @objc final public var sampleRate: Swift.Float {
     @objc get
@@ -81,7 +108,9 @@ public typealias DeviceId = Swift.String
   @objc final public var additionalEventProperties: [Swift.String : Any] {
     @objc get
   }
-  @objc public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId = -1, optOut: Swift.Bool = false, sampleRate: Swift.Float = 0.0, webviewMappings: [Swift.String : Swift.String] = [:], logger: (any AmplitudeSessionReplay.Logger)? = nil, serverZone: AmplitudeSessionReplay.ServerZone = .US, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true)
+  #if compiler(>=5.3) && $Actors
+  @objc public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId = -1, optOut: Swift.Bool = false, sampleRate: Swift.Float = 0.0, webviewMappings: [Swift.String : Swift.String] = [:], logger: (any AmplitudeCore.CoreLogger)? = nil, serverZone: AmplitudeCore.ServerZone = .US, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, remoteConfigClient: AmplitudeCore.RemoteConfigClient? = nil)
+  #endif
   @objc final public func start()
   @objc final public func stop()
   @objc final public func flush()
@@ -90,18 +119,6 @@ public typealias DeviceId = Swift.String
 extension QuartzCore.CATransform3D : Swift.Equatable {
   public static func == (lhs: QuartzCore.CATransform3D, rhs: QuartzCore.CATransform3D) -> Swift.Bool
 }
-@objc public enum ServerZone : Swift.Int {
-  case US
-  case EU
-  public init?(rawValue: Swift.Int)
-  public typealias RawValue = Swift.Int
-  public var rawValue: Swift.Int {
-    get
-  }
-}
 extension AmplitudeSessionReplay.MaskLevel : Swift.Equatable {}
 extension AmplitudeSessionReplay.MaskLevel : Swift.Hashable {}
 extension AmplitudeSessionReplay.MaskLevel : Swift.RawRepresentable {}
-extension AmplitudeSessionReplay.ServerZone : Swift.Equatable {}
-extension AmplitudeSessionReplay.ServerZone : Swift.Hashable {}
-extension AmplitudeSessionReplay.ServerZone : Swift.RawRepresentable {}

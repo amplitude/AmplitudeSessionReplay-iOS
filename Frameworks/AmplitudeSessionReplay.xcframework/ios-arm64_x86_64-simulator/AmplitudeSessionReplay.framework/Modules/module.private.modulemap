@@ -1,0 +1,11 @@
+//
+//  AmplitudeSessionReplay_Private.modulemap
+//  AmplitudeSessionReplay
+//
+//  Created by Chris Leonavicius on 4/9/25.
+//
+
+framework module AmplitudeSessionReplay_Private {
+    header "AMPObjCUtilities.h"
+    export *
+}
