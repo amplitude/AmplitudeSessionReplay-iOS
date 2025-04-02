@@ -6,16 +6,9 @@
 //
 
 framework module AmplitudeSessionReplay {
-  umbrella header "AmplitudeSessionReplay.h"
-  export *
-
-  module * { export * }
-
-  explicit module AmplitudeSessionReplay_Private {
-      header "AMPObjCUtilities.h"
-      link "AmplitudeSessionReplay_Private"
-      export *
-  }
+    umbrella header "AmplitudeSessionReplay.h"
+    export *
+    module * { export * }
 }
 
 module AmplitudeSessionReplay.Swift {

@@ -5,15 +5,16 @@
 //  Created by Chris Leonavicius on 8/16/24.
 //
 
+import AmplitudeCore
 import AmplitudeSessionReplay
 import Segment
 
-public class AmplitudeSegmentSessionReplayPlugin: Plugin {
+public class AmplitudeSegmentSessionReplayPlugin: Segment.Plugin {
 
     private let sessionReplay: SessionReplay
     private let autoStart: Bool
 
-    public let type: PluginType = .enrichment
+    public let type: Segment.PluginType = .enrichment
 
     public var analytics: Analytics?
 
