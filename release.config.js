@@ -58,10 +58,10 @@ module.exports = {
       "publishCmd": "pod repo update",
     }],
     ["@semantic-release/exec", {
-      "publishCmd": "pod trunk push AmplitudeiOSSessionReplayMiddleware.podspec --allow-warnings",
+      "publishCmd": "pod trunk push AmplitudeiOSSessionReplayMiddleware.podspec --allow-warnings --synchronous",
     }],
     ["@semantic-release/exec", {
-      "publishCmd": "pod trunk push AmplitudeSwiftSessionReplayPlugin.podspec --allow-warnings",
+      "publishCmd": "pod trunk push AmplitudeSwiftSessionReplayPlugin.podspec --allow-warnings --synchronous",
     }],
   ],
 }
