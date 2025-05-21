@@ -14,6 +14,10 @@ This is Amplitude's latest version of the Session Replay SDK for iOS.
 
 AmplitudeSessionReplay integrates via plugin to your core analytics library. 
 
+## SDK support
+
+AmplitudeSessionReplay currently supports iOS 13.0 and above. *macOS support in Package.swift is only used for swift command line tools.*
+
 ## Instructions
 
 To Start, import the library via your preferred package manager.
