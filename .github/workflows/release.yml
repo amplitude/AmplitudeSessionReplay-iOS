@@ -28,9 +28,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Set Xcode 15
+      - name: Set Xcode 16
         run: |
-          sudo xcode-select -switch /Applications/Xcode_15.2.app
+          sudo xcode-select -switch /Applications/Xcode_16.1.app
 
       - name: Validate Podfile
         run: pod lib lint --allow-warnings AmplitudeSessionReplay.podspec
