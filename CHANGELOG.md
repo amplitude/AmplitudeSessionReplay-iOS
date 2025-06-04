@@ -1,3 +1,13 @@
+## [0.4.5](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.4.4...v0.4.5) (2025-06-04)
+
+
+### Bug Fixes
+
+* run cocoapods release workflow with xcode 16.1 ([#33](https://github.com/amplitude/AmplitudeSessionReplay-iOS/issues/33)) ([c8273cc](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/c8273ccb612336dd2416daefd05265ad57b85350))
+* update core ([#35](https://github.com/amplitude/AmplitudeSessionReplay-iOS/issues/35)) ([b937522](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/b93752293c9a2f618a332a380f38d5b676456a73))
+* update framework ([2fbbc06](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/2fbbc06b825ae77930ea6dc5122d77c7389bda89))
+* update runner ([9e801e8](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/9e801e86609ad3df27f05355326a85d4d7f8a44f))
+
 ## [0.4.4](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.4.3...v0.4.4) (2025-06-03)
 
 
