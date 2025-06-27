@@ -337,6 +337,7 @@ SWIFT_CLASS_NAMED("SessionReplay")
 
 
 
+
 @class AMPSessionReplayPluginConfig;
 
 SWIFT_CLASS_NAMED("SessionReplayPlugin")
@@ -362,6 +363,7 @@ SWIFT_CLASS_NAMED("Config")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
 
 
 @interface UIView (SWIFT_EXTENSION(AmplitudeSessionReplay))

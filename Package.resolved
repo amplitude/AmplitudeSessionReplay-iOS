@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/amplitude/AmplitudeCore-Swift.git",
       "state" : {
-        "revision" : "ba5b2d3c7f41cdea70d879fe2338993d4395d12c",
-        "version" : "1.0.13"
+        "revision" : "13fd0eb0aa080816ffa409669758b2e8787322b2",
+        "version" : "1.1.0"
       }
     },
     {

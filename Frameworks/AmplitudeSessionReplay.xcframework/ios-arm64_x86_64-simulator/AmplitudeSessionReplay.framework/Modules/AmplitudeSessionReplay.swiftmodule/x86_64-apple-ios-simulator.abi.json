@@ -1631,6 +1631,102 @@
               "Override"
             ],
             "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "isProviding",
+            "printedName": "isProviding",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:22AmplitudeSessionReplay0bC6PluginC11isProvidingSbvp",
+            "mangledName": "$s22AmplitudeSessionReplay0bC6PluginC11isProvidingSbvp",
+            "moduleName": "AmplitudeSessionReplay",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:22AmplitudeSessionReplay0bC6PluginC11isProvidingSbvg",
+                "mangledName": "$s22AmplitudeSessionReplay0bC6PluginC11isProvidingSbvg",
+                "moduleName": "AmplitudeSessionReplay",
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "addInterfaceSignalReceiver",
+            "printedName": "addInterfaceSignalReceiver(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "InterfaceSignalReceiver",
+                "printedName": "any AmplitudeCore.InterfaceSignalReceiver",
+                "usr": "c:@M@AmplitudeCore@objc(pl)InterfaceSignalReceiver"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:22AmplitudeSessionReplay0bC6PluginC26addInterfaceSignalReceiveryy0A4Core0fgH0_pF",
+            "mangledName": "$s22AmplitudeSessionReplay0bC6PluginC26addInterfaceSignalReceiveryy0A4Core0fgH0_pF",
+            "moduleName": "AmplitudeSessionReplay",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "removeInterfaceSignalReceiver",
+            "printedName": "removeInterfaceSignalReceiver(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "InterfaceSignalReceiver",
+                "printedName": "any AmplitudeCore.InterfaceSignalReceiver",
+                "usr": "c:@M@AmplitudeCore@objc(pl)InterfaceSignalReceiver"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:22AmplitudeSessionReplay0bC6PluginC29removeInterfaceSignalReceiveryy0A4Core0fgH0_pF",
+            "mangledName": "$s22AmplitudeSessionReplay0bC6PluginC29removeInterfaceSignalReceiveryy0A4Core0fgH0_pF",
+            "moduleName": "AmplitudeSessionReplay",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -1716,6 +1812,13 @@
             "printedName": "CustomDebugStringConvertible",
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "InterfaceSignalProvider",
+            "printedName": "InterfaceSignalProvider",
+            "usr": "s:13AmplitudeCore23InterfaceSignalProviderP",
+            "mangledName": "$s13AmplitudeCore23InterfaceSignalProviderP"
           }
         ]
       },
@@ -4217,29 +4320,36 @@
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
+      "kind": "StringLiteral",
+      "offset": 726,
+      "length": 45,
+      "value": "\"com.amplitude.sessionreplay.interfaceSignal\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "Array",
-      "offset": 882,
+      "offset": 989,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "Dictionary",
-      "offset": 983,
+      "offset": 1090,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "IntegerLiteral",
-      "offset": 18331,
+      "offset": 18663,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "IntegerLiteral",
-      "offset": 18388,
+      "offset": 18720,
       "length": 1,
       "value": "1"
     },
@@ -4330,7 +4440,7 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Snapshotter.swift",
       "kind": "BooleanLiteral",
-      "offset": 7006,
+      "offset": 7119,
       "length": 4,
       "value": "true"
     },
@@ -4399,43 +4509,50 @@
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2764,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "IntegerLiteral",
-      "offset": 2863,
+      "offset": 2903,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 2904,
+      "offset": 2944,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "FloatLiteral",
-      "offset": 2953,
+      "offset": 2993,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "Dictionary",
-      "offset": 3016,
+      "offset": 3056,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 3225,
+      "offset": 3265,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "StringLiteral",
-      "offset": 9671,
+      "offset": 9766,
       "length": 24,
       "value": "\"Current Configuration:\""
     },
