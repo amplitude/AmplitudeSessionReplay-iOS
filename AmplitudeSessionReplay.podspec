@@ -14,5 +14,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target  = '13.0'
   s.vendored_frameworks = "Frameworks/AmplitudeSessionReplay.xcframework"
 
-  s.dependency 'AmplitudeCore', '>= 1.0.13', '< 2.0.0'
+  s.dependency 'AmplitudeCore', '>= 1.1.0', '< 2.0.0'
 end

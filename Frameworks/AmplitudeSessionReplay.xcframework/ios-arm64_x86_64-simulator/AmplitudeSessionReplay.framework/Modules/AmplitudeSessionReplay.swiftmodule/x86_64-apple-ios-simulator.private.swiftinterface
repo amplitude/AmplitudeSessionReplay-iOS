@@ -82,6 +82,13 @@ extension AmplitudeCore.PluginHost {
     get
   }
 }
+extension AmplitudeSessionReplay.SessionReplayPlugin : AmplitudeCore.InterfaceSignalProvider {
+  public var isProviding: Swift.Bool {
+    get
+  }
+  public func addInterfaceSignalReceiver(_ receiver: any AmplitudeCore.InterfaceSignalReceiver)
+  public func removeInterfaceSignalReceiver(_ receiver: any AmplitudeCore.InterfaceSignalReceiver)
+}
 public typealias SessionId = Swift.Int64
 public typealias DeviceId = Swift.String
 @objc(AMPSessionReplay) final public class SessionReplay : ObjectiveC.NSObject, @unchecked Swift.Sendable {
