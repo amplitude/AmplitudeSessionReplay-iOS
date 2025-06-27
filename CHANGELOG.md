@@ -1,3 +1,10 @@
+# [0.5.0](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.4.6...v0.5.0) (2025-06-27)
+
+
+### Features
+
+* add interface signal provider implimentation ([#36](https://github.com/amplitude/AmplitudeSessionReplay-iOS/issues/36)) ([8c75ab3](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/8c75ab3b81444fdeb35aa1eacff6a0d7a28f580b))
+
 ## [0.4.6](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.4.5...v0.4.6) (2025-06-17)
 
 
