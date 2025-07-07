@@ -4300,7 +4300,14 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Models\/LayerObserver.swift",
       "kind": "Array",
-      "offset": 1276,
+      "offset": 240,
+      "length": 160,
+      "value": "[\"WebAVPlayerLayer\", \"NSKVONotifying_WebAVPlayerLayer\", \"FigVideoContainerLayer\", \"NSKVONotifying_FigVideoContainerLayer\"]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Models\/LayerObserver.swift",
+      "kind": "Array",
+      "offset": 1494,
       "length": 737,
       "value": "[\\.<NOT_IMPLEMENTED>, \\.<NOT_IMPLEMENTED>, \\.<NOT_IMPLEMENTED>, \"contentsMultiplyColor\"]"
     },
