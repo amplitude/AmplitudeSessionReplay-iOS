@@ -327,7 +327,7 @@ SWIFT_CLASS_NAMED("SessionReplay")
 @property (nonatomic) int64_t sessionId;
 @property (nonatomic, copy) NSString * _Nullable deviceId;
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull additionalEventProperties;
-- (nonnull instancetype)initWithApiKey:(NSString * _Nonnull)apiKey deviceId:(NSString * _Nullable)deviceId sessionId:(int64_t)sessionId optOut:(BOOL)optOut sampleRate:(float)sampleRate webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings logger:(id <CoreLogger> _Nullable)logger serverZone:(enum AMPServerZone)serverZone maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig remoteConfigClient:(RemoteConfigClient * _Nullable)remoteConfigClient OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithApiKey:(NSString * _Nonnull)apiKey deviceId:(NSString * _Nullable)deviceId sessionId:(int64_t)sessionId optOut:(BOOL)optOut sampleRate:(float)sampleRate webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings logger:(id <CoreLogger> _Nullable)logger serverZone:(enum AMPServerZone)serverZone maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig remoteConfigClient:(RemoteConfigClient * _Nullable)remoteConfigClient captureWebViews:(BOOL)captureWebViews OBJC_DESIGNATED_INITIALIZER;
 - (void)start;
 - (void)stop;
 - (void)flush;
@@ -343,7 +343,7 @@ SWIFT_CLASS_NAMED("SessionReplay")
 SWIFT_CLASS_NAMED("SessionReplayPlugin")
 @interface AMPSessionReplayPlugin : NSObject
 @property (nonatomic, strong) AMPSessionReplay * _Nullable sessionReplay;
-- (nonnull instancetype)initWithSampleRate:(float)sampleRate maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings autoStart:(BOOL)autoStart;
+- (nonnull instancetype)initWithSampleRate:(float)sampleRate maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings autoStart:(BOOL)autoStart captureWebViews:(BOOL)captureWebViews;
 - (nonnull instancetype)initWithConfig:(AMPSessionReplayPluginConfig * _Nonnull)config OBJC_DESIGNATED_INITIALIZER;
 - (void)start;
 - (void)stop;
@@ -359,7 +359,8 @@ SWIFT_CLASS_NAMED("Config")
 @property (nonatomic, readonly) BOOL enableRemoteConfig;
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, NSString *> * _Nonnull webviewMappings;
 @property (nonatomic, readonly) BOOL autoStart;
-- (nonnull instancetype)initWithSampleRate:(float)sampleRate maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings autoStart:(BOOL)autoStart OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, readonly) BOOL captureWebViews;
+- (nonnull instancetype)initWithSampleRate:(float)sampleRate maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings autoStart:(BOOL)autoStart captureWebViews:(BOOL)captureWebViews OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

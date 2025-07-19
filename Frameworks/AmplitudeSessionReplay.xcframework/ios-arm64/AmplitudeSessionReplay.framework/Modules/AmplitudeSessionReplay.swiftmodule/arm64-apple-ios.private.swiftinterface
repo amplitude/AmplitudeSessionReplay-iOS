@@ -57,7 +57,8 @@ extension SwiftUICore.View {
     @objc final public let enableRemoteConfig: Swift.Bool
     @objc final public let webviewMappings: [Swift.String : Swift.String]
     @objc final public let autoStart: Swift.Bool
-    @objc public init(sampleRate: Swift.Float = 0.0, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, webviewMappings: [Swift.String : Swift.String] = [:], autoStart: Swift.Bool = true)
+    @objc final public let captureWebViews: Swift.Bool
+    @objc public init(sampleRate: Swift.Float = 0.0, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, webviewMappings: [Swift.String : Swift.String] = [:], autoStart: Swift.Bool = true, captureWebViews: Swift.Bool = false)
     @objc deinit
   }
   public static let name: Swift.String
@@ -65,7 +66,7 @@ extension SwiftUICore.View {
     get
   }
   @objc public var sessionReplay: AmplitudeSessionReplay.SessionReplay?
-  @objc convenience public init(sampleRate: Swift.Float = 0.0, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, webviewMappings: [Swift.String : Swift.String] = [:], autoStart: Swift.Bool = true)
+  @objc convenience public init(sampleRate: Swift.Float = 0.0, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, webviewMappings: [Swift.String : Swift.String] = [:], autoStart: Swift.Bool = true, captureWebViews: Swift.Bool = false)
   @objc public init(config: AmplitudeSessionReplay.SessionReplayPlugin.Config = Config())
   public func setup(analyticsClient: any AmplitudeCore.AnalyticsClient, amplitudeContext: AmplitudeCore.AmplitudeContext)
   public func execute<Event>(_ event: inout Event) where Event : AmplitudeCore.AnalyticsEvent
@@ -116,7 +117,7 @@ public typealias DeviceId = Swift.String
   @objc final public var additionalEventProperties: [Swift.String : Any] {
     @objc get
   }
-  @objc public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId = -1, optOut: Swift.Bool = false, sampleRate: Swift.Float = 0.0, webviewMappings: [Swift.String : Swift.String] = [:], logger: (any AmplitudeCore.CoreLogger)? = nil, serverZone: AmplitudeCore.ServerZone = .US, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, remoteConfigClient: AmplitudeCore.RemoteConfigClient? = nil)
+  @objc public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId = -1, optOut: Swift.Bool = false, sampleRate: Swift.Float = 0.0, webviewMappings: [Swift.String : Swift.String] = [:], logger: (any AmplitudeCore.CoreLogger)? = nil, serverZone: AmplitudeCore.ServerZone = .US, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, remoteConfigClient: AmplitudeCore.RemoteConfigClient? = nil, captureWebViews: Swift.Bool = false)
   @objc final public func start()
   @objc final public func stop()
   @objc final public func flush()
