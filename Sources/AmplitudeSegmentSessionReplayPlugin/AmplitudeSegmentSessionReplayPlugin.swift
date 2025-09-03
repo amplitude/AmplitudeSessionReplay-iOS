@@ -33,13 +33,15 @@ public class AmplitudeSegmentSessionReplayPlugin: Segment.Plugin {
                 maskLevel: MaskLevel = .medium,
                 enableRemoteConfig: Bool = true,
                 webviewMappings: [String: String] = [:],
+                captureWebViews: Bool = false,
                 autoStart: Bool = true) {
         sessionReplay = SessionReplay(apiKey: apiKey,
                                       sampleRate: sampleRate,
                                       webviewMappings: webviewMappings,
                                       serverZone: serverZone,
                                       maskLevel: maskLevel,
-                                      enableRemoteConfig: enableRemoteConfig)
+                                      enableRemoteConfig: enableRemoteConfig,
+                                      captureWebViews: captureWebViews)
         self.autoStart = autoStart
     }
 
