@@ -16,6 +16,7 @@ import AmplitudeSessionReplay
     private let enableRemoteConfig: Bool
     private let webviewMappings: [String: String]
     private let autoStart: Bool
+    private let captureWebViews: Bool
 
     private var sessionReplay: SessionReplay?
 
@@ -23,12 +24,14 @@ import AmplitudeSessionReplay
                       maskLevel: MaskLevel = .medium,
                       enableRemoteConfig: Bool = true,
                       webviewMappings: [String: String] = [:],
-                      autoStart: Bool = true) {
+                      autoStart: Bool = true,
+                      captureWebViews: Bool = false) {
         self.sampleRate = sampleRate
         self.maskLevel = maskLevel
         self.enableRemoteConfig = enableRemoteConfig
         self.webviewMappings = webviewMappings
         self.autoStart = autoStart
+        self.captureWebViews = captureWebViews
     }
 
     public func amplitudeDidFinishInitializing(_ amplitude: Amplitude) {
@@ -50,7 +53,8 @@ import AmplitudeSessionReplay
                                       webviewMappings: webviewMappings,
                                       serverZone: serverZone,
                                       maskLevel: maskLevel,
-                                      enableRemoteConfig: enableRemoteConfig)
+                                      enableRemoteConfig: enableRemoteConfig,
+                                      captureWebViews: captureWebViews)
         if autoStart {
             sessionReplay?.start()
         }
