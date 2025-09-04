@@ -1,3 +1,10 @@
+# [0.6.0](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.5.3...v0.6.0) (2025-09-04)
+
+
+### Features
+
+* add captureWebViews option to Segment Plugin and Middleware ([#41](https://github.com/amplitude/AmplitudeSessionReplay-iOS/issues/41)) ([a8c9a75](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/a8c9a75dd1b7f078fad68ae9bfa28a13a13d8168))
+
 ## [0.5.3](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.5.2...v0.5.3) (2025-08-21)
 
 
