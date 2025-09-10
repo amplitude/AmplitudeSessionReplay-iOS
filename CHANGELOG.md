@@ -1,3 +1,10 @@
+# [0.7.0](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.6.1...v0.7.0) (2025-09-10)
+
+
+### Features
+
+* initial ios 26 support ([80499b9](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/80499b9d598ddc989a9668f6d9ef66825c982a7c))
+
 ## [0.6.1](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.6.0...v0.6.1) (2025-09-09)
 
 
