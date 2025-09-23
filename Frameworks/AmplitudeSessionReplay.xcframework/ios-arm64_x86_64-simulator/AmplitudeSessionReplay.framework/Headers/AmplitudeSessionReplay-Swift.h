@@ -314,8 +314,29 @@ typedef SWIFT_ENUM(NSInteger, MaskLevel, open) {
 };
 
 @class NSString;
+SWIFT_CLASS("_TtC22AmplitudeSessionReplay14RecordLogLevel")
+@interface RecordLogLevel : NSObject
+- (nonnull instancetype)init:(NSString * _Nonnull)rawValue OBJC_DESIGNATED_INITIALIZER;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RecordLogLevel * _Nonnull error;)
++ (RecordLogLevel * _Nonnull)error SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RecordLogLevel * _Nonnull warn;)
++ (RecordLogLevel * _Nonnull)warn SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RecordLogLevel * _Nonnull log;)
++ (RecordLogLevel * _Nonnull)log SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+SWIFT_CLASS("_TtC22AmplitudeSessionReplay16RecordLogOptions")
+@interface RecordLogOptions : NSObject
+- (nonnull instancetype)initWithLogCountThreshold:(NSInteger)logCountThreshold maxMessageLength:(NSInteger)maxMessageLength OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @protocol CoreLogger;
 @class RemoteConfigClient;
+@class NSDate;
 SWIFT_CLASS_NAMED("SessionReplay")
 @interface AMPSessionReplay : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull apiKey;
@@ -327,10 +348,11 @@ SWIFT_CLASS_NAMED("SessionReplay")
 @property (nonatomic) int64_t sessionId;
 @property (nonatomic, copy) NSString * _Nullable deviceId;
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull additionalEventProperties;
-- (nonnull instancetype)initWithApiKey:(NSString * _Nonnull)apiKey deviceId:(NSString * _Nullable)deviceId sessionId:(int64_t)sessionId optOut:(BOOL)optOut sampleRate:(float)sampleRate webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings logger:(id <CoreLogger> _Nullable)logger serverZone:(enum AMPServerZone)serverZone maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig remoteConfigClient:(RemoteConfigClient * _Nullable)remoteConfigClient captureWebViews:(BOOL)captureWebViews OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithApiKey:(NSString * _Nonnull)apiKey deviceId:(NSString * _Nullable)deviceId sessionId:(int64_t)sessionId optOut:(BOOL)optOut sampleRate:(float)sampleRate webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings logger:(id <CoreLogger> _Nullable)logger serverZone:(enum AMPServerZone)serverZone maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig remoteConfigClient:(RemoteConfigClient * _Nullable)remoteConfigClient captureWebViews:(BOOL)captureWebViews recordLogOptions:(RecordLogOptions * _Nonnull)recordLogOptions OBJC_DESIGNATED_INITIALIZER;
 - (void)start;
 - (void)stop;
 - (void)flush;
+- (void)recordLogWithLevel:(RecordLogLevel * _Nonnull)level message:(NSString * _Nullable)message date:(NSDate * _Nonnull)date;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -339,7 +361,7 @@ SWIFT_CLASS_NAMED("SessionReplay")
 SWIFT_CLASS_NAMED("SessionReplayPlugin")
 @interface AMPSessionReplayPlugin : NSObject
 @property (nonatomic, strong) AMPSessionReplay * _Nullable sessionReplay;
-- (nonnull instancetype)initWithSampleRate:(float)sampleRate maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings autoStart:(BOOL)autoStart captureWebViews:(BOOL)captureWebViews;
+- (nonnull instancetype)initWithSampleRate:(float)sampleRate maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings autoStart:(BOOL)autoStart captureWebViews:(BOOL)captureWebViews recordLogOptions:(RecordLogOptions * _Nonnull)recordLogOptions;
 - (nonnull instancetype)initWithConfig:(AMPSessionReplayPluginConfig * _Nonnull)config OBJC_DESIGNATED_INITIALIZER;
 - (void)start;
 - (void)stop;
@@ -355,7 +377,8 @@ SWIFT_CLASS_NAMED("Config")
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, NSString *> * _Nonnull webviewMappings;
 @property (nonatomic, readonly) BOOL autoStart;
 @property (nonatomic, readonly) BOOL captureWebViews;
-- (nonnull instancetype)initWithSampleRate:(float)sampleRate maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings autoStart:(BOOL)autoStart captureWebViews:(BOOL)captureWebViews OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, readonly, strong) RecordLogOptions * _Nonnull recordLogOptions;
+- (nonnull instancetype)initWithSampleRate:(float)sampleRate maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings autoStart:(BOOL)autoStart captureWebViews:(BOOL)captureWebViews recordLogOptions:(RecordLogOptions * _Nonnull)recordLogOptions OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -688,8 +711,29 @@ typedef SWIFT_ENUM(NSInteger, MaskLevel, open) {
 };
 
 @class NSString;
+SWIFT_CLASS("_TtC22AmplitudeSessionReplay14RecordLogLevel")
+@interface RecordLogLevel : NSObject
+- (nonnull instancetype)init:(NSString * _Nonnull)rawValue OBJC_DESIGNATED_INITIALIZER;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RecordLogLevel * _Nonnull error;)
++ (RecordLogLevel * _Nonnull)error SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RecordLogLevel * _Nonnull warn;)
++ (RecordLogLevel * _Nonnull)warn SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) RecordLogLevel * _Nonnull log;)
++ (RecordLogLevel * _Nonnull)log SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+SWIFT_CLASS("_TtC22AmplitudeSessionReplay16RecordLogOptions")
+@interface RecordLogOptions : NSObject
+- (nonnull instancetype)initWithLogCountThreshold:(NSInteger)logCountThreshold maxMessageLength:(NSInteger)maxMessageLength OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @protocol CoreLogger;
 @class RemoteConfigClient;
+@class NSDate;
 SWIFT_CLASS_NAMED("SessionReplay")
 @interface AMPSessionReplay : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull apiKey;
@@ -701,10 +745,11 @@ SWIFT_CLASS_NAMED("SessionReplay")
 @property (nonatomic) int64_t sessionId;
 @property (nonatomic, copy) NSString * _Nullable deviceId;
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull additionalEventProperties;
-- (nonnull instancetype)initWithApiKey:(NSString * _Nonnull)apiKey deviceId:(NSString * _Nullable)deviceId sessionId:(int64_t)sessionId optOut:(BOOL)optOut sampleRate:(float)sampleRate webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings logger:(id <CoreLogger> _Nullable)logger serverZone:(enum AMPServerZone)serverZone maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig remoteConfigClient:(RemoteConfigClient * _Nullable)remoteConfigClient captureWebViews:(BOOL)captureWebViews OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithApiKey:(NSString * _Nonnull)apiKey deviceId:(NSString * _Nullable)deviceId sessionId:(int64_t)sessionId optOut:(BOOL)optOut sampleRate:(float)sampleRate webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings logger:(id <CoreLogger> _Nullable)logger serverZone:(enum AMPServerZone)serverZone maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig remoteConfigClient:(RemoteConfigClient * _Nullable)remoteConfigClient captureWebViews:(BOOL)captureWebViews recordLogOptions:(RecordLogOptions * _Nonnull)recordLogOptions OBJC_DESIGNATED_INITIALIZER;
 - (void)start;
 - (void)stop;
 - (void)flush;
+- (void)recordLogWithLevel:(RecordLogLevel * _Nonnull)level message:(NSString * _Nullable)message date:(NSDate * _Nonnull)date;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -713,7 +758,7 @@ SWIFT_CLASS_NAMED("SessionReplay")
 SWIFT_CLASS_NAMED("SessionReplayPlugin")
 @interface AMPSessionReplayPlugin : NSObject
 @property (nonatomic, strong) AMPSessionReplay * _Nullable sessionReplay;
-- (nonnull instancetype)initWithSampleRate:(float)sampleRate maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings autoStart:(BOOL)autoStart captureWebViews:(BOOL)captureWebViews;
+- (nonnull instancetype)initWithSampleRate:(float)sampleRate maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings autoStart:(BOOL)autoStart captureWebViews:(BOOL)captureWebViews recordLogOptions:(RecordLogOptions * _Nonnull)recordLogOptions;
 - (nonnull instancetype)initWithConfig:(AMPSessionReplayPluginConfig * _Nonnull)config OBJC_DESIGNATED_INITIALIZER;
 - (void)start;
 - (void)stop;
@@ -729,7 +774,8 @@ SWIFT_CLASS_NAMED("Config")
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, NSString *> * _Nonnull webviewMappings;
 @property (nonatomic, readonly) BOOL autoStart;
 @property (nonatomic, readonly) BOOL captureWebViews;
-- (nonnull instancetype)initWithSampleRate:(float)sampleRate maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings autoStart:(BOOL)autoStart captureWebViews:(BOOL)captureWebViews OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, readonly, strong) RecordLogOptions * _Nonnull recordLogOptions;
+- (nonnull instancetype)initWithSampleRate:(float)sampleRate maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings autoStart:(BOOL)autoStart captureWebViews:(BOOL)captureWebViews recordLogOptions:(RecordLogOptions * _Nonnull)recordLogOptions OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

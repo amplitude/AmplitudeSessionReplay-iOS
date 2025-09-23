@@ -34,14 +34,16 @@ public class AmplitudeSegmentSessionReplayPlugin: Segment.Plugin {
                 enableRemoteConfig: Bool = true,
                 webviewMappings: [String: String] = [:],
                 autoStart: Bool = true,
-                captureWebViews: Bool = false) {
+                captureWebViews: Bool = false,
+                recordLogOptions: RecordLogOptions = .init()) {
         sessionReplay = SessionReplay(apiKey: apiKey,
                                       sampleRate: sampleRate,
                                       webviewMappings: webviewMappings,
                                       serverZone: serverZone,
                                       maskLevel: maskLevel,
                                       enableRemoteConfig: enableRemoteConfig,
-                                      captureWebViews: captureWebViews)
+                                      captureWebViews: captureWebViews,
+                                      recordLogOptions: recordLogOptions)
         self.autoStart = autoStart
     }
 
@@ -102,5 +104,9 @@ public class AmplitudeSegmentSessionReplayPlugin: Segment.Plugin {
 
     public func stop() {
         sessionReplay.stop()
+    }
+
+    public func recordLog(level: RecordLogLevel, message: String?, date: Date = Date()) {
+        sessionReplay.recordLog(level: level, message: message, date: date)
     }
 }

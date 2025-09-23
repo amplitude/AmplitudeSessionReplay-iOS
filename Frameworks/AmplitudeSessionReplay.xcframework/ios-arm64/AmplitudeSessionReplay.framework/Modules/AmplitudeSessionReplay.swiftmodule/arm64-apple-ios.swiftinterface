@@ -58,7 +58,8 @@ extension SwiftUICore.View {
     @objc final public let webviewMappings: [Swift.String : Swift.String]
     @objc final public let autoStart: Swift.Bool
     @objc final public let captureWebViews: Swift.Bool
-    @objc public init(sampleRate: Swift.Float = 0.0, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, webviewMappings: [Swift.String : Swift.String] = [:], autoStart: Swift.Bool = true, captureWebViews: Swift.Bool = false)
+    @objc final public let recordLogOptions: AmplitudeSessionReplay.RecordLogOptions
+    @objc public init(sampleRate: Swift.Float = 0.0, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, webviewMappings: [Swift.String : Swift.String] = [:], autoStart: Swift.Bool = true, captureWebViews: Swift.Bool = false, recordLogOptions: AmplitudeSessionReplay.RecordLogOptions = .init())
     @objc deinit
   }
   public static let name: Swift.String
@@ -66,13 +67,14 @@ extension SwiftUICore.View {
     get
   }
   @objc public var sessionReplay: AmplitudeSessionReplay.SessionReplay?
-  @objc convenience public init(sampleRate: Swift.Float = 0.0, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, webviewMappings: [Swift.String : Swift.String] = [:], autoStart: Swift.Bool = true, captureWebViews: Swift.Bool = false)
+  @objc convenience public init(sampleRate: Swift.Float = 0.0, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, webviewMappings: [Swift.String : Swift.String] = [:], autoStart: Swift.Bool = true, captureWebViews: Swift.Bool = false, recordLogOptions: AmplitudeSessionReplay.RecordLogOptions = .init())
   @objc public init(config: AmplitudeSessionReplay.SessionReplayPlugin.Config = Config())
   public func setup(analyticsClient: any AmplitudeCore.AnalyticsClient, amplitudeContext: AmplitudeCore.AmplitudeContext)
   public func execute<Event>(_ event: inout Event) where Event : AmplitudeCore.AnalyticsEvent
   public func onIdentityChanged(_ identity: any AmplitudeCore.AnalyticsIdentity)
   public func onSessionIdChanged(_ sessionId: Swift.Int64)
   public func onOptOutChanged(_ optOut: Swift.Bool)
+  public func recordLog(level: AmplitudeSessionReplay.RecordLogLevel, message: Swift.String?, date: Foundation.Date = Date())
   @objc public func start()
   @objc public func stop()
   public func teardown()
@@ -117,10 +119,24 @@ public typealias DeviceId = Swift.String
   @objc final public var additionalEventProperties: [Swift.String : Any] {
     @objc get
   }
-  @objc public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId = -1, optOut: Swift.Bool = false, sampleRate: Swift.Float = 0.0, webviewMappings: [Swift.String : Swift.String] = [:], logger: (any AmplitudeCore.CoreLogger)? = nil, serverZone: AmplitudeCore.ServerZone = .US, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, remoteConfigClient: AmplitudeCore.RemoteConfigClient? = nil, captureWebViews: Swift.Bool = false)
+  @objc public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId = -1, optOut: Swift.Bool = false, sampleRate: Swift.Float = 0.0, webviewMappings: [Swift.String : Swift.String] = [:], logger: (any AmplitudeCore.CoreLogger)? = nil, serverZone: AmplitudeCore.ServerZone = .US, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, remoteConfigClient: AmplitudeCore.RemoteConfigClient? = nil, captureWebViews: Swift.Bool = false, recordLogOptions: AmplitudeSessionReplay.RecordLogOptions = RecordLogOptions())
   @objc final public func start()
   @objc final public func stop()
   @objc final public func flush()
+  @objc final public func recordLog(level: AmplitudeSessionReplay.RecordLogLevel, message: Swift.String?, date: Foundation.Date = Date())
+  @objc deinit
+}
+@objc final public class RecordLogOptions : ObjectiveC.NSObject, Swift.Sendable {
+  @objc public init(logCountThreshold: Swift.Int = 1000, maxMessageLength: Swift.Int = 2000)
+  @objc deinit
+}
+@objc final public class RecordLogLevel : ObjectiveC.NSObject, Swift.Codable, Swift.Sendable {
+  @objc public init(_ rawValue: Swift.String)
+  @objc public static let error: AmplitudeSessionReplay.RecordLogLevel
+  @objc public static let warn: AmplitudeSessionReplay.RecordLogLevel
+  @objc public static let log: AmplitudeSessionReplay.RecordLogLevel
+  public init(from decoder: any Swift.Decoder) throws
+  final public func encode(to encoder: any Swift.Encoder) throws
   @objc deinit
 }
 extension QuartzCore.CATransform3D : Swift.Equatable {
