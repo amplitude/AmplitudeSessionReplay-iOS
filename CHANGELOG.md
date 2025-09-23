@@ -1,3 +1,10 @@
+# [0.8.0](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.7.0...v0.8.0) (2025-09-23)
+
+
+### Features
+
+* add log record ([#44](https://github.com/amplitude/AmplitudeSessionReplay-iOS/issues/44)) ([16762a9](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/16762a9c948c8e0ee79c353c29146ecc469eb009))
+
 # [0.7.0](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.6.1...v0.7.0) (2025-09-10)
 
 
