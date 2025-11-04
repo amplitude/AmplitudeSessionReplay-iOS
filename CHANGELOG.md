@@ -1,3 +1,11 @@
+## [0.8.4](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.8.3...v0.8.4) (2025-11-04)
+
+
+### Bug Fixes
+
+* update framework ([a662fba](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/a662fba3ffd5c70b9301da68b1dd1cc8aeb297a1))
+* update lint runner to macos-14 due to github deprecation ([#47](https://github.com/amplitude/AmplitudeSessionReplay-iOS/issues/47)) ([e6f308c](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/e6f308c862c11a21649894cb1eee83aa12c4a14b))
+
 ## [0.8.3](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.8.2...v0.8.3) (2025-10-31)
 
 
