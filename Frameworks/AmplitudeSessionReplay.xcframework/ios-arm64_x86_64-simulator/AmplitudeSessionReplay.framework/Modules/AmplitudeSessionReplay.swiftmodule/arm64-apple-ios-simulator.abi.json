@@ -5533,6 +5533,20 @@
       "value": "[]"
     },
     {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Models\/LayerSnapshot.swift",
+      "kind": "Array",
+      "offset": 257,
+      "length": 24,
+      "value": "[\"_uses\", \"CornerRadii\"]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Models\/LayerSnapshot.swift",
+      "kind": "StringLiteral",
+      "offset": 331,
+      "length": 13,
+      "value": "\"cornerRadii\""
+    },
+    {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/CALayer+SessionReplay.swift",
       "kind": "IntegerLiteral",
       "offset": 295,
