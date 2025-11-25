@@ -1,3 +1,10 @@
+## [0.8.7](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.8.6...v0.8.7) (2025-11-25)
+
+
+### Bug Fixes
+
+* enable log api to be accessed from objc ([#50](https://github.com/amplitude/AmplitudeSessionReplay-iOS/issues/50)) ([da40e5d](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/da40e5da9d19dd60dd4990f1fb5a3fcb789b41b7))
+
 ## [0.8.6](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.8.5...v0.8.6) (2025-11-20)
 
 
