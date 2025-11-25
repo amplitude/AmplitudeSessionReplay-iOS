@@ -108,15 +108,15 @@ import AmplitudeSessionReplay
         sessionReplay?.stop()
     }
 
-    public func start() {
+    @objc public func start() {
         sessionReplay?.start()
     }
 
-    public func stop() {
+    @objc public func stop() {
         sessionReplay?.stop()
     }
 
-    public func recordLog(level: RecordLogLevel, message: String?, date: Date = Date()) {
+    @objc public func recordLog(level: RecordLogLevel, message: String?, date: Date = Date()) {
         sessionReplay?.recordLog(level: level, message: message, date: date)
     }
 }
