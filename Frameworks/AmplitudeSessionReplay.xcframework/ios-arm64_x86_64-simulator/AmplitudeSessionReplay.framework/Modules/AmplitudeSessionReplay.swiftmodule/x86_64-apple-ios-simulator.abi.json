@@ -266,6 +266,13 @@
       },
       {
         "kind": "Import",
+        "name": "AmplitudeSessionReplay_Private",
+        "printedName": "AmplitudeSessionReplay_Private",
+        "declKind": "Import",
+        "moduleName": "AmplitudeSessionReplay"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -3828,6 +3835,13 @@
       },
       {
         "kind": "Import",
+        "name": "AmplitudeSessionReplay_Private",
+        "printedName": "AmplitudeSessionReplay_Private",
+        "declKind": "Import",
+        "moduleName": "AmplitudeSessionReplay"
+      },
+      {
+        "kind": "Import",
         "name": "QuartzCore",
         "printedName": "QuartzCore",
         "declKind": "Import",
@@ -5115,7 +5129,7 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Filter\/FilterData.swift",
       "kind": "Array",
-      "offset": 290,
+      "offset": 328,
       "length": 6421,
       "value": "[\"inputAddWhite\", \"inputAlphaValues\", \"inputAmount\", \"inputAngle\", \"inputAspectRatio\", \"inputBackColor0\", \"inputBackColor1\", \"inputBackEnabled\", \"inputBias\", \"inputBlueValues\", \"inputBounds\", \"inputColor\", \"inputColor0\", \"inputColor1\", \"inputColorMap\", \"inputColorMatrix\", \"inputDither\", \"inputEndAngle\", \"inputFrontColor\", \"inputFrontEnabled\", \"inputGreenValues\", \"inputHSVSpace\", \"inputHardEdges\", \"inputIntermediateBitDepth\", \"inputLinear\", \"inputNormalizeEdges\", \"inputOverlayOpacity\", \"inputQuality\", \"inputRadius\", \"inputRedValues\", \"inputReversed\", \"inputScale\", \"inputShadowBounds\", \"inputShadowColor\", \"inputStartAngle\", \"inputTime\", \"inputValues\", \"inputInnerRefractionAmount\", \"inputInnerRefractionHeight\", \"inputOuterRefractionAmount\", \"inputOuterRefractionHeight\", \"inputRefractionDistance0\", \"inputRefractionDistance1\", \"inputRefractionOpacity\", \"inputBlurRadius\", \"inputBlurOpacity0\", \"inputBlurOpacity1\", \"inputBlurOpacity2\", \"inputBlurOpacity3\", \"inputBlurOpacity4\", \"inputBlurDistance0\", \"inputBlurDistance1\", \"inputBlurDistance2\", \"inputBlurDistance3\", \"inputBlurDistance4\", \"inputFaceOpacity\", \"inputFaceColorMatrixWhite\", \"inputFaceColorMatrixBlack\", \"inputFaceColorMatrixSaturation\", \"inputFaceColorMatrixFillColor\", \"inputBleedAmount\", \"inputBleedHeight\", \"inputBleedOffset\", \"inputBleedBlurRadius\", \"inputBleedSaturation\", \"inputBleedOpacity\", \"inputBleedDarkenBlend\", \"inputBleedDistance0\", \"inputBleedDistance1\", \"inputBleedColorMatrixWhite\", \"inputBleedColorMatrixBlack\", \"inputBleedColorMatrixSaturation\", \"inputBleedColorMatrixFillColor\", \"inputShadowOffset\", \"inputShadowAmount\", \"inputShadowHeight\", \"inputShadowOpacity\", \"inputShadowColorMatrixWhite\", \"inputShadowColorMatrixBlack\", \"inputShadowColorMatrixSaturation\", \"inputShadowColorMatrixFillColor\", \"inputShadowDistanceOffset\", \"inputShadowBlurRadius\", \"inputShadowRadius\", \"inputShadowVibrancyContribution\", \"inputRefractionAmount\", \"inputRefractionHeight\", \"inputRefractionOffset\", \"inputAberrationAmount\", \"inputAberrationHeight\", \"inputAberrationOffset\", \"inputAberrationAngle\", \"inputEdgeStart\", \"inputEdgeEnd\", \"inputEdgeOpacityStart\", \"inputEdgeOpacityEnd\", \"inputSDRHoldingToneEnabled\", \"inputSDRGradientDistance0\", \"inputSDRGradientDistance1\", \"inputSDRShadowOpacity\", \"inputMaxHeadroom\", \"inputMaskImage\"]"
     },
@@ -5535,14 +5549,14 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Models\/LayerSnapshot.swift",
       "kind": "Array",
-      "offset": 257,
+      "offset": 295,
       "length": 24,
       "value": "[\"_uses\", \"CornerRadii\"]"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Models\/LayerSnapshot.swift",
       "kind": "StringLiteral",
-      "offset": 331,
+      "offset": 369,
       "length": 13,
       "value": "\"cornerRadii\""
     },
