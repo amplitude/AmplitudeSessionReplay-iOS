@@ -1,3 +1,10 @@
+## [0.8.11](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.8.10...v0.8.11) (2025-12-23)
+
+
+### Bug Fixes
+
+* update framework ([ed636b6](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/ed636b624a233fffa8aef36bf9b08de835bcdc4c))
+
 ## [0.8.10](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.8.9...v0.8.10) (2025-12-17)
 
 
