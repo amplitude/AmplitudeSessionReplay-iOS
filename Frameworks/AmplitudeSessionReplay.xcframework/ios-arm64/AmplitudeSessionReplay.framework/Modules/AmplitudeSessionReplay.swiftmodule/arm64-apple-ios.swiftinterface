@@ -119,7 +119,7 @@ public typealias DeviceId = Swift.String
   @objc final public var additionalEventProperties: [Swift.String : Any] {
     @objc get
   }
-  @objc public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId = -1, optOut: Swift.Bool = false, sampleRate: Swift.Float = 0.0, webviewMappings: [Swift.String : Swift.String] = [:], logger: (any AmplitudeCore.CoreLogger)? = nil, serverZone: AmplitudeCore.ServerZone = .US, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, remoteConfigClient: AmplitudeCore.RemoteConfigClient? = nil, captureWebViews: Swift.Bool = false, recordLogOptions: AmplitudeSessionReplay.RecordLogOptions = RecordLogOptions())
+  @objc convenience public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId = -1, optOut: Swift.Bool = false, sampleRate: Swift.Float = 0.0, webviewMappings: [Swift.String : Swift.String] = [:], logger: (any AmplitudeCore.CoreLogger)? = nil, serverZone: AmplitudeCore.ServerZone = .US, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, remoteConfigClient: AmplitudeCore.RemoteConfigClient? = nil, captureWebViews: Swift.Bool = false, recordLogOptions: AmplitudeSessionReplay.RecordLogOptions = RecordLogOptions())
   @objc final public func start()
   @objc final public func stop()
   @objc final public func flush()

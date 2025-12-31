@@ -1,22 +1,73 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.0.2 effective-5.10 (swiftlang-6.0.2.1.2 clang-1600.0.26.4)
-// swift-module-flags: -target arm64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name AmplitudeCore
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface
+// swift-compiler-version: Apple Swift version 6.1 effective-5.10 (swiftlang-6.1.0.110.21 clang-1700.0.13.3)
+// swift-module-flags: -target arm64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AmplitudeCore
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
 import Combine
 import Foundation
 import OSLog
 import Swift
+import SystemConfiguration
+import UIKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 public struct AmplitudeContext {
+  public static var coreLibraryName: Swift.String {
+    get
+  }
+  public static var coreLibraryVersion: Swift.String {
+    get
+  }
   public let apiKey: Swift.String
   public let instanceName: Swift.String
   public let serverZone: AmplitudeCore.ServerZone
   public let remoteConfigClient: AmplitudeCore.RemoteConfigClient
   public let logger: any AmplitudeCore.CoreLogger
+  @_spi(Internal) public let diagnosticsClient: any AmplitudeCore.CoreDiagnostics
   public init(apiKey: Swift.String, instanceName: Swift.String = "$default_instance", serverZone: AmplitudeCore.ServerZone = .US, logger: any AmplitudeCore.CoreLogger = OSLogger(logLevel: .error))
+  @_spi(Internal) public init(apiKey: Swift.String, instanceName: Swift.String = "$default_instance", serverZone: AmplitudeCore.ServerZone = .US, logger: any AmplitudeCore.CoreLogger = OSLogger(logLevel: .error), remoteConfigClient: AmplitudeCore.RemoteConfigClient?, diagnosticsClient: (any AmplitudeCore.CoreDiagnostics)?)
+}
+@_hasMissingDesignatedInitializers @_Concurrency.MainActor public class CoreDevice : Swift.Sendable {
+  @objc deinit
+}
+@_spi(Internal) @available(iOS 13.0, macOS 10.15, watchOS 6.0, tvOS 13.0, *)
+public protocol CoreDiagnostics : _Concurrency.Actor {
+  @_spi(Internal) func setTag(name: Swift.String, value: Swift.String) async
+  @_spi(Internal) func setTags(_ tags: [Swift.String : Swift.String]) async
+  @_spi(Internal) func increment(name: Swift.String, size: Swift.Int) async
+  @_spi(Internal) func recordHistogram(name: Swift.String, value: Swift.Double) async
+  @_spi(Internal) func recordEvent(name: Swift.String, properties: [Swift.String : any Swift.Sendable]?) async
+  @_spi(Internal) func flush() async
+}
+@_spi(Internal) @available(iOS 13.0, macOS 10.15, watchOS 6.0, tvOS 13.0, *)
+extension AmplitudeCore.CoreDiagnostics {
+  @_spi(Internal) public func increment(name: Swift.String) async
+  @_spi(Internal) nonisolated public func setTag(name: Swift.String, value: Swift.String)
+  @_spi(Internal) nonisolated public func setTags(_ tags: [Swift.String : Swift.String])
+  @_spi(Internal) nonisolated public func increment(name: Swift.String, size: Swift.Int = 1)
+  @_spi(Internal) nonisolated public func recordHistogram(name: Swift.String, value: Swift.Double)
+  @_spi(Internal) nonisolated public func recordEvent(name: Swift.String, properties: [Swift.String : any Swift.Sendable]? = nil)
+}
+@usableFromInline
+internal let DEFAULT_SAMPLE_RATE: Swift.Double
+@usableFromInline
+internal let DEFAULT_FLUSH_INTERVAL: Swift.UInt64
+@_spi(Internal) @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
+public actor DiagnosticsClient : AmplitudeCore.CoreDiagnostics {
+  @_spi(Internal) public typealias StateCallback = @Sendable () -> Swift.Void
+  @_spi(Internal) public init(apiKey: Swift.String, serverZone: AmplitudeCore.ServerZone = .US, instanceName: Swift.String, logger: any AmplitudeCore.CoreLogger = OSLogger(logLevel: .error), enabled: Swift.Bool = true, sampleRate: Swift.Double = DEFAULT_SAMPLE_RATE, crashCaptureEnabled: Swift.Bool = false, remoteConfigClient: AmplitudeCore.RemoteConfigClient?, flushIntervalNanoSec: Swift.UInt64 = DEFAULT_FLUSH_INTERVAL * NSEC_PER_SEC, urlSessionConfiguration: Foundation.URLSessionConfiguration = .ephemeral)
+  @_spi(Internal) public func setTag(name: Swift.String, value: Swift.String) async
+  @_spi(Internal) public func setTags(_ tags: [Swift.String : Swift.String]) async
+  @_spi(Internal) public func increment(name: Swift.String, size: Swift.Int) async
+  @_spi(Internal) public func recordHistogram(name: Swift.String, value: Swift.Double) async
+  @_spi(Internal) public func recordEvent(name: Swift.String, properties: [Swift.String : any Swift.Sendable]? = nil) async
+  @_spi(Internal) public func flush() async
+  @_spi(Internal) @objc deinit
+  @_spi(Internal) @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+  @_semantics("defaultActor") nonisolated final public var unownedExecutor: _Concurrency.UnownedSerialExecutor {
+    @_spi(Internal) get
+  }
 }
 @objc @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 @objcMembers public class InterfaceChangeSignal : ObjectiveC.NSObject {
@@ -65,7 +116,6 @@ final public class OSLogger : AmplitudeCore.CoreLogger {
   final public func log(_ logLevel: AmplitudeCore.LogLevel, _ message: Swift.String)
   @objc deinit
 }
-#if compiler(>=5.3) && $PrimaryAssociatedTypes2
 @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 public protocol AnalyticsClient<Identity> : AnyObject {
   associatedtype Identity : AmplitudeCore.AnalyticsIdentity
@@ -74,16 +124,6 @@ public protocol AnalyticsClient<Identity> : AnyObject {
   var optOut: Swift.Bool { get }
   func track(eventType: Swift.String, eventProperties: [Swift.String : Any]?)
 }
-#else
-@available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
-public protocol AnalyticsClient : AnyObject {
-  associatedtype Identity : AmplitudeCore.AnalyticsIdentity
-  var identity: Self.Identity { get }
-  var sessionId: Swift.Int64 { get }
-  var optOut: Swift.Bool { get }
-  func track(eventType: Swift.String, eventProperties: [Swift.String : Any]?)
-}
-#endif
 public protocol AnalyticsEvent {
   var userId: Swift.String? { get }
   var deviceId: Swift.String? { get }
@@ -115,6 +155,7 @@ public protocol UniversalPlugin : AnyObject {
   func onIdentityChanged(_ identity: any AmplitudeCore.AnalyticsIdentity)
   func onSessionIdChanged(_ sessionId: Swift.Int64)
   func onOptOutChanged(_ optOut: Swift.Bool)
+  func onReset()
 }
 @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 extension AmplitudeCore.UniversalPlugin {
@@ -127,6 +168,7 @@ extension AmplitudeCore.UniversalPlugin {
   public func onIdentityChanged(_ identity: any AmplitudeCore.AnalyticsIdentity)
   public func onSessionIdChanged(_ sessionId: Swift.Int64)
   public func onOptOutChanged(_ optOut: Swift.Bool)
+  public func onReset()
 }
 @objc @_hasMissingDesignatedInitializers @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 public actor RemoteConfigClient : ObjectiveC.NSObject {
@@ -146,6 +188,7 @@ public actor RemoteConfigClient : ObjectiveC.NSObject {
   public enum RemoteConfigError : Swift.Error {
     case notInCache
     case invalidServerURL
+    case invalidApiKey
     case badResponse
     case preInit
     case cancelled
@@ -177,6 +220,27 @@ public actor RemoteConfigClient : ObjectiveC.NSObject {
     get
   }
   public init?(rawValue: AmplitudeCore.ServerZone.RawValue)
+}
+public enum JSONValue : Swift.Codable, Swift.Sendable {
+  case string(Swift.String)
+  case int(Swift.Int)
+  case double(Swift.Double)
+  case bool(Swift.Bool)
+  case array([AmplitudeCore.JSONValue])
+  case dictionary([Swift.String : AmplitudeCore.JSONValue])
+  case null
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+  public static func from(_ value: Any) -> AmplitudeCore.JSONValue?
+  public func toAny() -> any Swift.Sendable
+}
+@_spi(Internal) public enum VersionError : Swift.Error, Swift.Equatable {
+  @_spi(Internal) case invalidVersionString(Swift.String)
+  @_spi(Internal) case emptyVersionString
+  @_spi(Internal) public static func == (a: AmplitudeCore.VersionError, b: AmplitudeCore.VersionError) -> Swift.Bool
+}
+@_spi(Internal) extension Swift.String {
+  @_spi(Internal) public func isGreaterThanOrEqualToVersion(_ version: Swift.String) throws -> Swift.Bool
 }
 extension AmplitudeCore.LogLevel : Swift.Hashable {}
 extension AmplitudeCore.LogLevel : Swift.RawRepresentable {}

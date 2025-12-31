@@ -4,7 +4,7 @@
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1
 import AVFoundation
 import Accelerate
-@_exported import AmplitudeCore
+@_exported @_spi(Internal) import AmplitudeCore
 @_exported import AmplitudeSessionReplay
 import AmplitudeSessionReplay_Private
 import CommonCrypto
@@ -32,6 +32,26 @@ extension UIKit.UIView {
 }
 extension CoreGraphics.CGImage {
   public func cropping(contentsRect: CoreFoundation.CGRect) -> CoreGraphics.CGImage?
+}
+@_spi(Internal) extension AmplitudeCore.CoreDiagnostics {
+  @_spi(Internal) @discardableResult
+  @inlinable nonisolated internal func measure<T>(name: Swift.String, _ block: () -> T) -> T {
+        let t0 = DispatchTime.now().uptimeNanoseconds
+        let result = block()
+        let t1 = DispatchTime.now().uptimeNanoseconds
+        recordHistogram(name: name, value: Double(t1 &- t0) / Double(NSEC_PER_SEC))
+        return result
+    }
+  @_spi(Internal) @discardableResult
+  @inlinable nonisolated internal func measure<T>(_ block: (inout Swift.String) -> T) -> T {
+        let t0 = DispatchTime.now().uptimeNanoseconds
+        var name = ""
+        let result = block(&name)
+        let t1 = DispatchTime.now().uptimeNanoseconds
+        assert(!name.isEmpty, "Metric name must be set in measure block")
+        recordHistogram(name: name, value: Double(t1 &- t0) / Double(NSEC_PER_SEC))
+        return result
+    }
 }
 @objc public enum MaskLevel : Swift.Int, Swift.CustomStringConvertible {
   case light = 0
@@ -119,7 +139,8 @@ public typealias DeviceId = Swift.String
   @objc final public var additionalEventProperties: [Swift.String : Any] {
     @objc get
   }
-  @objc public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId = -1, optOut: Swift.Bool = false, sampleRate: Swift.Float = 0.0, webviewMappings: [Swift.String : Swift.String] = [:], logger: (any AmplitudeCore.CoreLogger)? = nil, serverZone: AmplitudeCore.ServerZone = .US, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, remoteConfigClient: AmplitudeCore.RemoteConfigClient? = nil, captureWebViews: Swift.Bool = false, recordLogOptions: AmplitudeSessionReplay.RecordLogOptions = RecordLogOptions())
+  @objc convenience public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId = -1, optOut: Swift.Bool = false, sampleRate: Swift.Float = 0.0, webviewMappings: [Swift.String : Swift.String] = [:], logger: (any AmplitudeCore.CoreLogger)? = nil, serverZone: AmplitudeCore.ServerZone = .US, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, remoteConfigClient: AmplitudeCore.RemoteConfigClient? = nil, captureWebViews: Swift.Bool = false, recordLogOptions: AmplitudeSessionReplay.RecordLogOptions = RecordLogOptions())
+  @_spi(Internal) public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId = -1, optOut: Swift.Bool = false, sampleRate: Swift.Float = 0.0, webviewMappings: [Swift.String : Swift.String] = [:], logger: (any AmplitudeCore.CoreLogger)? = nil, serverZone: AmplitudeCore.ServerZone = .US, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, remoteConfigClient: AmplitudeCore.RemoteConfigClient? = nil, captureWebViews: Swift.Bool = false, recordLogOptions: AmplitudeSessionReplay.RecordLogOptions = RecordLogOptions(), diagnosticsClient: (any AmplitudeCore.CoreDiagnostics)? = nil)
   @objc final public func start()
   @objc final public func stop()
   @objc final public func flush()
