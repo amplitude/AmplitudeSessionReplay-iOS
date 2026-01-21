@@ -313,6 +313,12 @@ typedef SWIFT_ENUM(NSInteger, MaskLevel, open) {
   MaskLevelConservative = 2,
 };
 
+typedef SWIFT_ENUM_NAMED(NSInteger, AMPSessionReplayQualityProfile, "QualityProfile", open) {
+  AMPSessionReplayQualityProfileLow = 0,
+  AMPSessionReplayQualityProfileMedium = 1,
+  AMPSessionReplayQualityProfileHigh = 2,
+};
+
 @class NSString;
 SWIFT_CLASS("_TtC22AmplitudeSessionReplay14RecordLogLevel")
 @interface RecordLogLevel : NSObject
@@ -335,6 +341,7 @@ SWIFT_CLASS("_TtC22AmplitudeSessionReplay16RecordLogOptions")
 @end
 
 @protocol CoreLogger;
+@class AMPSessionReplayUploadConfig;
 @class RemoteConfigClient;
 @class NSDate;
 SWIFT_CLASS_NAMED("SessionReplay")
@@ -348,7 +355,9 @@ SWIFT_CLASS_NAMED("SessionReplay")
 @property (nonatomic) int64_t sessionId;
 @property (nonatomic, copy) NSString * _Nullable deviceId;
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull additionalEventProperties;
-- (nonnull instancetype)initWithApiKey:(NSString * _Nonnull)apiKey deviceId:(NSString * _Nullable)deviceId sessionId:(int64_t)sessionId optOut:(BOOL)optOut sampleRate:(float)sampleRate webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings logger:(id <CoreLogger> _Nullable)logger serverZone:(enum AMPServerZone)serverZone maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig remoteConfigClient:(RemoteConfigClient * _Nullable)remoteConfigClient captureWebViews:(BOOL)captureWebViews recordLogOptions:(RecordLogOptions * _Nonnull)recordLogOptions;
+@property (nonatomic) enum AMPSessionReplayQualityProfile quality;
+@property (nonatomic, readonly, strong) AMPSessionReplayUploadConfig * _Nonnull uploadConfig;
+- (nonnull instancetype)initWithApiKey:(NSString * _Nonnull)apiKey deviceId:(NSString * _Nullable)deviceId sessionId:(int64_t)sessionId optOut:(BOOL)optOut sampleRate:(float)sampleRate quality:(enum AMPSessionReplayQualityProfile)quality webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings logger:(id <CoreLogger> _Nullable)logger serverZone:(enum AMPServerZone)serverZone maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig uploadConfig:(AMPSessionReplayUploadConfig * _Nonnull)uploadConfig remoteConfigClient:(RemoteConfigClient * _Nullable)remoteConfigClient captureWebViews:(BOOL)captureWebViews recordLogOptions:(RecordLogOptions * _Nonnull)recordLogOptions;
 - (void)start;
 - (void)stop;
 - (void)flush;
@@ -361,7 +370,7 @@ SWIFT_CLASS_NAMED("SessionReplay")
 SWIFT_CLASS_NAMED("SessionReplayPlugin")
 @interface AMPSessionReplayPlugin : NSObject
 @property (nonatomic, strong) AMPSessionReplay * _Nullable sessionReplay;
-- (nonnull instancetype)initWithSampleRate:(float)sampleRate maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings autoStart:(BOOL)autoStart captureWebViews:(BOOL)captureWebViews recordLogOptions:(RecordLogOptions * _Nonnull)recordLogOptions;
+- (nonnull instancetype)initWithSampleRate:(float)sampleRate maskLevel:(enum MaskLevel)maskLevel quality:(enum AMPSessionReplayQualityProfile)quality enableRemoteConfig:(BOOL)enableRemoteConfig webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings autoStart:(BOOL)autoStart captureWebViews:(BOOL)captureWebViews recordLogOptions:(RecordLogOptions * _Nonnull)recordLogOptions;
 - (nonnull instancetype)initWithConfig:(AMPSessionReplayPluginConfig * _Nonnull)config OBJC_DESIGNATED_INITIALIZER;
 - (void)start;
 - (void)stop;
@@ -373,18 +382,28 @@ SWIFT_CLASS_NAMED("Config")
 @interface AMPSessionReplayPluginConfig : NSObject
 @property (nonatomic, readonly) float sampleRate;
 @property (nonatomic, readonly) enum MaskLevel maskLevel;
+@property (nonatomic, readonly) enum AMPSessionReplayQualityProfile quality;
 @property (nonatomic, readonly) BOOL enableRemoteConfig;
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, NSString *> * _Nonnull webviewMappings;
 @property (nonatomic, readonly) BOOL autoStart;
 @property (nonatomic, readonly) BOOL captureWebViews;
 @property (nonatomic, readonly, strong) RecordLogOptions * _Nonnull recordLogOptions;
-- (nonnull instancetype)initWithSampleRate:(float)sampleRate maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings autoStart:(BOOL)autoStart captureWebViews:(BOOL)captureWebViews recordLogOptions:(RecordLogOptions * _Nonnull)recordLogOptions OBJC_DESIGNATED_INITIALIZER;
+@property (nonatomic, readonly, strong) AMPSessionReplayUploadConfig * _Nonnull uploadConfig;
+- (nonnull instancetype)initWithSampleRate:(float)sampleRate maskLevel:(enum MaskLevel)maskLevel quality:(enum AMPSessionReplayQualityProfile)quality enableRemoteConfig:(BOOL)enableRemoteConfig webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings autoStart:(BOOL)autoStart captureWebViews:(BOOL)captureWebViews recordLogOptions:(RecordLogOptions * _Nonnull)recordLogOptions uploadConfig:(AMPSessionReplayUploadConfig * _Nonnull)uploadConfig OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 @interface UIView (SWIFT_EXTENSION(AmplitudeSessionReplay))
 @property (nonatomic) BOOL amp_isBlocked;
+@end
+
+SWIFT_CLASS_NAMED("UploadConfig")
+@interface AMPSessionReplayUploadConfig : NSObject
+@property (nonatomic, readonly) BOOL disableMeteredUploads;
+- (nonnull instancetype)initWithDisableMeteredUploads:(BOOL)disableMeteredUploads OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
 #endif
