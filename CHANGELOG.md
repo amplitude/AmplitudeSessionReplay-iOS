@@ -1,3 +1,11 @@
+## [0.9.2](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.9.1...v0.9.2) (2026-01-21)
+
+
+### Bug Fixes
+
+* update framework ([5a36f5a](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/5a36f5a5c27cc8d4596d077ab543ad6662e2a1bd))
+* use correct min core version for cocoapods ([#53](https://github.com/amplitude/AmplitudeSessionReplay-iOS/issues/53)) ([b79fd70](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/b79fd70e306121f5fc7a42192fc2cfb14d9b804f))
+
 ## [0.9.1](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.9.0...v0.9.1) (2026-01-06)
 
 
