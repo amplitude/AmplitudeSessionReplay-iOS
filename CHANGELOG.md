@@ -1,3 +1,10 @@
+## [0.9.4](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.9.3...v0.9.4) (2026-02-05)
+
+
+### Bug Fixes
+
+* pass through quality settings ([#54](https://github.com/amplitude/AmplitudeSessionReplay-iOS/issues/54)) ([7efc989](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/7efc9896119214b558f19a445579b51d9d51c43a))
+
 ## [0.9.3](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.9.2...v0.9.3) (2026-02-04)
 
 
