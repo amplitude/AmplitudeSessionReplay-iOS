@@ -13,7 +13,9 @@ import AmplitudeSessionReplay
 
     private let sampleRate: Float
     private let maskLevel: MaskLevel
+    private let quality: QualityProfile
     private let enableRemoteConfig: Bool
+    private let uploadConfig: UploadConfig
     private let webviewMappings: [String: String]
     private let autoStart: Bool
     private let captureWebViews: Bool
@@ -23,14 +25,18 @@ import AmplitudeSessionReplay
 
     @objc public init(sampleRate: Float = 0.0,
                       maskLevel: MaskLevel = .medium,
+                      quality: QualityProfile = .high,
                       enableRemoteConfig: Bool = true,
+                      uploadConfig: UploadConfig = UploadConfig(),
                       webviewMappings: [String: String] = [:],
                       autoStart: Bool = true,
                       captureWebViews: Bool = false,
                       recordLogOptions: RecordLogOptions = .init()) {
         self.sampleRate = sampleRate
         self.maskLevel = maskLevel
+        self.quality = quality
         self.enableRemoteConfig = enableRemoteConfig
+        self.uploadConfig = uploadConfig
         self.webviewMappings = webviewMappings
         self.autoStart = autoStart
         self.captureWebViews = captureWebViews
@@ -53,10 +59,12 @@ import AmplitudeSessionReplay
                                       sessionId: amplitude.getSessionId(),
                                       optOut: amplitude.optOut,
                                       sampleRate: sampleRate,
+                                      quality: quality,
                                       webviewMappings: webviewMappings,
                                       serverZone: serverZone,
                                       maskLevel: maskLevel,
                                       enableRemoteConfig: enableRemoteConfig,
+                                      uploadConfig: uploadConfig,
                                       captureWebViews: captureWebViews,
                                       recordLogOptions: recordLogOptions)
         if autoStart {

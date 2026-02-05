@@ -31,17 +31,21 @@ public class AmplitudeSegmentSessionReplayPlugin: Segment.Plugin {
                 sampleRate: Float = 0.0,
                 serverZone: ServerZone = .US,
                 maskLevel: MaskLevel = .medium,
+                quality: QualityProfile = .high,
                 enableRemoteConfig: Bool = true,
+                uploadConfig: UploadConfig = UploadConfig(),
                 webviewMappings: [String: String] = [:],
                 autoStart: Bool = true,
                 captureWebViews: Bool = false,
                 recordLogOptions: RecordLogOptions = .init()) {
         sessionReplay = SessionReplay(apiKey: apiKey,
                                       sampleRate: sampleRate,
+                                      quality: quality,
                                       webviewMappings: webviewMappings,
                                       serverZone: serverZone,
                                       maskLevel: maskLevel,
                                       enableRemoteConfig: enableRemoteConfig,
+                                      uploadConfig: uploadConfig,
                                       captureWebViews: captureWebViews,
                                       recordLogOptions: recordLogOptions)
         self.autoStart = autoStart
