@@ -1,0 +1,17 @@
+name: Dependency Version Check
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-dependency-versions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check dependency version consistency
+        run: bash scripts/check-dependency-versions.sh
