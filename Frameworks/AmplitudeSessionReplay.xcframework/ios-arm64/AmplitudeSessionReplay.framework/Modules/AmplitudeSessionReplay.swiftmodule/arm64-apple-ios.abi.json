@@ -609,16 +609,6 @@
       },
       {
         "kind": "Import",
-        "name": "Foundation",
-        "printedName": "Foundation",
-        "declKind": "Import",
-        "moduleName": "AmplitudeSessionReplay",
-        "declAttributes": [
-          "RawDocComment"
-        ]
-      },
-      {
-        "kind": "Import",
         "name": "AmplitudeSessionReplay_Private",
         "printedName": "AmplitudeSessionReplay_Private",
         "declKind": "Import",
@@ -2678,7 +2668,7 @@
                 "kind": "TypeNominal",
                 "name": "CoreLogger",
                 "printedName": "any AmplitudeCore.CoreLogger",
-                "usr": "c:@M@AmplitudeCore@objc(pl)CoreLogger"
+                "usr": "c:@M@AmplitudeCore@objc(pl)AMPCoreLogger"
               }
             ],
             "declKind": "Var",
@@ -2703,7 +2693,7 @@
                     "kind": "TypeNominal",
                     "name": "CoreLogger",
                     "printedName": "any AmplitudeCore.CoreLogger",
-                    "usr": "c:@M@AmplitudeCore@objc(pl)CoreLogger"
+                    "usr": "c:@M@AmplitudeCore@objc(pl)AMPCoreLogger"
                   }
                 ],
                 "declKind": "Accessor",
@@ -3500,7 +3490,7 @@
                     "kind": "TypeNominal",
                     "name": "CoreLogger",
                     "printedName": "any AmplitudeCore.CoreLogger",
-                    "usr": "c:@M@AmplitudeCore@objc(pl)CoreLogger"
+                    "usr": "c:@M@AmplitudeCore@objc(pl)AMPCoreLogger"
                   }
                 ],
                 "hasDefaultArg": true,
@@ -3666,7 +3656,7 @@
                     "kind": "TypeNominal",
                     "name": "CoreLogger",
                     "printedName": "any AmplitudeCore.CoreLogger",
-                    "usr": "c:@M@AmplitudeCore@objc(pl)CoreLogger"
+                    "usr": "c:@M@AmplitudeCore@objc(pl)AMPCoreLogger"
                   }
                 ],
                 "hasDefaultArg": true,
@@ -6445,48 +6435,6 @@
       "value": "true"
     },
     {
-      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Sample.swift",
-      "kind": "IntegerLiteral",
-      "offset": 872,
-      "length": 10,
-      "value": "0x9E3779B1"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Sample.swift",
-      "kind": "IntegerLiteral",
-      "offset": 923,
-      "length": 10,
-      "value": "0x85EBCA77"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Sample.swift",
-      "kind": "IntegerLiteral",
-      "offset": 974,
-      "length": 10,
-      "value": "0xC2B2AE3D"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Sample.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1025,
-      "length": 10,
-      "value": "0x27D4EB2F"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Sample.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1076,
-      "length": 10,
-      "value": "0x165667B1"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Sample.swift",
-      "kind": "IntegerLiteral",
-      "offset": 1762,
-      "length": 1,
-      "value": "0"
-    },
-    {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Filter\/FilterData.swift",
       "kind": "Array",
       "offset": 328,
@@ -6860,7 +6808,7 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "StringLiteral",
-      "offset": 13730,
+      "offset": 13734,
       "length": 24,
       "value": "\"Current Configuration:\""
     },
