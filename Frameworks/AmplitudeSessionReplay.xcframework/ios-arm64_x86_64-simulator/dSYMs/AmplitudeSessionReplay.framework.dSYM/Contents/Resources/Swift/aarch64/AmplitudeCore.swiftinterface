@@ -87,7 +87,7 @@ public protocol InterfaceSignalProvider : AnyObject {
   @objc func onStartProviding()
   @objc func onStopProviding()
 }
-@objc public enum LogLevel : Swift.Int, Swift.Comparable, Swift.Sendable {
+@objc(AMPCoreLogLevel) public enum LogLevel : Swift.Int, Swift.Comparable, Swift.Sendable {
   case off = 0
   case error = 1
   case warn = 2
@@ -100,7 +100,7 @@ public protocol InterfaceSignalProvider : AnyObject {
     get
   }
 }
-@objc @preconcurrency public protocol CoreLogger : Swift.Sendable {
+@objc(AMPCoreLogger) @preconcurrency public protocol CoreLogger : Swift.Sendable {
   @objc func error(message: Swift.String)
   @objc func warn(message: Swift.String)
   @objc func log(message: Swift.String)
@@ -234,6 +234,10 @@ public enum JSONValue : Swift.Codable, Swift.Sendable {
   public static func from(_ value: Any) -> AmplitudeCore.JSONValue?
   public func toAny() -> any Swift.Sendable
 }
+@_hasMissingDesignatedInitializers public class Sample {
+  public static func isInSample(seed: Swift.String, sampleRate: Swift.Double) -> Swift.Bool
+  @objc deinit
+}
 @_spi(Internal) public enum VersionError : Swift.Error, Swift.Equatable {
   @_spi(Internal) case invalidVersionString(Swift.String)
   @_spi(Internal) case emptyVersionString
@@ -241,6 +245,9 @@ public enum JSONValue : Swift.Codable, Swift.Sendable {
 }
 @_spi(Internal) extension Swift.String {
   @_spi(Internal) public func isGreaterThanOrEqualToVersion(_ version: Swift.String) throws -> Swift.Bool
+}
+extension Swift.String {
+  public func fnv1a64String() -> Swift.String
 }
 extension AmplitudeCore.LogLevel : Swift.Hashable {}
 extension AmplitudeCore.LogLevel : Swift.RawRepresentable {}
