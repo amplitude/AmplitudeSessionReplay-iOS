@@ -23,14 +23,19 @@ jobs:
 
   release:
     name: Release
-    runs-on: macos-14
+    runs-on: macos-15
     needs: [authorize]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Set Xcode 16
         run: |
-          sudo xcode-select -switch /Applications/Xcode_16.1.app
+          sudo xcode-select -switch /Applications/Xcode_16.3.app
+
+      - name: Install Apple platform SDKs
+        run: |
+          xcrun simctl list > /dev/null
+          sudo xcodebuild -downloadPlatform iOS
 
       - name: Validate Podfile
         run: pod lib lint --allow-warnings AmplitudeSessionReplay.podspec
