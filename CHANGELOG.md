@@ -1,3 +1,10 @@
+## [0.9.7](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.9.6...v0.9.7) (2026-03-27)
+
+
+### Bug Fixes
+
+* Empty Commit to trigger a version update ([23e66c1](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/23e66c1d8fe14892ffc9cbc71af8385e4ede34d2))
+
 ## [0.9.6](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.9.5...v0.9.6) (2026-02-25)
 
 
