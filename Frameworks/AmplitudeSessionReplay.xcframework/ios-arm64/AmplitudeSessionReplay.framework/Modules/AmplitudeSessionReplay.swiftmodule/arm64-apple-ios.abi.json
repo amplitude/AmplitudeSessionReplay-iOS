@@ -6626,28 +6626,28 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Snapshotter.swift",
       "kind": "Array",
-      "offset": 1196,
+      "offset": 1202,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Snapshotter.swift",
       "kind": "FloatLiteral",
-      "offset": 1247,
+      "offset": 1253,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Snapshotter.swift",
       "kind": "IntegerLiteral",
-      "offset": 1328,
+      "offset": 1334,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Snapshotter.swift",
       "kind": "BooleanLiteral",
-      "offset": 8930,
+      "offset": 9298,
       "length": 4,
       "value": "true"
     },
@@ -6808,7 +6808,7 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "StringLiteral",
-      "offset": 13734,
+      "offset": 13725,
       "length": 24,
       "value": "\"Current Configuration:\""
     },
@@ -7102,28 +7102,28 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/FlutterHandler.swift",
       "kind": "StringLiteral",
-      "offset": 1350,
+      "offset": 1567,
       "length": 13,
       "value": "\"FlutterView\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/FlutterHandler.swift",
       "kind": "StringLiteral",
-      "offset": 1450,
+      "offset": 1667,
       "length": 23,
       "value": "\"FlutterViewController\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/FlutterHandler.swift",
       "kind": "StringLiteral",
-      "offset": 1603,
+      "offset": 1820,
       "length": 29,
       "value": "\"com.amplitude.sessionreplay\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/FlutterHandler.swift",
       "kind": "IntegerLiteral",
-      "offset": 7040,
+      "offset": 7388,
       "length": 1,
       "value": "0"
     },
