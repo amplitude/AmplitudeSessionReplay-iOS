@@ -38,9 +38,14 @@ Add `pod 'SUB_SPEC', :git => 'https://github.com/amplitude/AmplitudeSessionRepla
 import AmplitudeSwiftSessionReplayPlugin
 ```
 
-3. Add the plugin to your Amplitude instance:
+3a. Add the plugin to your Amplitude instance:
 ```
 amplitude.add(plugin: AmplitudeSwiftSessionReplayPlugin())
+```
+
+3b. Add the plugin to your Ampli instance (If using the Amplitude Wrapper) [Ampli Developer docs](https://amplitude.com/docs/sdks/ampli/migrate-to-ampli):
+```
+Ampli.instance.client.add(plugin: AmplitudeSwiftSessionReplayPlugin())
 ```
 
 [Developer docs](https://amplitude.com/docs/session-replay/session-replay-ios-plugin)
