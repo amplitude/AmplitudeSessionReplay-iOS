@@ -6658,36 +6658,50 @@
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Snapshotter.swift",
+      "kind": "StringLiteral",
+      "offset": 912,
+      "length": 13,
+      "value": "\"RCTTextView\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Snapshotter.swift",
+      "kind": "StringLiteral",
+      "offset": 1016,
+      "length": 27,
+      "value": "\"RCTParagraphComponentView\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Snapshotter.swift",
       "kind": "Array",
-      "offset": 1202,
+      "offset": 1635,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Snapshotter.swift",
       "kind": "FloatLiteral",
-      "offset": 1253,
+      "offset": 1686,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Snapshotter.swift",
       "kind": "IntegerLiteral",
-      "offset": 1334,
+      "offset": 1767,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Snapshotter.swift",
       "kind": "Array",
-      "offset": 6422,
+      "offset": 6855,
       "length": 15,
       "value": "[\"RB\", \"Layer\"]"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Snapshotter.swift",
       "kind": "BooleanLiteral",
-      "offset": 9581,
+      "offset": 10014,
       "length": 4,
       "value": "true"
     },
