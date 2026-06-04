@@ -1,3 +1,10 @@
+## [0.11.1](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.11.0...v0.11.1) (2026-06-04)
+
+
+### Bug Fixes
+
+* update AmplitudeSessionReplay.xcframework to v0.11.1 ([#78](https://github.com/amplitude/AmplitudeSessionReplay-iOS/issues/78)) ([70486a3](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/70486a3d12b9b39c1de2710d8dbae047d86f4318))
+
 # [0.11.0](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.10.1...v0.11.0) (2026-06-03)
 
 
