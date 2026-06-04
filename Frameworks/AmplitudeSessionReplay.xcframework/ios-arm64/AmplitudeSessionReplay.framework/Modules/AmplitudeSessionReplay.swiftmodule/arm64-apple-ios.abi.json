@@ -6706,6 +6706,20 @@
       "value": "true"
     },
     {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Snapshotter.swift",
+      "kind": "StringLiteral",
+      "offset": 25020,
+      "length": 16,
+      "value": "\"RCTUITextField\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Snapshotter.swift",
+      "kind": "StringLiteral",
+      "offset": 25115,
+      "length": 15,
+      "value": "\"RCTUITextView\""
+    },
+    {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/AmplitudeSessionReplayGestureRecognizer.swift",
       "kind": "Array",
       "offset": 610,
