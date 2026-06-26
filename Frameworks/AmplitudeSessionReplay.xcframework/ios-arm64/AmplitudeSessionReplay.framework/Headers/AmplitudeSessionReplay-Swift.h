@@ -353,6 +353,7 @@ SWIFT_CLASS_NAMED("SessionReplay")
 @property (nonatomic, readonly) enum MaskLevel maskLevel;
 @property (nonatomic) BOOL optOut;
 @property (nonatomic) int64_t sessionId;
+@property (nonatomic, copy) NSString * _Nonnull customSessionId;
 @property (nonatomic, copy) NSString * _Nullable deviceId;
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull additionalEventProperties;
 @property (nonatomic) enum AMPSessionReplayQualityProfile quality;
@@ -369,6 +370,10 @@ SWIFT_CLASS_NAMED("SessionReplay")
 @class AMPSessionReplayPluginConfig;
 SWIFT_CLASS_NAMED("SessionReplayPlugin")
 @interface AMPSessionReplayPlugin : NSObject
+/// A custom session id that overrides the session id synced from the Amplitude client.
+/// When set to a non-nil value, this takes precedence over any session id propagated via
+/// <code>onSessionIdChanged</code>. Set to <code>nil</code> to resume using the Amplitude client’s session id.
+@property (nonatomic, copy) NSString * _Nullable customSessionId;
 @property (nonatomic, strong) AMPSessionReplay * _Nullable sessionReplay;
 - (nonnull instancetype)initWithSampleRate:(float)sampleRate maskLevel:(enum MaskLevel)maskLevel quality:(enum AMPSessionReplayQualityProfile)quality enableRemoteConfig:(BOOL)enableRemoteConfig webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings autoStart:(BOOL)autoStart captureWebViews:(BOOL)captureWebViews recordLogOptions:(RecordLogOptions * _Nonnull)recordLogOptions;
 - (nonnull instancetype)initWithConfig:(AMPSessionReplayPluginConfig * _Nonnull)config OBJC_DESIGNATED_INITIALIZER;

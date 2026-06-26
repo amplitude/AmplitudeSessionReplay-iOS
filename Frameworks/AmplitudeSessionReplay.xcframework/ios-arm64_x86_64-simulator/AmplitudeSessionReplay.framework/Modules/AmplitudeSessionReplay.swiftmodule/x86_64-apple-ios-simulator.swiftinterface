@@ -77,7 +77,14 @@ extension SwiftUICore.View {
   public var name: Swift.String? {
     get
   }
-  @objc public var sessionReplay: AmplitudeSessionReplay.SessionReplay?
+  @objc public var customSessionId: Swift.String? {
+    @objc get
+    @objc set
+  }
+  @objc public var sessionReplay: AmplitudeSessionReplay.SessionReplay? {
+    @objc get
+    @objc set
+  }
   @objc convenience public init(sampleRate: Swift.Float = 0.0, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, quality: AmplitudeSessionReplay.QualityProfile = .high, enableRemoteConfig: Swift.Bool = true, webviewMappings: [Swift.String : Swift.String] = [:], autoStart: Swift.Bool = true, captureWebViews: Swift.Bool = false, recordLogOptions: AmplitudeSessionReplay.RecordLogOptions = .init())
   @objc public init(config: AmplitudeSessionReplay.SessionReplayPlugin.Config = Config())
   public func setup(analyticsClient: any AmplitudeCore.AnalyticsClient, amplitudeContext: AmplitudeCore.AmplitudeContext)
@@ -120,6 +127,10 @@ public typealias DeviceId = Swift.String
     @objc set
   }
   @objc final public var sessionId: AmplitudeSessionReplay.SessionId {
+    @objc get
+    @objc set
+  }
+  @objc final public var customSessionId: Swift.String {
     @objc get
     @objc set
   }
