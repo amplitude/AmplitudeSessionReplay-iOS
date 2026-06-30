@@ -313,6 +313,22 @@ typedef SWIFT_ENUM(NSInteger, MaskLevel, open) {
   MaskLevelConservative = 2,
 };
 
+/// Configuration object that controls the masking level Session Replay applies to recordings.
+/// Assign it to <code>SessionReplay/privacyConfig</code> to change the masking level at runtime,
+/// for example when navigating between flows with different privacy requirements.
+/// Naming is intentionally aligned with the Android and Flutter SDKs (<code>PrivacyConfig(maskLevel:)</code>).
+SWIFT_CLASS_NAMED("PrivacyConfig")
+@interface AMPPrivacyConfig : NSObject
+/// The masking level to apply to captured frames.
+@property (nonatomic, readonly) enum MaskLevel maskLevel;
+/// Creates a <code>PrivacyConfig</code> with the specified masking level.
+/// \param maskLevel The level of masking to apply. Defaults to <code>.medium</code>.
+///
+- (nonnull instancetype)initWithMaskLevel:(enum MaskLevel)maskLevel OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 typedef SWIFT_ENUM_NAMED(NSInteger, AMPSessionReplayQualityProfile, "QualityProfile", open) {
   AMPSessionReplayQualityProfileLow = 0,
   AMPSessionReplayQualityProfileMedium = 1,
@@ -358,6 +374,7 @@ SWIFT_CLASS_NAMED("SessionReplay")
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull additionalEventProperties;
 @property (nonatomic) enum AMPSessionReplayQualityProfile quality;
 @property (nonatomic, readonly, strong) AMPSessionReplayUploadConfig * _Nonnull uploadConfig;
+@property (nonatomic, strong) AMPPrivacyConfig * _Nonnull privacyConfig;
 - (nonnull instancetype)initWithApiKey:(NSString * _Nonnull)apiKey deviceId:(NSString * _Nullable)deviceId sessionId:(int64_t)sessionId optOut:(BOOL)optOut sampleRate:(float)sampleRate quality:(enum AMPSessionReplayQualityProfile)quality webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings logger:(id <AMPCoreLogger> _Nullable)logger serverZone:(enum AMPServerZone)serverZone maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig uploadConfig:(AMPSessionReplayUploadConfig * _Nonnull)uploadConfig remoteConfigClient:(RemoteConfigClient * _Nullable)remoteConfigClient captureWebViews:(BOOL)captureWebViews recordLogOptions:(RecordLogOptions * _Nonnull)recordLogOptions;
 - (void)start;
 - (void)stop;
@@ -377,6 +394,9 @@ SWIFT_CLASS_NAMED("SessionReplayPlugin")
 @property (nonatomic, strong) AMPSessionReplay * _Nullable sessionReplay;
 - (nonnull instancetype)initWithSampleRate:(float)sampleRate maskLevel:(enum MaskLevel)maskLevel quality:(enum AMPSessionReplayQualityProfile)quality enableRemoteConfig:(BOOL)enableRemoteConfig webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings autoStart:(BOOL)autoStart captureWebViews:(BOOL)captureWebViews recordLogOptions:(RecordLogOptions * _Nonnull)recordLogOptions;
 - (nonnull instancetype)initWithConfig:(AMPSessionReplayPluginConfig * _Nonnull)config OBJC_DESIGNATED_INITIALIZER;
+/// The consumer’s local privacy configuration. Delegates to <code>SessionReplay/privacyConfig</code>.
+/// Remote Config takes precedence when active; the stored value becomes active if RC withdraws.
+@property (nonatomic, strong) AMPPrivacyConfig * _Nonnull privacyConfig;
 - (void)start;
 - (void)stop;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -734,6 +754,22 @@ typedef SWIFT_ENUM(NSInteger, MaskLevel, open) {
   MaskLevelConservative = 2,
 };
 
+/// Configuration object that controls the masking level Session Replay applies to recordings.
+/// Assign it to <code>SessionReplay/privacyConfig</code> to change the masking level at runtime,
+/// for example when navigating between flows with different privacy requirements.
+/// Naming is intentionally aligned with the Android and Flutter SDKs (<code>PrivacyConfig(maskLevel:)</code>).
+SWIFT_CLASS_NAMED("PrivacyConfig")
+@interface AMPPrivacyConfig : NSObject
+/// The masking level to apply to captured frames.
+@property (nonatomic, readonly) enum MaskLevel maskLevel;
+/// Creates a <code>PrivacyConfig</code> with the specified masking level.
+/// \param maskLevel The level of masking to apply. Defaults to <code>.medium</code>.
+///
+- (nonnull instancetype)initWithMaskLevel:(enum MaskLevel)maskLevel OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 typedef SWIFT_ENUM_NAMED(NSInteger, AMPSessionReplayQualityProfile, "QualityProfile", open) {
   AMPSessionReplayQualityProfileLow = 0,
   AMPSessionReplayQualityProfileMedium = 1,
@@ -779,6 +815,7 @@ SWIFT_CLASS_NAMED("SessionReplay")
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull additionalEventProperties;
 @property (nonatomic) enum AMPSessionReplayQualityProfile quality;
 @property (nonatomic, readonly, strong) AMPSessionReplayUploadConfig * _Nonnull uploadConfig;
+@property (nonatomic, strong) AMPPrivacyConfig * _Nonnull privacyConfig;
 - (nonnull instancetype)initWithApiKey:(NSString * _Nonnull)apiKey deviceId:(NSString * _Nullable)deviceId sessionId:(int64_t)sessionId optOut:(BOOL)optOut sampleRate:(float)sampleRate quality:(enum AMPSessionReplayQualityProfile)quality webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings logger:(id <AMPCoreLogger> _Nullable)logger serverZone:(enum AMPServerZone)serverZone maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig uploadConfig:(AMPSessionReplayUploadConfig * _Nonnull)uploadConfig remoteConfigClient:(RemoteConfigClient * _Nullable)remoteConfigClient captureWebViews:(BOOL)captureWebViews recordLogOptions:(RecordLogOptions * _Nonnull)recordLogOptions;
 - (void)start;
 - (void)stop;
@@ -798,6 +835,9 @@ SWIFT_CLASS_NAMED("SessionReplayPlugin")
 @property (nonatomic, strong) AMPSessionReplay * _Nullable sessionReplay;
 - (nonnull instancetype)initWithSampleRate:(float)sampleRate maskLevel:(enum MaskLevel)maskLevel quality:(enum AMPSessionReplayQualityProfile)quality enableRemoteConfig:(BOOL)enableRemoteConfig webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings autoStart:(BOOL)autoStart captureWebViews:(BOOL)captureWebViews recordLogOptions:(RecordLogOptions * _Nonnull)recordLogOptions;
 - (nonnull instancetype)initWithConfig:(AMPSessionReplayPluginConfig * _Nonnull)config OBJC_DESIGNATED_INITIALIZER;
+/// The consumer’s local privacy configuration. Delegates to <code>SessionReplay/privacyConfig</code>.
+/// Remote Config takes precedence when active; the stored value becomes active if RC withdraws.
+@property (nonatomic, strong) AMPPrivacyConfig * _Nonnull privacyConfig;
 - (void)start;
 - (void)stop;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
