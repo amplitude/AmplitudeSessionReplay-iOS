@@ -80,8 +80,8 @@ extension CoreGraphics.CGImage {
   @objc public init(maskLevel: AmplitudeSessionReplay.MaskLevel = .medium)
   @objc deinit
 }
-extension SwiftUICore.View {
-  @_Concurrency.MainActor @preconcurrency public func amp_setBlocked(_ blocked: Swift.Bool) -> some SwiftUICore.View
+extension SwiftUI.View {
+  @_Concurrency.MainActor @preconcurrency public func amp_setBlocked(_ blocked: Swift.Bool) -> some SwiftUI.View
   
 }
 @objc(AMPSessionReplayPlugin) public class SessionReplayPlugin : ObjectiveC.NSObject, AmplitudeCore.UniversalPlugin {
