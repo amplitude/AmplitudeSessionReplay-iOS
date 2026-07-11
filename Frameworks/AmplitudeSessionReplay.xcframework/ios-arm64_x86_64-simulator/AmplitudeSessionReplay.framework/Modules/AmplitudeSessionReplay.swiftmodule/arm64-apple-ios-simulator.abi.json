@@ -7089,20 +7089,20 @@
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Models\/LayerObserver.swift",
       "kind": "Array",
       "offset": 240,
-      "length": 160,
-      "value": "[\"WebAVPlayerLayer\", \"NSKVONotifying_WebAVPlayerLayer\", \"FigVideoContainerLayer\", \"NSKVONotifying_FigVideoContainerLayer\"]"
+      "length": 276,
+      "value": "[\"WebAVPlayerLayer\", \"NSKVONotifying_WebAVPlayerLayer\", \"FigVideoContainerLayer\", \"NSKVONotifying_FigVideoContainerLayer\", \"FigVideoContainerLayerForVideoReceiver\", \"NSKVONotifying_FigVideoContainerLayerForVideoReceiver\"]"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Models\/LayerObserver.swift",
       "kind": "Array",
-      "offset": 1494,
+      "offset": 1610,
       "length": 779,
       "value": "[\\.<NOT_IMPLEMENTED>, \\.<NOT_IMPLEMENTED>, \\.<NOT_IMPLEMENTED>, \\.<NOT_IMPLEMENTED>, \"contentsMultiplyColor\"]"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Models\/LayerObserver.swift",
       "kind": "Array",
-      "offset": 2337,
+      "offset": 2453,
       "length": 567,
       "value": "[\\.<NOT_IMPLEMENTED>, \\.<NOT_IMPLEMENTED>, \\.<NOT_IMPLEMENTED>, \\.<NOT_IMPLEMENTED>, \\.<NOT_IMPLEMENTED>, \\.<NOT_IMPLEMENTED>, \\.<NOT_IMPLEMENTED>, \\.<NOT_IMPLEMENTED>, \\.<NOT_IMPLEMENTED>, \\.<NOT_IMPLEMENTED>]"
     },
