@@ -1,3 +1,10 @@
+## [0.12.2](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.12.1...v0.12.2) (2026-07-11)
+
+
+### Bug Fixes
+
+* update framework to fix build on Xcode 16 ([99042df](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/99042dfdc8dce43678a2b7872b633fc09d8566d4))
+
 ## [0.12.1](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.12.0...v0.12.1) (2026-07-11)
 
 
