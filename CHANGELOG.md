@@ -1,3 +1,10 @@
+## [0.12.1](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.12.0...v0.12.1) (2026-07-11)
+
+
+### Bug Fixes
+
+* update framework to support iOS 27 video layers ([cda97d5](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/cda97d5c79c803c8dc84f3e7dfe60f5885badc6b))
+
 # [0.12.0](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.11.2...v0.12.0) (2026-06-30)
 
 
