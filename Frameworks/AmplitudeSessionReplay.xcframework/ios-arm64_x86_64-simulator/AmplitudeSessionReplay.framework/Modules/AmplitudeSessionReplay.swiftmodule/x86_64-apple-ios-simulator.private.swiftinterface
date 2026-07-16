@@ -23,6 +23,7 @@ import WebKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+import os
 import zlib
 @objc(AMPSessionReplayQualityProfile) public enum QualityProfile : Swift.Int, Swift.Sendable {
   case low, medium, high
@@ -44,12 +45,13 @@ extension CoreGraphics.CGImage {
 }
 @_spi(Internal) extension AmplitudeCore.CoreDiagnostics {
   @_spi(Internal) @discardableResult
-  @inlinable nonisolated internal func measure<T>(name: Swift.String, _ block: () -> T) -> T {
+  @inlinable nonisolated internal func measure<T>(name: Swift.String, _ block: () throws -> T) rethrows -> T {
         let t0 = DispatchTime.now().uptimeNanoseconds
-        let result = block()
-        let t1 = DispatchTime.now().uptimeNanoseconds
-        recordHistogram(name: name, value: Double(t1 &- t0) / Double(NSEC_PER_SEC))
-        return result
+        defer {
+            let t1 = DispatchTime.now().uptimeNanoseconds
+            recordHistogram(name: name, value: Double(t1 &- t0) / Double(NSEC_PER_SEC))
+        }
+        return try block()
     }
   @_spi(Internal) @discardableResult
   @inlinable nonisolated internal func measure<T>(_ block: (inout Swift.String) -> T) -> T {

@@ -23,6 +23,7 @@ import WebKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+import os
 import zlib
 @objc(AMPSessionReplayQualityProfile) public enum QualityProfile : Swift.Int, Swift.Sendable {
   case low, medium, high
