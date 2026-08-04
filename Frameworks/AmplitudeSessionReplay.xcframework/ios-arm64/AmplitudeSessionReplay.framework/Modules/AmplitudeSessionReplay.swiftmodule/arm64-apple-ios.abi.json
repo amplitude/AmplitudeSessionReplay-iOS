@@ -443,6 +443,16 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AmplitudeSessionReplay",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
         "name": "AmplitudeCore",
         "printedName": "AmplitudeCore",
         "declKind": "Import",
@@ -6892,6 +6902,293 @@
       "offset": 592,
       "length": 2,
       "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1080,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1090,
+      "length": 3,
+      "value": "256"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1096,
+      "length": 1,
+      "value": "8"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1140,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1150,
+      "length": 3,
+      "value": "256"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "StringLiteral",
+      "offset": 1188,
+      "length": 18,
+      "value": "\"0123456789abcdef\""
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1360,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1475,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1479,
+      "length": 3,
+      "value": "255"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1528,
+      "length": 4,
+      "value": "0x08"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "Array",
+      "offset": 1544,
+      "length": 12,
+      "value": "[0x5c, 0x62]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1581,
+      "length": 4,
+      "value": "0x09"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "Array",
+      "offset": 1597,
+      "length": 12,
+      "value": "[0x5c, 0x74]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1634,
+      "length": 4,
+      "value": "0x0a"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "Array",
+      "offset": 1650,
+      "length": 12,
+      "value": "[0x5c, 0x6e]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1687,
+      "length": 4,
+      "value": "0x0c"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "Array",
+      "offset": 1703,
+      "length": 12,
+      "value": "[0x5c, 0x66]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1740,
+      "length": 4,
+      "value": "0x0d"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "Array",
+      "offset": 1756,
+      "length": 12,
+      "value": "[0x5c, 0x72]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1793,
+      "length": 4,
+      "value": "0x00"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1800,
+      "length": 4,
+      "value": "0x1f"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1833,
+      "length": 4,
+      "value": "0x5c"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1839,
+      "length": 4,
+      "value": "0x75"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1845,
+      "length": 4,
+      "value": "0x30"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1851,
+      "length": 4,
+      "value": "0x30"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1870,
+      "length": 1,
+      "value": "4"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1875,
+      "length": 3,
+      "value": "0xf"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1892,
+      "length": 3,
+      "value": "0xf"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1926,
+      "length": 4,
+      "value": "0x22"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "Array",
+      "offset": 1942,
+      "length": 12,
+      "value": "[0x5c, 0x22]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1979,
+      "length": 4,
+      "value": "0x2f"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "Array",
+      "offset": 1995,
+      "length": 12,
+      "value": "[0x5c, 0x2f]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2032,
+      "length": 4,
+      "value": "0x5c"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "Array",
+      "offset": 2048,
+      "length": 12,
+      "value": "[0x5c, 0x5c]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2085,
+      "length": 4,
+      "value": "0x20"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2092,
+      "length": 4,
+      "value": "0x7f"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2140,
+      "length": 4,
+      "value": "0x80"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2147,
+      "length": 4,
+      "value": "0xbf"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2164,
+      "length": 4,
+      "value": "0xc2"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2216,
+      "length": 4,
+      "value": "0xc3"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/JSONStringEscape.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2235,
+      "length": 4,
+      "value": "0x40"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Util\/WebViewHandler.swift",
