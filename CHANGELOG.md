@@ -1,3 +1,10 @@
+## [0.12.6](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.12.5...v0.12.6) (2026-08-11)
+
+
+### Bug Fixes
+
+* reduce framework peak memory usage ([73d36ba](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/73d36ba8d51f209a4f93984765fd85d08efa6c82))
+
 ## [0.12.5](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.12.4...v0.12.5) (2026-08-04)
 
 
