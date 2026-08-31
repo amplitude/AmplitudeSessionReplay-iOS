@@ -7,7 +7,7 @@ let package = Package(
     name: "AmplitudeSessionReplay",
     platforms: [
         .iOS(.v15),
-        .macOS(.v10_15), // We don’t actually support macOS; this is just to allow running the Swift command line tool.
+        .macOS(.v12), // We don’t actually support macOS; this is just to allow running the Swift command line tool.
     ],
     products: [
         .library(
