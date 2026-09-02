@@ -1,0 +1,17 @@
+//
+//  AmplitudeSessionReplay.modulemap
+//  AmplitudeSessionReplay
+//
+//  Created by Chris Leonavicius on 8/30/24.
+//
+
+framework module AmplitudeSessionReplay {
+    umbrella header "AmplitudeSessionReplay.h"
+    export *
+    module * { export * }
+}
+
+module AmplitudeSessionReplay.Swift {
+  header "AmplitudeSessionReplay-Swift.h"
+  requires objc
+}
