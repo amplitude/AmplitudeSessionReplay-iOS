@@ -2594,7 +2594,6 @@
             "mangledName": "$s22AmplitudeSessionReplay0bC6PluginC13privacyConfigAA07PrivacyF0Cvp",
             "moduleName": "AmplitudeSessionReplay",
             "declAttributes": [
-              "HasInitialValue",
               "HasStorage",
               "AccessControl",
               "ObjC",
@@ -6437,7 +6436,7 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Storage\/StorageCoordinator.swift",
       "kind": "BooleanLiteral",
-      "offset": 9527,
+      "offset": 9684,
       "length": 4,
       "value": "true"
     },
