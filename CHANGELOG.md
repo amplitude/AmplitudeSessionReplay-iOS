@@ -1,3 +1,10 @@
+## [0.12.8](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.12.7...v0.12.8) (2026-09-04)
+
+
+### Bug Fixes
+
+* **spm:** raise Swift 6.4 macOS target ([#95](https://github.com/amplitude/AmplitudeSessionReplay-iOS/issues/95)) ([d8e7dd8](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/d8e7dd8dde4e257b52fa0e17e6b6462ac3fdaf8c))
+
 ## [0.12.7](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.12.6...v0.12.7) (2026-08-28)
 
 
