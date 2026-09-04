@@ -6437,7 +6437,7 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Storage\/StorageCoordinator.swift",
       "kind": "BooleanLiteral",
-      "offset": 9527,
+      "offset": 8648,
       "length": 4,
       "value": "true"
     },
@@ -7501,70 +7501,63 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "IntegerLiteral",
-      "offset": 22447,
+      "offset": 19829,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "IntegerLiteral",
-      "offset": 23335,
+      "offset": 20717,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "IntegerLiteral",
-      "offset": 23357,
+      "offset": 20739,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "IntegerLiteral",
-      "offset": 31528,
-      "length": 9,
-      "value": "4000000"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
-      "kind": "IntegerLiteral",
-      "offset": 32534,
+      "offset": 27966,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "IntegerLiteral",
-      "offset": 32670,
+      "offset": 28023,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "IntegerLiteral",
-      "offset": 32729,
+      "offset": 28082,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "IntegerLiteral",
-      "offset": 50256,
+      "offset": 45609,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "IntegerLiteral",
-      "offset": 50284,
+      "offset": 45637,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/Serializer.swift",
       "kind": "IntegerLiteral",
-      "offset": 50309,
+      "offset": 45662,
       "length": 1,
       "value": "0"
     },
