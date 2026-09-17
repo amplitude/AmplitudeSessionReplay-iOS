@@ -1,5 +1,9 @@
 module.exports = {
-  "branches": ["main"],
+  "branches": ["main", {
+    "name": "swiftui_conservative_masking",
+    "prerelease": "swiftui-conservative-masking",
+    "channel": "swiftui-conservative-masking"
+  }],
   "plugins": [
     ["@semantic-release/commit-analyzer", {
       "preset": "angular",
@@ -52,16 +56,16 @@ module.exports = {
       "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
     }],
     ["@semantic-release/exec", {
-      "publishCmd": "./scripts/pod-trunk-push.sh AmplitudeSessionReplay.podspec",
+      "publishCmd": "if [ '${nextRelease.channel}' != 'swiftui-conservative-masking' ]; then ./scripts/pod-trunk-push.sh AmplitudeSessionReplay.podspec; fi",
     }],
     ["@semantic-release/exec", {
-      "publishCmd": "pod repo update",
+      "publishCmd": "if [ '${nextRelease.channel}' != 'swiftui-conservative-masking' ]; then pod repo update; fi",
     }],
     ["@semantic-release/exec", {
-      "publishCmd": "./scripts/pod-trunk-push.sh AmplitudeiOSSessionReplayMiddleware.podspec",
+      "publishCmd": "if [ '${nextRelease.channel}' != 'swiftui-conservative-masking' ]; then ./scripts/pod-trunk-push.sh AmplitudeiOSSessionReplayMiddleware.podspec; fi",
     }],
     ["@semantic-release/exec", {
-      "publishCmd": "./scripts/pod-trunk-push.sh AmplitudeSwiftSessionReplayPlugin.podspec",
+      "publishCmd": "if [ '${nextRelease.channel}' != 'swiftui-conservative-masking' ]; then ./scripts/pod-trunk-push.sh AmplitudeSwiftSessionReplayPlugin.podspec; fi",
     }],
   ],
 }

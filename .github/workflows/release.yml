@@ -8,6 +8,15 @@ on:
         required: true
         default: "true"
 
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   authorize:
     name: Authorize
@@ -23,11 +32,14 @@ jobs:
 
   release:
     name: Release
+    if: ${{ github.ref_name == 'main' || github.ref_name == 'swiftui_conservative_masking' }}
     runs-on: macos-15
     needs: [authorize]
     steps:
       - name: Checkout
         uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3
+        with:
+          fetch-depth: 0
       - name: Set Xcode 16
         run: |
           sudo xcode-select -switch /Applications/Xcode_16.3.app
