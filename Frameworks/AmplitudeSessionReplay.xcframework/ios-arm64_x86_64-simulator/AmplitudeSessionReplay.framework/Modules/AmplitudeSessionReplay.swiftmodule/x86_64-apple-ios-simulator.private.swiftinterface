@@ -10,11 +10,13 @@ import AmplitudeSessionReplay_Private
 import CommonCrypto
 import Compression
 import CoreGraphics
+import Darwin
 import Foundation
 import IOSurface
 import MapKit
 import Metal
 import Network
+import ObjectiveC
 import QuartzCore
 import Swift
 import SwiftUI
@@ -24,6 +26,7 @@ import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
 import os
+import ObjectiveC.runtime
 import zlib
 @objc(AMPSessionReplayQualityProfile) public enum QualityProfile : Swift.Int, Swift.Sendable {
   case low, medium, high
