@@ -14,11 +14,11 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		Uf1M8wRvRHGOwhuet56Px3+/jOI=
+		6ne8nATrv28I7Jml/dPWWOgNX3c=
 		</data>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		AJSbxaBBGuFimi1Fg5y1hMSzAr4=
+		hM/1G0uByhoQ4cd83g9M4snop1k=
 		</data>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -34,11 +34,11 @@
 		</data>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		ghkLkYhcW/tzRiqTogYjk7txpa8=
+		r10bDHBvxBIpcXSzZcKAJq4Dr1s=
 		</data>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		AJSbxaBBGuFimi1Fg5y1hMSzAr4=
+		hM/1G0uByhoQ4cd83g9M4snop1k=
 		</data>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		6NUL4xyxHM2MkoczWPRhrsSoaWk=
+		jukvpOcxSusbwPC/EFxGMXcAlNM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -74,7 +74,7 @@
 		</data>
 		<key>webview.js</key>
 		<data>
-		zgxe4igwCcBBXGdYngT7Uvjiia0=
+		fO9AnJzN3GBo58ZqGb7lOmivguw=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -97,7 +97,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			I/noYTOkm8GiVzy5ol5Inn0mCJC9wJnfOdNURt2U23U=
+			SvBVsKx/DQQjDJbmO7vbrdFlR8LWsPdQ+vihEVVYMCI=
 			</data>
 		</dict>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -125,14 +125,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6qFavxME1qPRN7Ju3EGd+eJyno/in5VLaKRvaPTEKvY=
+			OSmXkvDwnjsIMHHlctKeZbbp40H4FQroNWM9sm1bevc=
 			</data>
 		</dict>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			I/noYTOkm8GiVzy5ol5Inn0mCJC9wJnfOdNURt2U23U=
+			SvBVsKx/DQQjDJbmO7vbrdFlR8LWsPdQ+vihEVVYMCI=
 			</data>
 		</dict>
 		<key>Modules/AmplitudeSessionReplay.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
@@ -160,7 +160,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6ms69+ZOlVKgqBuo8zOZQMa8kQGfQh7RXfCtMRhWMGY=
+			QtmHL3LvUG0glPqxAU7+XxxaaTsgDi+74vVROJpknPQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -195,7 +195,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			pLJKoCu8dsfLSbZxhlKCT77DqHQMzJTnEW/3Gg/1b8A=
+			H9no+aoLsvXG5aI7hDTBe+Csvl8WEuauM2Xp7QvCArY=
 			</data>
 		</dict>
 	</dict>
