@@ -35,19 +35,25 @@ public struct AmplitudeContext {
 public protocol CoreDiagnostics : _Concurrency.Actor {
   @_spi(Internal) func setTag(name: Swift.String, value: Swift.String) async
   @_spi(Internal) func setTags(_ tags: [Swift.String : Swift.String]) async
+  @_spi(Internal) func getTag(name: Swift.String) async -> Swift.String?
+  @_spi(Internal) func getTags() async -> [Swift.String : Swift.String]
   @_spi(Internal) func increment(name: Swift.String, size: Swift.Int) async
   @_spi(Internal) func recordHistogram(name: Swift.String, value: Swift.Double) async
   @_spi(Internal) func recordEvent(name: Swift.String, properties: [Swift.String : any Swift.Sendable]?) async
   @_spi(Internal) func flush() async
+  @_spi(Internal) var didLastRunCrash: Swift.Bool { get async }
 }
 @_spi(Internal) @available(iOS 13.0, macOS 10.15, watchOS 6.0, tvOS 13.0, *)
 extension AmplitudeCore.CoreDiagnostics {
   @_spi(Internal) public func increment(name: Swift.String) async
   @_spi(Internal) nonisolated public func setTag(name: Swift.String, value: Swift.String)
   @_spi(Internal) nonisolated public func setTags(_ tags: [Swift.String : Swift.String])
+  @_spi(Internal) nonisolated public func getTag(name: Swift.String, completion: @escaping @Sendable (Swift.String?) -> Swift.Void)
+  @_spi(Internal) nonisolated public func getTags(completion: @escaping @Sendable ([Swift.String : Swift.String]) -> Swift.Void)
   @_spi(Internal) nonisolated public func increment(name: Swift.String, size: Swift.Int = 1)
   @_spi(Internal) nonisolated public func recordHistogram(name: Swift.String, value: Swift.Double)
   @_spi(Internal) nonisolated public func recordEvent(name: Swift.String, properties: [Swift.String : any Swift.Sendable]? = nil)
+  @_spi(Internal) nonisolated public func didLastRunCrash(completion: @escaping @Sendable (Swift.Bool) -> Swift.Void)
 }
 @usableFromInline
 internal let DEFAULT_SAMPLE_RATE: Swift.Double
@@ -57,8 +63,16 @@ internal let DEFAULT_FLUSH_INTERVAL: Swift.UInt64
 public actor DiagnosticsClient : AmplitudeCore.CoreDiagnostics {
   @_spi(Internal) public typealias StateCallback = @Sendable () -> Swift.Void
   @_spi(Internal) public init(apiKey: Swift.String, serverZone: AmplitudeCore.ServerZone = .US, instanceName: Swift.String, logger: any AmplitudeCore.CoreLogger = OSLogger(logLevel: .error), enabled: Swift.Bool = true, sampleRate: Swift.Double = DEFAULT_SAMPLE_RATE, crashCaptureEnabled: Swift.Bool = false, remoteConfigClient: AmplitudeCore.RemoteConfigClient?, flushIntervalNanoSec: Swift.UInt64 = DEFAULT_FLUSH_INTERVAL * NSEC_PER_SEC, urlSessionConfiguration: Foundation.URLSessionConfiguration = .ephemeral)
+  @_spi(Internal) public var didLastRunCrash: Swift.Bool {
+    @_spi(Internal) get async
+  }
+  @_spi(Internal) public static var didLastRunCrash: Swift.Bool {
+    @_spi(Internal) get
+  }
   @_spi(Internal) public func setTag(name: Swift.String, value: Swift.String) async
   @_spi(Internal) public func setTags(_ tags: [Swift.String : Swift.String]) async
+  @_spi(Internal) public func getTag(name: Swift.String) async -> Swift.String?
+  @_spi(Internal) public func getTags() async -> [Swift.String : Swift.String]
   @_spi(Internal) public func increment(name: Swift.String, size: Swift.Int) async
   @_spi(Internal) public func recordHistogram(name: Swift.String, value: Swift.Double) async
   @_spi(Internal) public func recordEvent(name: Swift.String, properties: [Swift.String : any Swift.Sendable]? = nil) async
@@ -131,6 +145,11 @@ public protocol AnalyticsEvent {
   var sessionId: Swift.Int64? { get }
   var eventType: Swift.String { get }
   var eventProperties: [Swift.String : Any]? { get set }
+}
+@_spi(Internal) public protocol EncodableAnalyticsEvent : AmplitudeCore.AnalyticsEvent, Swift.Encodable {
+}
+@_spi(Internal) extension AmplitudeCore.AnalyticsEvent {
+  @_spi(Internal) public func encodableSnapshot() -> any AmplitudeCore.EncodableAnalyticsEvent
 }
 public protocol AnalyticsIdentity {
   var deviceId: Swift.String? { get }
@@ -220,6 +239,30 @@ public actor RemoteConfigClient : ObjectiveC.NSObject {
     get
   }
   public init?(rawValue: AmplitudeCore.ServerZone.RawValue)
+}
+@_spi(Internal) public struct JSONCodingKeys : Swift.CodingKey {
+  @_spi(Internal) public var stringValue: Swift.String
+  @_spi(Internal) public var intValue: Swift.Int?
+  @_spi(Internal) public init(_ stringValue: Swift.String)
+  @_spi(Internal) public init?(stringValue: Swift.String)
+  @_spi(Internal) public init?(intValue: Swift.Int)
+}
+@_spi(Internal) extension Swift.KeyedDecodingContainer {
+  @_spi(Internal) public func decode(_ type: [Swift.String : Any].Type, forKey key: K) throws -> [Swift.String : Any]
+  @_spi(Internal) public func decodeIfPresent(_ type: [Swift.String : Any].Type, forKey key: K) throws -> [Swift.String : Any]?
+  @_spi(Internal) public func decode(_ type: [Any].Type, forKey key: K) throws -> [Any]
+  @_spi(Internal) public func decodeIfPresent(_ type: [Any].Type, forKey key: K) throws -> [Any]?
+  @_spi(Internal) public func asTypedDictionary(_ type: [Swift.String : Any].Type) throws -> [Swift.String : Any]
+}
+@_spi(Internal) extension Swift.UnkeyedDecodingContainer {
+  @_spi(Internal) public mutating func asTypedArray(_ type: [Any].Type) throws -> [Any]
+  @_spi(Internal) public mutating func decode(_ type: [Swift.String : Any].Type) throws -> [Swift.String : Any]
+}
+@_spi(Internal) extension Swift.UnkeyedEncodingContainer {
+  @_spi(Internal) public mutating func encodeAny(_ value: Any?) throws
+}
+@_spi(Internal) extension Swift.KeyedEncodingContainer {
+  @_spi(Internal) public mutating func encodeAny(_ value: Any?, forKey key: Swift.KeyedEncodingContainer<K>.Key) throws
 }
 public enum JSONValue : Swift.Codable, Swift.Sendable {
   case string(Swift.String)
