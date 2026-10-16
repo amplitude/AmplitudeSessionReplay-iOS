@@ -426,7 +426,12 @@ SWIFT_CLASS_NAMED("Config")
 SWIFT_CLASS_NAMED("UploadConfig")
 @interface AMPSessionReplayUploadConfig : NSObject
 @property (nonatomic, readonly) BOOL disableMeteredUploads;
-- (nonnull instancetype)initWithDisableMeteredUploads:(BOOL)disableMeteredUploads OBJC_DESIGNATED_INITIALIZER;
+/// Full URL that replay data is uploaded to, e.g. a proxy in front of Amplitude’s
+/// <code>https://api-sr.amplitude.com/sessions/v2/track</code>. Overrides the URL derived from <code>serverZone</code>
+/// when set to a non-empty value.
+@property (nonatomic, readonly, copy) NSString * _Nullable serverUrl;
+- (nonnull instancetype)initWithDisableMeteredUploads:(BOOL)disableMeteredUploads serverUrl:(NSString * _Nullable)serverUrl OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithDisableMeteredUploads:(BOOL)disableMeteredUploads;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

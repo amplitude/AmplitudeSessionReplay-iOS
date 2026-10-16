@@ -204,7 +204,9 @@ public typealias DeviceId = Swift.String
 }
 @objc(AMPSessionReplayUploadConfig) @objcMembers public class UploadConfig : ObjectiveC.NSObject {
   @objc final public let disableMeteredUploads: Swift.Bool
-  @objc public init(disableMeteredUploads: Swift.Bool = false)
+  @objc final public let serverUrl: Swift.String?
+  @objc(initWithDisableMeteredUploads:serverUrl:) public init(disableMeteredUploads: Swift.Bool = false, serverUrl: Swift.String? = nil)
+  @objc(initWithDisableMeteredUploads:) convenience public init(disableMeteredUploads: Swift.Bool)
   @objc deinit
 }
 extension QuartzCore.CATransform3D : @retroactive Swift.Equatable {
