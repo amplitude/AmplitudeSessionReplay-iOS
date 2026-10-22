@@ -167,6 +167,10 @@ public typealias DeviceId = Swift.String
   @objc final public func recordLog(level: AmplitudeSessionReplay.RecordLogLevel, message: Swift.String?, date: Foundation.Date = Date())
   @objc deinit
 }
+extension AmplitudeSessionReplay.SessionReplay {
+  @objc final public func evaluateTargeting(eventType: Swift.String? = nil, eventProperties: [Swift.String : Any]? = nil)
+  @objc final public func evaluateTargeting(userProperties: [Swift.String : Any])
+}
 @objc final public class RecordLogOptions : ObjectiveC.NSObject, Swift.Sendable {
   @objc public init(logCountThreshold: Swift.Int = 1000, maxMessageLength: Swift.Int = 2000)
   @objc deinit

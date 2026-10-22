@@ -384,6 +384,21 @@ SWIFT_CLASS_NAMED("SessionReplay")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
+@interface AMPSessionReplay (SWIFT_EXTENSION(AmplitudeSessionReplay))
+/// Evaluates the Targeted Replay Capture rule for an analytics event of the current session.
+/// <code>SessionReplayPlugin</code> calls it for each event. Without the plugin, as from Flutter, React Native or Segment,
+/// call it for each event before adding <code>additionalEventProperties</code> to the event, so that the event that matches
+/// the rule is tagged too. Without an event, it evaluates what is already known, as when a rule arrives or a
+/// session starts: the random-sample segment the backend appends to the rule matches without any event.
+- (void)evaluateTargetingWithEventType:(NSString * _Nullable)eventType eventProperties:(NSDictionary<NSString *, id> * _Nullable)eventProperties;
+/// Evaluates the Targeted Replay Capture rule with the user’s properties, which replace the previous ones and are
+/// used by every later evaluation.
+/// <code>SessionReplayPlugin</code> passes the analytics client’s merged user properties on every identity change. Without
+/// the plugin, pass the user’s current properties after each identify, and right after creating this instance on
+/// the main queue, so that a cached rule is first evaluated with them.
+- (void)evaluateTargetingWithUserProperties:(NSDictionary<NSString *, id> * _Nonnull)userProperties;
+@end
+
 @class AMPSessionReplayPluginConfig;
 SWIFT_CLASS_NAMED("SessionReplayPlugin")
 @interface AMPSessionReplayPlugin : NSObject
