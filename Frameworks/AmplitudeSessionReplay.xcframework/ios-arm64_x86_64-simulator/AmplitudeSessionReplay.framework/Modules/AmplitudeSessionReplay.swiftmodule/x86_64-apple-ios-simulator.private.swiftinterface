@@ -182,12 +182,16 @@ public typealias DeviceId = Swift.String
     @objc set
   }
   @objc convenience public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId = -1, optOut: Swift.Bool = false, sampleRate: Swift.Float = 0.0, quality: AmplitudeSessionReplay.QualityProfile = .high, webviewMappings: [Swift.String : Swift.String] = [:], logger: (any AmplitudeCore.CoreLogger)? = nil, serverZone: AmplitudeCore.ServerZone = .US, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, uploadConfig: AmplitudeSessionReplay.UploadConfig = UploadConfig(), remoteConfigClient: AmplitudeCore.RemoteConfigClient? = nil, captureWebViews: Swift.Bool = false, recordLogOptions: AmplitudeSessionReplay.RecordLogOptions = RecordLogOptions())
-  @_spi(Internal) public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId = -1, optOut: Swift.Bool = false, sampleRate: Swift.Float = 0.0, quality: AmplitudeSessionReplay.QualityProfile = .high, webviewMappings: [Swift.String : Swift.String] = [:], logger: (any AmplitudeCore.CoreLogger)? = nil, serverZone: AmplitudeCore.ServerZone = .US, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, uploadConfig: AmplitudeSessionReplay.UploadConfig = UploadConfig(), remoteConfigClient: AmplitudeCore.RemoteConfigClient? = nil, captureWebViews: Swift.Bool = false, recordLogOptions: AmplitudeSessionReplay.RecordLogOptions = RecordLogOptions(), diagnosticsClient: (any AmplitudeCore.CoreDiagnostics)? = nil)
+  @_spi(Internal) public init(apiKey: Swift.String, deviceId: AmplitudeSessionReplay.DeviceId? = nil, sessionId: AmplitudeSessionReplay.SessionId = -1, optOut: Swift.Bool = false, sampleRate: Swift.Float = 0.0, quality: AmplitudeSessionReplay.QualityProfile = .high, webviewMappings: [Swift.String : Swift.String] = [:], logger: (any AmplitudeCore.CoreLogger)? = nil, serverZone: AmplitudeCore.ServerZone = .US, maskLevel: AmplitudeSessionReplay.MaskLevel = .medium, enableRemoteConfig: Swift.Bool = true, uploadConfig: AmplitudeSessionReplay.UploadConfig = UploadConfig(), remoteConfigClient: AmplitudeCore.RemoteConfigClient? = nil, captureWebViews: Swift.Bool = false, recordLogOptions: AmplitudeSessionReplay.RecordLogOptions = RecordLogOptions(), diagnosticsClient: (any AmplitudeCore.CoreDiagnostics)? = nil, targetingUserProperties: [Swift.String : Any] = [:])
   @objc final public func start()
   @objc final public func stop()
   @objc final public func flush()
   @objc final public func recordLog(level: AmplitudeSessionReplay.RecordLogLevel, message: Swift.String?, date: Foundation.Date = Date())
   @objc deinit
+}
+extension AmplitudeSessionReplay.SessionReplay {
+  @objc final public func evaluateTargeting(eventType: Swift.String? = nil, eventProperties: [Swift.String : Any]? = nil)
+  @objc final public func evaluateTargeting(userProperties: [Swift.String : Any])
 }
 @objc final public class RecordLogOptions : ObjectiveC.NSObject, Swift.Sendable {
   @objc public init(logCountThreshold: Swift.Int = 1000, maxMessageLength: Swift.Int = 2000)
