@@ -171,6 +171,13 @@ extension AmplitudeSessionReplay.SessionReplay {
   @objc final public func evaluateTargeting(eventType: Swift.String? = nil, eventProperties: [Swift.String : Any]? = nil)
   @objc final public func evaluateTargeting(userProperties: [Swift.String : Any])
 }
+extension AmplitudeSessionReplay.SessionReplay : AmplitudeCore.InterfaceSignalProvider {
+  final public var isProviding: Swift.Bool {
+    get
+  }
+  final public func addInterfaceSignalReceiver(_ receiver: any AmplitudeCore.InterfaceSignalReceiver)
+  final public func removeInterfaceSignalReceiver(_ receiver: any AmplitudeCore.InterfaceSignalReceiver)
+}
 @objc final public class RecordLogOptions : ObjectiveC.NSObject, Swift.Sendable {
   @objc public init(logCountThreshold: Swift.Int = 1000, maxMessageLength: Swift.Int = 2000)
   @objc deinit

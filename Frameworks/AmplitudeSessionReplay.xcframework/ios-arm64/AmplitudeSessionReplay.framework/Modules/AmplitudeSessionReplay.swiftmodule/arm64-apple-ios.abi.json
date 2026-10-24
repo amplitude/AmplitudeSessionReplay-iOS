@@ -4667,6 +4667,108 @@
             ],
             "isFromExtension": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "isProviding",
+            "printedName": "isProviding",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:22AmplitudeSessionReplay0bC0C11isProvidingSbvp",
+            "mangledName": "$s22AmplitudeSessionReplay0bC0C11isProvidingSbvp",
+            "moduleName": "AmplitudeSessionReplay",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:22AmplitudeSessionReplay0bC0C11isProvidingSbvg",
+                "mangledName": "$s22AmplitudeSessionReplay0bC0C11isProvidingSbvg",
+                "moduleName": "AmplitudeSessionReplay",
+                "declAttributes": [
+                  "Final"
+                ],
+                "isFromExtension": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "addInterfaceSignalReceiver",
+            "printedName": "addInterfaceSignalReceiver(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "InterfaceSignalReceiver",
+                "printedName": "any AmplitudeCore.InterfaceSignalReceiver",
+                "usr": "c:@M@AmplitudeCore@objc(pl)InterfaceSignalReceiver"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:22AmplitudeSessionReplay0bC0C26addInterfaceSignalReceiveryy0A4Core0efG0_pF",
+            "mangledName": "$s22AmplitudeSessionReplay0bC0C26addInterfaceSignalReceiveryy0A4Core0efG0_pF",
+            "moduleName": "AmplitudeSessionReplay",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "removeInterfaceSignalReceiver",
+            "printedName": "removeInterfaceSignalReceiver(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "InterfaceSignalReceiver",
+                "printedName": "any AmplitudeCore.InterfaceSignalReceiver",
+                "usr": "c:@M@AmplitudeCore@objc(pl)InterfaceSignalReceiver"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:22AmplitudeSessionReplay0bC0C29removeInterfaceSignalReceiveryy0A4Core0efG0_pF",
+            "mangledName": "$s22AmplitudeSessionReplay0bC0C29removeInterfaceSignalReceiveryy0A4Core0efG0_pF",
+            "moduleName": "AmplitudeSessionReplay",
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -4753,6 +4855,13 @@
             "printedName": "CustomDebugStringConvertible",
             "usr": "s:s28CustomDebugStringConvertibleP",
             "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "InterfaceSignalProvider",
+            "printedName": "InterfaceSignalProvider",
+            "usr": "s:13AmplitudeCore23InterfaceSignalProviderP",
+            "mangledName": "$s13AmplitudeCore23InterfaceSignalProviderP"
           }
         ]
       },
