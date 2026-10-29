@@ -1,3 +1,15 @@
+# [0.17.0](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.16.0...v0.17.0) (2026-10-29)
+
+
+### Bug Fixes
+
+* update Session Replay framework ([#113](https://github.com/amplitude/AmplitudeSessionReplay-iOS/issues/113)) ([66c7d0e](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/66c7d0e3420e23d68c51a6af1b914ed29567c66f))
+
+
+### Features
+
+* bring iOS middleware options to plugin parity ([#112](https://github.com/amplitude/AmplitudeSessionReplay-iOS/issues/112)) ([fac3ad7](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/fac3ad7b7003a6074e915ff76ea5f65ec3bf3bb7))
+
 # [0.16.0](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.15.0...v0.16.0) (2026-10-24)
 
 
