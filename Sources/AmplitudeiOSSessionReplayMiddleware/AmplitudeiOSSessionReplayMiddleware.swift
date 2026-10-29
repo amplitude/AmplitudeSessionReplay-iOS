@@ -31,9 +31,9 @@ import AmplitudeSessionReplay
 
     /// Overrides the Analytics session ID. Set nil to restore its latest session ID.
     @objc public var customSessionId: String? {
-        get { withStateLock { customId } }
+        get { lock.withLock { customId } }
         set {
-            withStateLock {
+            lock.withLock {
                 customId = newValue
                 if let newValue {
                     replay?.customSessionId = newValue
@@ -46,9 +46,9 @@ import AmplitudeSessionReplay
 
     /// The attached core client. Prefer middleware setters for synchronized identity updates.
     @objc public var sessionReplay: SessionReplay? {
-        get { withStateLock { replay } }
+        get { lock.withLock { replay } }
         set {
-            withStateLock {
+            lock.withLock {
                 replay = newValue
                 if let customId {
                     replay?.customSessionId = customId
@@ -59,9 +59,9 @@ import AmplitudeSessionReplay
 
     /// Local privacy settings. Remote configuration retains precedence, as in the plugin.
     @objc public var privacyConfig: PrivacyConfig {
-        get { withStateLock { localPrivacyConfig } }
+        get { lock.withLock { localPrivacyConfig } }
         set {
-            withStateLock {
+            lock.withLock {
                 localPrivacyConfig = newValue
                 replay?.privacyConfig = newValue
             }
@@ -79,12 +79,6 @@ import AmplitudeSessionReplay
                   autoStart: config.autoStart,
                   captureWebViews: config.captureWebViews,
                   recordLogOptions: config.recordLogOptions)
-    }
-
-    private func withStateLock<T>(_ body: () -> T) -> T {
-        lock.lock()
-        defer { lock.unlock() }
-        return body()
     }
 
     @objc public init(sampleRate: Float = 0.0,
@@ -118,34 +112,34 @@ import AmplitudeSessionReplay
             serverZone = .US
         }
 
-        lock.lock()
-        defer { lock.unlock() }
-        replay?.stop()
-        amplitudeSessionId = amplitude.getSessionId()
-        sessionReplay = SessionReplay(apiKey: amplitude.apiKey,
-                                      deviceId: amplitude.getDeviceId(),
-                                      sessionId: amplitude.getSessionId(),
-                                      optOut: amplitude.optOut,
-                                      sampleRate: sampleRate,
-                                      quality: quality,
-                                      webviewMappings: webviewMappings,
-                                      serverZone: serverZone,
-                                      maskLevel: localPrivacyConfig.maskLevel,
-                                      enableRemoteConfig: enableRemoteConfig,
-                                      uploadConfig: uploadConfig,
-                                      captureWebViews: captureWebViews,
-                                      recordLogOptions: recordLogOptions)
-        if autoStart {
-            sessionReplay?.start()
+        lock.withLock {
+            replay?.stop()
+            amplitudeSessionId = amplitude.getSessionId()
+            sessionReplay = SessionReplay(apiKey: amplitude.apiKey,
+                                          deviceId: amplitude.getDeviceId(),
+                                          sessionId: amplitude.getSessionId(),
+                                          optOut: amplitude.optOut,
+                                          sampleRate: sampleRate,
+                                          quality: quality,
+                                          webviewMappings: webviewMappings,
+                                          serverZone: serverZone,
+                                          maskLevel: localPrivacyConfig.maskLevel,
+                                          enableRemoteConfig: enableRemoteConfig,
+                                          uploadConfig: uploadConfig,
+                                          captureWebViews: captureWebViews,
+                                          recordLogOptions: recordLogOptions)
+            if autoStart {
+                sessionReplay?.start()
+            }
         }
     }
 
     public func amplitude(_ amplitude: Amplitude, didChangeDeviceId deviceId: String) {
-        withStateLock { replay?.deviceId = deviceId }
+        lock.withLock { replay?.deviceId = deviceId }
     }
 
     public func amplitude(_ amplitude: Amplitude, didChangeSessionId sessionId: Int64) {
-        withStateLock {
+        lock.withLock {
             amplitudeSessionId = sessionId
             if customId == nil {
                 replay?.sessionId = sessionId
@@ -154,31 +148,31 @@ import AmplitudeSessionReplay
     }
 
     public func amplitude(_ amplitude: Amplitude, didOptOut optOut: Bool) {
-        withStateLock { replay?.optOut = optOut }
+        lock.withLock { replay?.optOut = optOut }
     }
 
     public func run(_ payload: AMPMiddlewarePayload, next: @escaping AMPMiddlewareNext) {
-        // Always continue the chain, including events that cannot be enriched.
-        defer { next(payload) }
-        lock.lock()
-        defer { lock.unlock() }
-        guard let sessionReplay = replay,
-              customId != nil || sessionReplay.sessionId == payload.event["session_id"] as? CLongLong,
-              sessionReplay.deviceId == payload.event["device_id"] as? String else {
-            return
-        }
+        lock.withLock {
+            guard let sessionReplay = replay,
+                  customId != nil || sessionReplay.sessionId == payload.event["session_id"] as? CLongLong,
+                  sessionReplay.deviceId == payload.event["device_id"] as? String else {
+                return
+            }
 
-        let eventProperties: NSMutableDictionary
-        switch payload.event["event_properties"] {
-        case let existingEventProperties as NSMutableDictionary:
-            eventProperties = existingEventProperties
-        case let existingEventProperties as NSDictionary:
-            eventProperties = NSMutableDictionary(dictionary: existingEventProperties)
-        default:
-            eventProperties = NSMutableDictionary()
+            let eventProperties: NSMutableDictionary
+            switch payload.event["event_properties"] {
+            case let existingEventProperties as NSMutableDictionary:
+                eventProperties = existingEventProperties
+            case let existingEventProperties as NSDictionary:
+                eventProperties = NSMutableDictionary(dictionary: existingEventProperties)
+            default:
+                eventProperties = NSMutableDictionary()
+            }
+            eventProperties.addEntries(from: sessionReplay.additionalEventProperties)
+            payload.event["event_properties"] = eventProperties
         }
-        eventProperties.addEntries(from: sessionReplay.additionalEventProperties)
-        payload.event["event_properties"] = eventProperties
+        // Continue outside the lock, including events that cannot be enriched.
+        next(payload)
     }
 
     public func amplitude(_ amplitude: Amplitude, didUploadEventsManually manually: Bool) {
