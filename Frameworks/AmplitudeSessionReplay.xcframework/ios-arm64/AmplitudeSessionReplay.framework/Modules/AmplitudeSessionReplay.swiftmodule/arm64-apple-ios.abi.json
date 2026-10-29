@@ -3522,11 +3522,9 @@
             "moduleName": "AmplitudeSessionReplay",
             "declAttributes": [
               "Final",
-              "HasStorage",
               "AccessControl",
               "ObjC"
             ],
-            "hasStorage": true,
             "accessors": [
               {
                 "kind": "Accessor",
@@ -3544,7 +3542,6 @@
                 "usr": "c:@M@AmplitudeSessionReplay@objc(cs)AMPSessionReplay(im)customSessionId",
                 "mangledName": "$s22AmplitudeSessionReplay0bC0C06customB2IdSSvg",
                 "moduleName": "AmplitudeSessionReplay",
-                "implicit": true,
                 "declAttributes": [
                   "Final",
                   "ObjC"
@@ -3572,7 +3569,6 @@
                 "usr": "c:@M@AmplitudeSessionReplay@objc(cs)AMPSessionReplay(im)setCustomSessionId:",
                 "mangledName": "$s22AmplitudeSessionReplay0bC0C06customB2IdSSvs",
                 "moduleName": "AmplitudeSessionReplay",
-                "implicit": true,
                 "declAttributes": [
                   "Final",
                   "ObjC"
@@ -3627,14 +3623,11 @@
             "mangledName": "$s22AmplitudeSessionReplay0bC0C8deviceIdSSSgvp",
             "moduleName": "AmplitudeSessionReplay",
             "declAttributes": [
-              "HasInitialValue",
               "Final",
-              "HasStorage",
               "AccessControl",
               "ObjC",
               "RawDocComment"
             ],
-            "hasStorage": true,
             "accessors": [
               {
                 "kind": "Accessor",
@@ -3660,7 +3653,6 @@
                 "usr": "c:@M@AmplitudeSessionReplay@objc(cs)AMPSessionReplay(im)deviceId",
                 "mangledName": "$s22AmplitudeSessionReplay0bC0C8deviceIdSSSgvg",
                 "moduleName": "AmplitudeSessionReplay",
-                "implicit": true,
                 "declAttributes": [
                   "Final",
                   "ObjC"
@@ -3696,7 +3688,6 @@
                 "usr": "c:@M@AmplitudeSessionReplay@objc(cs)AMPSessionReplay(im)setDeviceId:",
                 "mangledName": "$s22AmplitudeSessionReplay0bC0C8deviceIdSSSgvs",
                 "moduleName": "AmplitudeSessionReplay",
-                "implicit": true,
                 "declAttributes": [
                   "Final",
                   "ObjC"
@@ -3964,12 +3955,10 @@
             "moduleName": "AmplitudeSessionReplay",
             "declAttributes": [
               "Final",
-              "HasStorage",
               "AccessControl",
               "ObjC",
               "RawDocComment"
             ],
-            "hasStorage": true,
             "accessors": [
               {
                 "kind": "Accessor",
@@ -3987,7 +3976,6 @@
                 "usr": "c:@M@AmplitudeSessionReplay@objc(cs)AMPSessionReplay(im)privacyConfig",
                 "mangledName": "$s22AmplitudeSessionReplay0bC0C13privacyConfigAA07PrivacyE0Cvg",
                 "moduleName": "AmplitudeSessionReplay",
-                "implicit": true,
                 "declAttributes": [
                   "Final",
                   "ObjC"
@@ -4015,7 +4003,6 @@
                 "usr": "c:@M@AmplitudeSessionReplay@objc(cs)AMPSessionReplay(im)setPrivacyConfig:",
                 "mangledName": "$s22AmplitudeSessionReplay0bC0C13privacyConfigAA07PrivacyE0Cvs",
                 "moduleName": "AmplitudeSessionReplay",
-                "implicit": true,
                 "declAttributes": [
                   "Final",
                   "ObjC"
@@ -4686,7 +4673,8 @@
             "moduleName": "AmplitudeSessionReplay",
             "declAttributes": [
               "Final",
-              "AccessControl"
+              "AccessControl",
+              "RawDocComment"
             ],
             "isFromExtension": true,
             "accessors": [
@@ -8752,182 +8740,168 @@
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "StringLiteral",
-      "offset": 3046,
+      "offset": 3581,
       "length": 31,
       "value": "\"[Amplitude] Session Replay ID\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "StringLiteral",
-      "offset": 3079,
+      "offset": 3614,
       "length": 32,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "StringLiteral",
-      "offset": 3091,
+      "offset": 3626,
       "length": 1,
       "value": "\"\/\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "StringLiteral",
-      "offset": 3110,
+      "offset": 3645,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "Dictionary",
-      "offset": 3149,
+      "offset": 3684,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "StringLiteral",
-      "offset": 3539,
+      "offset": 4074,
       "length": 23,
       "value": "\"sessionReplay.quality\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 4304,
+      "offset": 4839,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 4493,
+      "offset": 5028,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 4671,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
-      "kind": "StringLiteral",
-      "offset": 5374,
-      "length": 60,
-      "value": "\"[SessionReplay] privacyConfig stored but not yet applied: \""
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
-      "kind": "StringLiteral",
-      "offset": 5461,
-      "length": 51,
-      "value": "\"Remote Config masking level is taking precedence.\""
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
-      "kind": "IntegerLiteral",
-      "offset": 6017,
-      "length": 2,
-      "value": "-1"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
-      "kind": "BooleanLiteral",
-      "offset": 6070,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
-      "kind": "FloatLiteral",
-      "offset": 6131,
-      "length": 3,
-      "value": "0.0"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
-      "kind": "Dictionary",
-      "offset": 6273,
-      "length": 3,
-      "value": "[]"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
-      "kind": "BooleanLiteral",
-      "offset": 6530,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
-      "kind": "BooleanLiteral",
-      "offset": 6754,
+      "offset": 5315,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "IntegerLiteral",
-      "offset": 7850,
+      "offset": 6904,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 7885,
+      "offset": 6957,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "FloatLiteral",
-      "offset": 7928,
+      "offset": 7018,
       "length": 3,
       "value": "0.0"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "Dictionary",
-      "offset": 8034,
+      "offset": 7160,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 8219,
+      "offset": 7417,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "BooleanLiteral",
-      "offset": 8389,
+      "offset": 7641,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
+      "kind": "IntegerLiteral",
+      "offset": 8737,
+      "length": 2,
+      "value": "-1"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
+      "kind": "BooleanLiteral",
+      "offset": 8772,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
+      "kind": "FloatLiteral",
+      "offset": 8815,
+      "length": 3,
+      "value": "0.0"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
+      "kind": "Dictionary",
+      "offset": 8921,
+      "length": 3,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
+      "kind": "BooleanLiteral",
+      "offset": 9106,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
+      "kind": "BooleanLiteral",
+      "offset": 9276,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "Dictionary",
-      "offset": 8585,
+      "offset": 9472,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "StringLiteral",
-      "offset": 19233,
+      "offset": 20509,
       "length": 24,
       "value": "\"Current Configuration:\""
     },
     {
       "filePath": "\/Users\/runner\/work\/session-replay-ios\/session-replay-ios\/AmplitudeSessionReplay\/SessionReplay.swift",
       "kind": "StringLiteral",
-      "offset": 20126,
+      "offset": 21402,
       "length": 39,
       "value": "\"sessionReplay.sr_ios_targeting_config\""
     },
