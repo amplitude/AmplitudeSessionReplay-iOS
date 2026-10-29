@@ -118,3 +118,34 @@ sessionReplay.start()
 
 ## Need Help?
 If you have any issues using our SDK, feel free to [create a GitHub issue](https://github.com/amplitude/AmplitudeSessionReplay-iOS/issues/new/choose) or submit a request on [Amplitude Help](https://help.amplitude.com/hc/en-us/requests/new).
+
+### Legacy middleware and plugin options
+
+`AmplitudeiOSSessionReplayMiddleware` supports the same capture settings as
+`SessionReplayPlugin`: sample rate, mask level, quality, remote configuration,
+WebView mappings/capture, automatic start, log limits, and upload configuration.
+The existing initializer remains available; `init(config:)` also accepts the
+plugin's `Config` object.
+
+| Runtime API | Plugin | Middleware |
+| --- | --- | --- |
+| Custom session override (`nil` restores the latest Analytics session) | `customSessionId` | `customSessionId` |
+| Local privacy configuration (remote settings take precedence) | `privacyConfig` | `privacyConfig` |
+| Core client access | `sessionReplay` | `sessionReplay` |
+| Capture and logs | `start`, `stop`, `recordLog` | `start`, `stop`, `recordLog` |
+
+```swift
+let middleware = AmplitudeiOSSessionReplayMiddleware(
+    config: .init(sampleRate: 0.1, captureWebViews: true)
+)
+middleware.customSessionId = "snowplow-session-id"
+amplitude.addEventMiddleware(middleware)
+// On each custom-session transition, update customSessionId.
+// Set it to nil to resume the latest Analytics SDK session.
+```
+
+Custom IDs override session matching for enrichment, but device IDs must still
+match. Configure custom session matching in Amplitude and send the same
+session-defining property on analytics events. Setting an override does not
+change the Analytics SDK's session ID. Plugin-host lifecycle and interface-signal
+protocols are specific to the plugin host; middleware uses legacy SDK callbacks.

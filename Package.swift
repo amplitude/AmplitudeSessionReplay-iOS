@@ -29,6 +29,8 @@ let package = Package(
         .package(url: "https://github.com/segmentio/analytics-swift", "1.5.0"..<"2.0.0"),
     ],
     targets: [
+        .testTarget(name: "AmplitudeiOSSessionReplayMiddlewareTests",
+                    dependencies: ["AmplitudeiOSSessionReplayMiddleware"]),
         .binaryTarget(name: "AmplitudeSessionReplay",
                       path: "Frameworks/AmplitudeSessionReplay.xcframework"),
         .target(name: "AmplitudeSessionReplayWrapper",

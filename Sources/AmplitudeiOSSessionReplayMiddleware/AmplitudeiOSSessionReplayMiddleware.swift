@@ -12,7 +12,6 @@ import AmplitudeSessionReplay
 @objc public class AmplitudeiOSSessionReplayMiddleware: NSObject, AMPMiddleware {
 
     private let sampleRate: Float
-    private let maskLevel: MaskLevel
     private let quality: QualityProfile
     private let enableRemoteConfig: Bool
     private let uploadConfig: UploadConfig
@@ -21,7 +20,72 @@ import AmplitudeSessionReplay
     private let captureWebViews: Bool
     private let recordLogOptions: RecordLogOptions
 
-    private var sessionReplay: SessionReplay?
+    /// Shares the plugin configuration type so capture options stay aligned.
+    public typealias Config = SessionReplayPlugin.Config
+
+    private let lock = NSRecursiveLock()
+    private var amplitudeSessionId: Int64 = -1
+    private var replay: SessionReplay?
+    private var customId: String?
+    private var localPrivacyConfig: PrivacyConfig
+
+    /// Overrides the Analytics session ID. Set nil to restore its latest session ID.
+    @objc public var customSessionId: String? {
+        get { withStateLock { customId } }
+        set {
+            withStateLock {
+                customId = newValue
+                if let newValue {
+                    replay?.customSessionId = newValue
+                } else {
+                    replay?.sessionId = amplitudeSessionId
+                }
+            }
+        }
+    }
+
+    /// The attached core client. Prefer middleware setters for synchronized identity updates.
+    @objc public var sessionReplay: SessionReplay? {
+        get { withStateLock { replay } }
+        set {
+            withStateLock {
+                replay = newValue
+                if let customId {
+                    replay?.customSessionId = customId
+                }
+            }
+        }
+    }
+
+    /// Local privacy settings. Remote configuration retains precedence, as in the plugin.
+    @objc public var privacyConfig: PrivacyConfig {
+        get { withStateLock { localPrivacyConfig } }
+        set {
+            withStateLock {
+                localPrivacyConfig = newValue
+                replay?.privacyConfig = newValue
+            }
+        }
+    }
+
+    /// Creates middleware using the same capture configuration as the plugin.
+    @objc public convenience init(config: Config) {
+        self.init(sampleRate: config.sampleRate,
+                  maskLevel: config.maskLevel,
+                  quality: config.quality,
+                  enableRemoteConfig: config.enableRemoteConfig,
+                  uploadConfig: config.uploadConfig,
+                  webviewMappings: config.webviewMappings,
+                  autoStart: config.autoStart,
+                  captureWebViews: config.captureWebViews,
+                  recordLogOptions: config.recordLogOptions)
+    }
+
+    private func withStateLock<T>(_ body: () -> T) -> T {
+        lock.lock()
+        defer { lock.unlock() }
+        return body()
+    }
 
     @objc public init(sampleRate: Float = 0.0,
                       maskLevel: MaskLevel = .medium,
@@ -33,7 +97,7 @@ import AmplitudeSessionReplay
                       captureWebViews: Bool = false,
                       recordLogOptions: RecordLogOptions = .init()) {
         self.sampleRate = sampleRate
-        self.maskLevel = maskLevel
+        self.localPrivacyConfig = PrivacyConfig(maskLevel: maskLevel)
         self.quality = quality
         self.enableRemoteConfig = enableRemoteConfig
         self.uploadConfig = uploadConfig
@@ -54,6 +118,10 @@ import AmplitudeSessionReplay
             serverZone = .US
         }
 
+        lock.lock()
+        defer { lock.unlock() }
+        replay?.stop()
+        amplitudeSessionId = amplitude.getSessionId()
         sessionReplay = SessionReplay(apiKey: amplitude.apiKey,
                                       deviceId: amplitude.getDeviceId(),
                                       sessionId: amplitude.getSessionId(),
@@ -62,7 +130,7 @@ import AmplitudeSessionReplay
                                       quality: quality,
                                       webviewMappings: webviewMappings,
                                       serverZone: serverZone,
-                                      maskLevel: maskLevel,
+                                      maskLevel: localPrivacyConfig.maskLevel,
                                       enableRemoteConfig: enableRemoteConfig,
                                       uploadConfig: uploadConfig,
                                       captureWebViews: captureWebViews,
@@ -73,20 +141,29 @@ import AmplitudeSessionReplay
     }
 
     public func amplitude(_ amplitude: Amplitude, didChangeDeviceId deviceId: String) {
-        sessionReplay?.deviceId = deviceId
+        withStateLock { replay?.deviceId = deviceId }
     }
 
     public func amplitude(_ amplitude: Amplitude, didChangeSessionId sessionId: Int64) {
-        sessionReplay?.sessionId = sessionId
+        withStateLock {
+            amplitudeSessionId = sessionId
+            if customId == nil {
+                replay?.sessionId = sessionId
+            }
+        }
     }
 
     public func amplitude(_ amplitude: Amplitude, didOptOut optOut: Bool) {
-        sessionReplay?.optOut = optOut
+        withStateLock { replay?.optOut = optOut }
     }
 
     public func run(_ payload: AMPMiddlewarePayload, next: @escaping AMPMiddlewareNext) {
-        guard let sessionReplay = sessionReplay,
-              sessionReplay.sessionId == payload.event["session_id"] as? CLongLong,
+        // Always continue the chain, including events that cannot be enriched.
+        defer { next(payload) }
+        lock.lock()
+        defer { lock.unlock() }
+        guard let sessionReplay = replay,
+              customId != nil || sessionReplay.sessionId == payload.event["session_id"] as? CLongLong,
               sessionReplay.deviceId == payload.event["device_id"] as? String else {
             return
         }
@@ -102,8 +179,6 @@ import AmplitudeSessionReplay
         }
         eventProperties.addEntries(from: sessionReplay.additionalEventProperties)
         payload.event["event_properties"] = eventProperties
-
-        next(payload)
     }
 
     public func amplitude(_ amplitude: Amplitude, didUploadEventsManually manually: Bool) {
