@@ -23,10 +23,15 @@ public struct AmplitudeContext {
   public let instanceName: Swift.String
   public let serverZone: AmplitudeCore.ServerZone
   public let remoteConfigClient: AmplitudeCore.RemoteConfigClient
+  public let httpClient: (any AmplitudeCore.HttpClient)?
   public let logger: any AmplitudeCore.CoreLogger
   @_spi(Internal) public let diagnosticsClient: any AmplitudeCore.CoreDiagnostics
-  public init(apiKey: Swift.String, instanceName: Swift.String = "$default_instance", serverZone: AmplitudeCore.ServerZone = .US, logger: any AmplitudeCore.CoreLogger = OSLogger(logLevel: .error))
-  @_spi(Internal) public init(apiKey: Swift.String, instanceName: Swift.String = "$default_instance", serverZone: AmplitudeCore.ServerZone = .US, logger: any AmplitudeCore.CoreLogger = OSLogger(logLevel: .error), remoteConfigClient: AmplitudeCore.RemoteConfigClient?, diagnosticsClient: (any AmplitudeCore.CoreDiagnostics)?)
+  public init(apiKey: Swift.String, instanceName: Swift.String = "$default_instance", serverZone: AmplitudeCore.ServerZone = .US, logger: any AmplitudeCore.CoreLogger = OSLogger(logLevel: .error), httpClient: (any AmplitudeCore.HttpClient)? = nil)
+  @available(*, deprecated, message: "Use init(apiKey:instanceName:serverZone:logger:httpClient:)")
+  @_disfavoredOverload public init(apiKey: Swift.String, instanceName: Swift.String = "$default_instance", serverZone: AmplitudeCore.ServerZone = .US, logger: any AmplitudeCore.CoreLogger = OSLogger(logLevel: .error))
+  @_spi(Internal) @available(*, deprecated, message: "Use init(apiKey:instanceName:serverZone:logger:remoteConfigClient:diagnosticsClient:httpClient:)")
+  @_disfavoredOverload public init(apiKey: Swift.String, instanceName: Swift.String = "$default_instance", serverZone: AmplitudeCore.ServerZone = .US, logger: any AmplitudeCore.CoreLogger = OSLogger(logLevel: .error), remoteConfigClient: AmplitudeCore.RemoteConfigClient?, diagnosticsClient: (any AmplitudeCore.CoreDiagnostics)?)
+  @_spi(Internal) public init(apiKey: Swift.String, instanceName: Swift.String = "$default_instance", serverZone: AmplitudeCore.ServerZone = .US, logger: any AmplitudeCore.CoreLogger = OSLogger(logLevel: .error), remoteConfigClient: AmplitudeCore.RemoteConfigClient?, diagnosticsClient: (any AmplitudeCore.CoreDiagnostics)?, httpClient: (any AmplitudeCore.HttpClient)? = nil)
 }
 @_hasMissingDesignatedInitializers @_Concurrency.MainActor public class CoreDevice : Swift.Sendable {
   @objc deinit
@@ -62,7 +67,8 @@ internal let DEFAULT_FLUSH_INTERVAL: Swift.UInt64
 @_spi(Internal) @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
 public actor DiagnosticsClient : AmplitudeCore.CoreDiagnostics {
   @_spi(Internal) public typealias StateCallback = @Sendable () -> Swift.Void
-  @_spi(Internal) public init(apiKey: Swift.String, serverZone: AmplitudeCore.ServerZone = .US, instanceName: Swift.String, logger: any AmplitudeCore.CoreLogger = OSLogger(logLevel: .error), enabled: Swift.Bool = true, sampleRate: Swift.Double = DEFAULT_SAMPLE_RATE, crashCaptureEnabled: Swift.Bool = false, remoteConfigClient: AmplitudeCore.RemoteConfigClient?, flushIntervalNanoSec: Swift.UInt64 = DEFAULT_FLUSH_INTERVAL * NSEC_PER_SEC, urlSessionConfiguration: Foundation.URLSessionConfiguration = .ephemeral)
+  @_spi(Internal) public convenience init(apiKey: Swift.String, serverZone: AmplitudeCore.ServerZone = .US, instanceName: Swift.String, logger: any AmplitudeCore.CoreLogger = OSLogger(logLevel: .error), enabled: Swift.Bool = true, sampleRate: Swift.Double = DEFAULT_SAMPLE_RATE, crashCaptureEnabled: Swift.Bool = false, remoteConfigClient: AmplitudeCore.RemoteConfigClient?, flushIntervalNanoSec: Swift.UInt64 = DEFAULT_FLUSH_INTERVAL * NSEC_PER_SEC, urlSessionConfiguration: Foundation.URLSessionConfiguration = .ephemeral)
+  @_spi(Internal) public init(apiKey: Swift.String, serverZone: AmplitudeCore.ServerZone = .US, instanceName: Swift.String, logger: any AmplitudeCore.CoreLogger = OSLogger(logLevel: .error), enabled: Swift.Bool = true, sampleRate: Swift.Double = DEFAULT_SAMPLE_RATE, crashCaptureEnabled: Swift.Bool = false, remoteConfigClient: AmplitudeCore.RemoteConfigClient?, flushIntervalNanoSec: Swift.UInt64 = DEFAULT_FLUSH_INTERVAL * NSEC_PER_SEC, httpClient: any AmplitudeCore.HttpClient)
   @_spi(Internal) public var didLastRunCrash: Swift.Bool {
     @_spi(Internal) get async
   }
@@ -220,7 +226,9 @@ public actor RemoteConfigClient : ObjectiveC.NSObject {
   public typealias RemoteConfig = [Swift.String : any Swift.Sendable]
   public typealias RemoteConfigCallback = @Sendable (AmplitudeCore.RemoteConfigClient.RemoteConfig?, AmplitudeCore.RemoteConfigClient.Source, Foundation.Date?) -> Swift.Void
   public typealias RemoteConfigSubscription = Swift.Sendable
-  public convenience init(apiKey: Swift.String, serverZone: AmplitudeCore.ServerZone, instanceName: Swift.String? = nil, logger: any AmplitudeCore.CoreLogger)
+  public convenience init(apiKey: Swift.String, serverZone: AmplitudeCore.ServerZone, instanceName: Swift.String? = nil, logger: any AmplitudeCore.CoreLogger, httpClient: (any AmplitudeCore.HttpClient)? = nil)
+  @available(*, deprecated, message: "Use init(apiKey:serverZone:instanceName:logger:httpClient:)")
+  @_disfavoredOverload public convenience init(apiKey: Swift.String, serverZone: AmplitudeCore.ServerZone, instanceName: Swift.String? = nil, logger: any AmplitudeCore.CoreLogger)
   @discardableResult
   nonisolated public func subscribe(key: Swift.String? = nil, deliveryMode: AmplitudeCore.RemoteConfigClient.DeliveryMode = .all, callback: @escaping AmplitudeCore.RemoteConfigClient.RemoteConfigCallback) -> any Swift.Sendable
   nonisolated public func unsubscribe(_ token: any Swift.Sendable)
@@ -264,6 +272,15 @@ public actor RemoteConfigClient : ObjectiveC.NSObject {
 @_spi(Internal) extension Swift.KeyedEncodingContainer {
   @_spi(Internal) public mutating func encodeAny(_ value: Any?, forKey key: Swift.KeyedEncodingContainer<K>.Key) throws
 }
+@available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
+extension AmplitudeCore.HttpClient {
+  @_spi(Internal) public func data(for request: Foundation.URLRequest) async throws -> (Foundation.Data, Foundation.URLResponse)
+  @_spi(Internal) public func send(_ request: Foundation.URLRequest, completion: @escaping @Sendable (Foundation.Data?, Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void) -> @Sendable () -> Swift.Void
+}
+@available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
+public protocol HttpClient : Swift.Sendable {
+  func send(_ request: Foundation.URLRequest) async throws -> (Foundation.Data, Foundation.URLResponse)
+}
 public enum JSONValue : Swift.Codable, Swift.Sendable {
   case string(Swift.String)
   case int(Swift.Int)
@@ -291,6 +308,11 @@ public enum JSONValue : Swift.Codable, Swift.Sendable {
 }
 extension Swift.String {
   public func fnv1a64String() -> Swift.String
+}
+@_spi(Internal) @available(macOS 10.15, iOS 13.0, watchOS 6.0, tvOS 13.0, *)
+public struct URLSessionHttpClient : AmplitudeCore.HttpClient {
+  @_spi(Internal) public init(session: Foundation.URLSession = URLSession(configuration: .ephemeral))
+  @_spi(Internal) public func send(_ request: Foundation.URLRequest) async throws -> (Foundation.Data, Foundation.URLResponse)
 }
 extension AmplitudeCore.LogLevel : Swift.Hashable {}
 extension AmplitudeCore.LogLevel : Swift.RawRepresentable {}
