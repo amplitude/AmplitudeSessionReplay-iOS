@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "Checking dependency version consistency across Package.swift and Podspec..."
+echo "Checking dependency version consistency across Swift package manifests and Podspec..."
 echo ""
 
 errors=0
@@ -40,22 +40,23 @@ check_dependency() {
   local spm_name=$1
   local pod_name=$2
   local podspec_file=$3
+  local spm_file=$4
   local dep_errors=0
 
   echo "Checking: $pod_name"
   echo "----------------------------------------"
 
-  spm_version=$(extract_spm_version "$spm_name" "Package.swift")
+  spm_version=$(extract_spm_version "$spm_name" "$spm_file")
   pod_version=$(extract_podspec_version "$pod_name" "$podspec_file")
 
-  echo "  Package.swift:  ${spm_version:-NOT FOUND}"
+  echo "  ${spm_file}: ${spm_version:-NOT FOUND}"
   echo "  ${podspec_file}: ${pod_version:-NOT FOUND}"
 
   if [ -z "$spm_version" ] || [ -z "$pod_version" ]; then
     echo "  ⚠ Warning: Could not find version in all files"
     dep_errors=1
   elif [ "$spm_version" != "$pod_version" ]; then
-    echo "  ✗ Version mismatch! Package.swift has $spm_version but $podspec_file has $pod_version"
+    echo "  ✗ Version mismatch! $spm_file has $spm_version but $podspec_file has $pod_version"
     dep_errors=1
   else
     echo "  ✓ All versions match: $spm_version"
@@ -71,9 +72,12 @@ echo "================================================================"
 echo ""
 
 # Check AmplitudeCore-Swift / AmplitudeCore
-if ! check_dependency "AmplitudeCore-Swift" "AmplitudeCore" "AmplitudeSessionReplay.podspec"; then
-  errors=$((errors + 1))
-fi
+for manifest in Package.swift Package@swift-*.swift; do
+  [ -f "$manifest" ] || continue
+  if ! check_dependency "AmplitudeCore-Swift" "AmplitudeCore" "AmplitudeSessionReplay.podspec" "$manifest"; then
+    errors=$((errors + 1))
+  fi
+done
 
 echo "================================================================"
 
@@ -81,7 +85,7 @@ if [ $errors -gt 0 ]; then
   echo "FAILED: Found $errors dependency version mismatch(es)"
   echo ""
   echo "Please ensure the minimum version requirements match across:"
-  echo "  - Package.swift (from: \"x.y.z\")"
+  echo "  - Package.swift and Package@swift-*.swift (from: \"x.y.z\")"
   echo "  - AmplitudeSessionReplay.podspec (>= x.y.z or ~> x.y.z)"
   exit 1
 else
