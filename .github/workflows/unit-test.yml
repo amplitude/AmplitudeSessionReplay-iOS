@@ -25,7 +25,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
       - name: Set Xcode 26.0
-        run: sudo xcode-select -switch /Applications/Xcode_26.0.app
+        run: |
+          sudo xcode-select -switch /Applications/Xcode_26.0.app
+          xcrun simctl list > /dev/null
       - name: Install required iOS platform
         if: matrix.runner == 'macos-26'
         run: sudo xcodebuild -downloadPlatform iOS
