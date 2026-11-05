@@ -1,3 +1,10 @@
+## [0.18.1](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.18.0...v0.18.1) (2026-11-05)
+
+
+### Bug Fixes
+
+* **deps:** require AmplitudeCore 1.6.1 ([#122](https://github.com/amplitude/AmplitudeSessionReplay-iOS/issues/122)) ([ba4ac16](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/ba4ac169a717a48c21df2b9f0c52e980ef40eda0))
+
 # [0.18.0](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.17.0...v0.18.0) (2026-11-04)
 
 
