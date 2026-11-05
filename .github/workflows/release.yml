@@ -38,11 +38,6 @@ jobs:
         run: |
           sudo xcode-select -switch /Applications/Xcode_26.0.app
 
-      - name: Install Apple platform SDKs
-        run: |
-          xcrun simctl list > /dev/null
-          sudo xcodebuild -downloadPlatform iOS
-
       - name: Validate Podfile
         run: pod lib lint --allow-warnings AmplitudeSessionReplay.podspec
 
