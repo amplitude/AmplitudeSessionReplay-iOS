@@ -366,6 +366,9 @@ SWIFT_CLASS_NAMED("SessionReplay")
 @property (nonatomic, readonly, strong) id <AMPCoreLogger> _Nonnull logger;
 @property (nonatomic, readonly) BOOL enableRemoteConfig;
 @property (nonatomic, readonly) float sampleRate;
+/// The masking level applied to recordings: the Remote Config level while one is active, otherwise
+/// <code>privacyConfig.maskLevel</code>. Read <code>privacyConfig.maskLevel</code> for the locally requested level.
+/// Safe to read from any thread.
 @property (nonatomic, readonly) enum MaskLevel maskLevel;
 @property (nonatomic) BOOL optOut;
 @property (nonatomic) int64_t sessionId;
@@ -374,6 +377,8 @@ SWIFT_CLASS_NAMED("SessionReplay")
 @property (nonatomic, readonly, copy) NSDictionary<NSString *, id> * _Nonnull additionalEventProperties;
 @property (nonatomic) enum AMPSessionReplayQualityProfile quality;
 @property (nonatomic, readonly, strong) AMPSessionReplayUploadConfig * _Nonnull uploadConfig;
+/// The locally requested masking configuration. Can be set at runtime; Remote Config takes precedence while
+/// active, and <code>maskLevel</code> reports the level actually applied.
 @property (nonatomic, strong) AMPPrivacyConfig * _Nonnull privacyConfig;
 - (nonnull instancetype)initWithApiKey:(NSString * _Nonnull)apiKey deviceId:(NSString * _Nullable)deviceId sessionId:(int64_t)sessionId optOut:(BOOL)optOut sampleRate:(float)sampleRate quality:(enum AMPSessionReplayQualityProfile)quality webviewMappings:(NSDictionary<NSString *, NSString *> * _Nonnull)webviewMappings logger:(id <AMPCoreLogger> _Nullable)logger serverZone:(enum AMPServerZone)serverZone maskLevel:(enum MaskLevel)maskLevel enableRemoteConfig:(BOOL)enableRemoteConfig uploadConfig:(AMPSessionReplayUploadConfig * _Nonnull)uploadConfig remoteConfigClient:(RemoteConfigClient * _Nullable)remoteConfigClient captureWebViews:(BOOL)captureWebViews recordLogOptions:(RecordLogOptions * _Nonnull)recordLogOptions;
 - (void)start;
@@ -385,18 +390,20 @@ SWIFT_CLASS_NAMED("SessionReplay")
 @end
 
 @interface AMPSessionReplay (SWIFT_EXTENSION(AmplitudeSessionReplay))
-/// Evaluates the Targeted Replay Capture rule for an analytics event of the current session.
+/// Passes an analytics event of the current session to Session Replay. Today it evaluates the Targeted Replay
+/// Capture rule: when the session matches, capture starts and continues for the rest of the session.
 /// <code>SessionReplayPlugin</code> calls it for each event. Without the plugin, as from Flutter, React Native or Segment,
 /// call it for each event before adding <code>additionalEventProperties</code> to the event, so that the event that matches
-/// the rule is tagged too. Without an event, it evaluates what is already known, as when a rule arrives or a
-/// session starts: the random-sample segment the backend appends to the rule matches without any event.
-- (void)evaluateTargetingWithEventType:(NSString * _Nullable)eventType eventProperties:(NSDictionary<NSString *, id> * _Nullable)eventProperties;
-/// Evaluates the Targeted Replay Capture rule with the user’s properties, which replace the previous ones and are
-/// used by every later evaluation.
+/// the rule is tagged too.
+- (void)onEventWithEventType:(NSString * _Nonnull)eventType eventProperties:(NSDictionary<NSString *, id> * _Nullable)eventProperties;
+/// Sets the user’s properties, replacing those from the previous call. They are kept in memory, not stored or
+/// uploaded; today they are only used by the Targeted Replay Capture rule, which is evaluated with them right away.
 /// <code>SessionReplayPlugin</code> passes the analytics client’s merged user properties on every identity change. Without
 /// the plugin, pass the user’s current properties after each identify, and right after creating this instance on
 /// the main queue, so that a cached rule is first evaluated with them.
-- (void)evaluateTargetingWithUserProperties:(NSDictionary<NSString *, id> * _Nonnull)userProperties;
+- (void)setUserProperties:(NSDictionary<NSString *, id> * _Nonnull)userProperties;
+- (void)evaluateTargetingWithEventType:(NSString * _Nullable)eventType eventProperties:(NSDictionary<NSString *, id> * _Nullable)eventProperties SWIFT_DEPRECATED_MSG("Use onEvent(eventType:eventProperties:).");
+- (void)evaluateTargetingWithUserProperties:(NSDictionary<NSString *, id> * _Nonnull)userProperties SWIFT_DEPRECATED_MSG("", "setUserProperties:");
 @end
 
 @class AMPSessionReplayPluginConfig;
