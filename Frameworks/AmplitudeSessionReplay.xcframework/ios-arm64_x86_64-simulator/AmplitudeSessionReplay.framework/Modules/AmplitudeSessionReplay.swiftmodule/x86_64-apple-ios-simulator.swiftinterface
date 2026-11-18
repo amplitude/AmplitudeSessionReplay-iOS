@@ -172,7 +172,11 @@ public typealias DeviceId = Swift.String
   @objc deinit
 }
 extension AmplitudeSessionReplay.SessionReplay {
+  @objc final public func onEvent(eventType: Swift.String, eventProperties: [Swift.String : Any]? = nil)
+  @objc final public func setUserProperties(_ userProperties: [Swift.String : Any])
+  @available(*, deprecated, message: "Use onEvent(eventType:eventProperties:).")
   @objc final public func evaluateTargeting(eventType: Swift.String? = nil, eventProperties: [Swift.String : Any]? = nil)
+  @available(*, deprecated, renamed: "setUserProperties(_:)")
   @objc final public func evaluateTargeting(userProperties: [Swift.String : Any])
 }
 extension AmplitudeSessionReplay.SessionReplay : AmplitudeCore.InterfaceSignalProvider {
