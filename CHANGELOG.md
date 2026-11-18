@@ -1,3 +1,10 @@
+# [0.20.0](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.19.0...v0.20.0) (2026-11-18)
+
+
+### Features
+
+* update Session Replay framework ([#124](https://github.com/amplitude/AmplitudeSessionReplay-iOS/issues/124)) ([015cce8](https://github.com/amplitude/AmplitudeSessionReplay-iOS/commit/015cce8b1c100539270481a5b26f073807b3be24))
+
 # [0.19.0](https://github.com/amplitude/AmplitudeSessionReplay-iOS/compare/v0.18.1...v0.19.0) (2026-11-12)
 
 
