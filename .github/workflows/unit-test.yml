@@ -1,0 +1,47 @@
+name: Unit Test
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_call:
+
+jobs:
+  unit-test:
+    name: Unit iOS ${{ matrix.os }} - Xcode 26.0
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: macos-15
+            os: "18.5"
+            device: "iPhone 16"
+          - runner: macos-26
+            os: "26.5"
+            device: "iPhone 17"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      - name: Set Xcode 26.0
+        run: |
+          sudo xcode-select -switch /Applications/Xcode_26.0.app
+          xcrun simctl list > /dev/null
+      - name: Install required iOS platform
+        if: matrix.runner == 'macos-26'
+        run: sudo xcodebuild -downloadPlatform iOS
+      - name: iOS Tests
+        run: |
+          xcodebuild test \
+            -scheme AmplitudeSessionReplay-Package \
+            -sdk iphonesimulator \
+            -destination 'platform=iOS Simulator,OS=${{ matrix.os }},name=${{ matrix.device }}' \
+            -resultBundlePath "$RUNNER_TEMP/tests.xcresult"
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: test-results-ios-${{ matrix.os }}
+          path: ${{ runner.temp }}/tests.xcresult
+          if-no-files-found: ignore
