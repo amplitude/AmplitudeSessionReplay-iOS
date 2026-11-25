@@ -20,18 +20,12 @@ AmplitudeSessionReplay currently supports iOS 13.0 and above. *macOS support in 
 
 ## Instructions
 
-To Start, import the library via your preferred package manager.
-
-#### SPM
-Use package `https://github.com/amplitude/AmplitudeSessionReplay-iOS.git`
+Add the Swift package `https://github.com/amplitude/AmplitudeSessionReplay-iOS.git`.
 Be careful to only add a single library to your target, based on your core analytics library as detailed below.
-
-#### Cocoapods
-Add `pod 'SUB_SPEC', :git => 'https://github.com/amplitude/AmplitudeSessionReplay-iOS.git'` to your Podfile, replacing SUB_SPEC with the appropriate subspec for your core analytics library as detailed below.
 
 ### Amplitude-Swift (Preferred)
 
-1. Use target/subspec: `AmplitudeSwiftSessionReplayPlugin`
+1. Select the package product `AmplitudeSwiftSessionReplayPlugin`
 
 2. Import the framework:
 ```
@@ -49,7 +43,7 @@ amplitude.add(plugin: AmplitudeSwiftSessionReplayPlugin())
 
 1. Make sure the Analytics SDK is on version 8.22.0 or higher
   
-2. Use target/subspec: `AmplitudeiOSSessionReplayMiddleware`
+2. Select the package product `AmplitudeiOSSessionReplayMiddleware`
 
 3. Import the framework:
 ```
@@ -65,7 +59,7 @@ amplitude.addEventMiddleware(AmplitudeiOSSessionReplayMiddleware())
 
 ### Segment (Analytics-Swift, Amplitude (Actions) Destination, SegmentAmplitude Plugin)
 
-1. Use target/subspec: `AmplitudeSegmentSessionReplayPlugin`
+1. Select the package product `AmplitudeSegmentSessionReplayPlugin`
 
 2. Import the framework:
 ```
@@ -84,7 +78,7 @@ analytics.add(plugin: AmplitudeSegmentSessionReplayPlugin(amplitudeApiKey: "AMPL
 
 ### Standalone / Third Party
 
-1. Use target/subspec: `AmplitudeSessionReplay`
+1. Select the package product `AmplitudeSessionReplay`
 
 2. Import the framework:
 ```
